@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015054236 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
+<tv date="20251015054854 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015224500 +0800" stop="20251015224259 +0800">
+  <title lang="zh">丁程鑫 (时代少年团成员)</title>
+  <desc lang="zh">芥</desc>
+  <date>10:45 PM</date>
+</programme>
+<programme channel="988" start="20251015224300 +0800" stop="20251015223859 +0800">
+  <title lang="zh">Karencici 林恺伦</title>
+  <desc lang="zh">Ihateyou1000 (acoustic)</desc>
+  <date>10:43 PM</date>
+</programme>
 <programme channel="988" start="20251015223900 +0800" stop="20251015223459 +0800">
   <title lang="zh">艾薇</title>
   <desc lang="zh">计算浪漫</desc>
@@ -489,19 +499,9 @@
   <desc lang="zh">我陪你熬过了苦</desc>
   <date>2:20 PM</date>
 </programme>
-<programme channel="988" start="20251015140700 +0800" stop="20251015135959 +0800">
+<programme channel="988" start="20251015140700 +0800" stop="20251015140900 +0800">
   <title lang="zh">单依纯 *</title>
   <desc lang="zh">多少的光阴</desc>
   <date>2:07 PM</date>
-</programme>
-<programme channel="988" start="20251015140000 +0800" stop="20251015135359 +0800">
-  <title lang="zh">阎奕格</title>
-  <desc lang="zh">少了一件牛仔褲 (台剧《跟鲨鱼接吻》片尾曲)</desc>
-  <date>2:00 PM</date>
-</programme>
-<programme channel="988" start="20251015135400 +0800" stop="20251015135600 +0800">
-  <title lang="zh">容祖儿 + 张敬轩</title>
-  <desc lang="zh">Just for fun</desc>
-  <date>1:54 PM</date>
 </programme>
 </tv>
