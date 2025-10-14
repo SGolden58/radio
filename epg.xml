@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251014125114 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=2025-10-14">
+<tv date="20251014125639 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=2025-10-14">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+  <programme channel="988" start="20251014135400 +0000" stop="20251014140400 +0000">
+    <title lang="zh">容祖儿 + 张敬轩</title>
+    <desc>Unknown</desc>
+  </programme>
   <programme channel="988" start="20251014135000 +0000" stop="20251014140000 +0000">
     <title lang="zh">A-lin</title>
     <desc>Unknown</desc>
@@ -398,10 +402,6 @@
   </programme>
   <programme channel="988" start="20251014012100 +0000" stop="20251014013100 +0000">
     <title lang="zh">陈国荣</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014011300 +0000" stop="20251014012300 +0000">
-    <title lang="zh">林俊杰</title>
     <desc>Unknown</desc>
   </programme>
 </tv>
