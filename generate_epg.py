@@ -1,33 +1,38 @@
 import requests
 from bs4 import BeautifulSoup
 import html
-from datetime import datetime
 
-# === 1️⃣ Fetch playlist page ===
+# === Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
-# === 2️⃣ Extract songs from table ===
+# === Extract songs ===
 rows = soup.select("table tr")
 songs = []
 
-for row in rows[1:]:  # skip header
+for row in rows[1:]:
     cols = row.find_all("td")
     if len(cols) >= 3:
-        time_str = cols[0].get_text(strip=True)
+        time_str = cols[0].get_text(strip=True)   # e.g., 5:56
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
-        if artist and title and time_str:
-            # Convert time to AM/PM for display
-            try:
-                dt = datetime.strptime(time_str, "%H:%M")
-                time_ampm = dt.strftime("%I:%M %p").lstrip("0").replace("AM", "am").replace("PM", "pm")
-            except:
-                time_ampm = time_str
-            songs.append({"time": time_str, "artist": artist, "title": title, "ampm": time_ampm})
+        if time_str and artist and title:
+            # Determine AM/PM from URL (assume playlist already in Malaysia time)
+            hour = int(time_str.split(":")[0])
+            ampm = "am" if hour < 12 else "pm"
+            # Format hour to 12-hour display without changing minutes
+            hour_12 = hour if 1 <= hour <= 12 else (hour - 12 if hour > 12 else 12)
+            time_ampm = f"{hour_12}:{time_str.split(':')[1]} {ampm}"
 
-# === 3️⃣ Build XML ===
+            songs.append({
+                "time": time_str,   # keep as URL
+                "artist": artist,
+                "title": title,
+                "ampm": time_ampm
+            })
+
+# === Build XML ===
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<tv>',
@@ -39,11 +44,7 @@ xml = [
 
 for i, song in enumerate(songs):
     start_time = song["time"]
-    if i + 1 < len(songs):
-        stop_time = songs[i + 1]["time"]
-    else:
-        stop_time = start_time  # last song
-
+    stop_time = songs[i + 1]["time"] if i + 1 < len(songs) else start_time
     xml.append(f'<programme channel="988" start="{start_time}" stop="{stop_time}">')
     xml.append(f'  <title lang="zh">{html.escape(song["artist"])}</title>')
     xml.append(f'  <desc lang="zh">{html.escape(song["title"])}</desc>')
@@ -52,7 +53,6 @@ for i, song in enumerate(songs):
 
 xml.append('</tv>')
 
-# === 4️⃣ Save XML ===
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
