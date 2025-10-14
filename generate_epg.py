@@ -1,36 +1,65 @@
-name: Update Radio EPG
+import requests
+from bs4 import BeautifulSoup
+import datetime
+import html
 
-on:
-  workflow_dispatch:  # Allows manual triggering
+# URL to fetch the playlist
+url = "https://radio-online.my/988-fm-playlist"
+r = requests.get(url)
+r.raise_for_status()
 
-permissions:
-  contents: write  # Allows write access to the repository contents
+soup = BeautifulSoup(r.text, "html.parser")
 
-jobs:
-  update_epg:
-    runs-on: ubuntu-latest
+# Select the songs from the table
+songs_html = soup.select("table tr")  # Adjust selector as needed
+songs = []
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+for row in songs_html[1:]:  # Skip header
+    cols = row.find_all("td")
+    if len(cols) >= 2:
+        time_str = cols[0].get_text(strip=True)
+        title_artist = cols[1].get_text(strip=True)
+        if " - " in title_artist:
+            title, artist = title_artist.split(" - ", 1)
+        else:
+            title, artist = title_artist, "Unknown"
+        songs.append({
+            "time": time_str,
+            "title": title,
+            "artist": artist
+        })
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'  # Specify the Python version
+# Limit to the latest 60 songs
+songs = songs[:60]
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+# Build XML
+now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia Time
+xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={now.strftime("%Y%m%d")}&timezone=None">',
+    '<channel id="988">',
+    '<display-name lang="Malaysia">988</display-name>',
+    '<icon src=""/>',
+    '</channel>'
+]
 
-      - name: Generate EPG XML
-        run: python generate_epg.py
+# Add each song as a programme
+for s in songs:
+    try:
+        h, m = map(int, s["time"].split(":"))
+        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
+        stop = start + datetime.timedelta(minutes=10)  # 10 min per song
+    except ValueError:
+        continue  # Skip if time parsing fails
 
-      - name: Commit and push changes
-        run: |
-          git config --local user.name "github-actions"
-          git config --local user.email "github-actions@github.com"
-          git add epg.xml
-          git commit -m "Update EPG XML" || echo "No changes to commit"
-          git push
+    xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
+    <title lang="zh">{html.escape(s['title'])}</title>
+    <desc>{html.escape(s['artist'])}</desc>
+    <date>{s["time"]}</date>
+</programme>''')
+
+xml.append("</tv>")
+
+# Write to epg.xml
+with open("epg.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(xml))
