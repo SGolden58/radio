@@ -14,9 +14,9 @@ songs = []
 for row in rows:
     cols = [c.text.strip() for c in row.find_all("td")]
     if len(cols) >= 3:
-        time_str, artist, title = cols
+        # Only take the first 3 columns
+        time_str, artist, title = cols[:3]
         try:
-            # Parse HH:MM as today's time
             now = datetime.now()
             start = datetime.strptime(time_str, "%H:%M").replace(
                 year=now.year, month=now.month, day=now.day)
