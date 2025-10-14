@@ -2,7 +2,7 @@ name: Update Radio EPG
 
 on:
   schedule:
-    - cron: '*/6 * * * *'   # every 6 minutes
+    - cron: '*/15 * * * *'   # every 15 minutes
   workflow_dispatch:
 
 jobs:
@@ -19,16 +19,17 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          pip install requests beautifulsoup4
 
       - name: Generate epg.xml
         run: python3 generate_epg.py
 
-      - name: Commit and push EPG
+      - name: Commit and push changes
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git pull origin main --rebase || true
           git add epg.xml
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
-          git push origin main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
