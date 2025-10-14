@@ -37,6 +37,9 @@ for row in songs_html[1:]:  # Skip header row
             "artist": artist
         })
 
+# Debugging: Check if songs were extracted
+print(f"Extracted songs: {songs}")
+
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
 xml = [
@@ -70,7 +73,11 @@ for s in songs:
   </programme>''')
 
 # Close the XML structure
+xml.append("</channel>")
 xml.append("</tv>")
+
+# Debugging: Check the final XML structure
+print("\n".join(xml))
 
 # Write the XML to a file
 try:
