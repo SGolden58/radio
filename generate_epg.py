@@ -54,11 +54,11 @@ for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
         start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=10)  # Each song lasts 10 minutes
+        stop = start + datetime.timedelta(minutes=5)  # Each song lasts 5 minutes
     except ValueError:
         print(f"Invalid time format: {s['time']}. Using current time instead.")
         start = now
-        stop = start + datetime.timedelta(minutes=10)
+        stop = start + datetime.timedelta(minutes=5)
 
     # Escape special characters in title and artist
     title = html.escape(s['title']).replace('&', '&amp;')
