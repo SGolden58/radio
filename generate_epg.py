@@ -37,6 +37,9 @@ for row in songs_html[1:]:  # Skip header row
             "artist": artist
         })
 
+# Limit to the last 60 songs
+songs = songs[-60:]  # Get the last 60 songs
+
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
 xml = [
