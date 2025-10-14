@@ -25,7 +25,7 @@ for row in songs_html[1:]:  # Skip header
             title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
         songs.append({
             "time": time_str,
-            "title": songs,
+            "title": title,
             "artist": artist
         })
 
