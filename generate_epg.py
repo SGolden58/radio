@@ -53,12 +53,14 @@ for s in songs:
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
     '<channel id="988">',
     '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
     '</channel>'
-]  # <-- Make sure the list closes with ]
+]
 
 # === 5️⃣ Add programmes ===
 for i, s in enumerate(songs):
@@ -70,3 +72,36 @@ for i, s in enumerate(songs):
     if i + 1 < len(start_times) and start_times[i + 1]:
         stop_dt = start_times[i + 1] - datetime.timedelta(seconds=1)
     else:
+        stop_dt = start_dt + datetime.timedelta(minutes=2)  # last song arbitrary
+
+    artist = s["artist"]
+    title = s["title"]
+
+    # Title = artist, Desc = song title
+    display_title = artist if artist else title
+    display_desc = title if title else artist
+
+    # If title and desc same, pick next song title for desc
+    if display_title == display_desc:
+        if i + 1 < len(songs):
+            display_desc = songs[i + 1]["title"]
+        else:
+            display_desc = ""
+
+    title_escaped = html.escape(display_title, quote=True)
+    desc_escaped = html.escape(display_desc, quote=True)
+
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
+    xml.append(f'  <title lang="zh">{title_escaped}</title>')
+    xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
+    xml.append(f'  <date>{s["time"]}</date>')
+    xml.append('</programme>')
+
+# === 6️⃣ Close XML ===
+xml.append('</tv>')
+
+# === 7️⃣ Save XML ===
+with open("epg.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(xml))
+
+print(f"✅ EPG.xml generated — {len(songs)} songs, correct start/stop times, clean title/desc")
