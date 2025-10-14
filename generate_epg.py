@@ -8,11 +8,11 @@ url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
-# === 2️⃣ Extract songs from table (history) ===
+# === 2️⃣ Extract songs from table ===
 rows = soup.select("table tr")
 songs = []
 
-for row in rows[1:34]:  # take first 33 history songs
+for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
         time_str = cols[0].get_text(strip=True)
@@ -22,7 +22,7 @@ for row in rows[1:34]:  # take first 33 history songs
             songs.append({"time": time_str, "artist": artist, "title": title})
 
 # === 3️⃣ Prepare start times and stop times ===
-tz = datetime.timezone(datetime.timedelta(hours=8))  # Malaysia time
+tz = datetime.timezone(datetime.timedelta(hours=8))  # Malaysia timezone
 today = datetime.datetime.now(tz).date()
 start_times = []
 
@@ -38,7 +38,7 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
 
-# === 4️⃣ XML header ===
+# === 4️⃣ XML header (keep your exact style) ===
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -60,17 +60,13 @@ for i, s in enumerate(songs):
     title_escaped = html.escape(s["artist"], quote=True)
     desc_escaped = html.escape(s["title"], quote=True)
 
-    # Format AM/PM display
-    hour = start_dt.hour
-    minute = start_dt.minute
-    am_pm = "AM" if hour < 12 else "PM"
-    hour_12 = hour if 1 <= hour <= 12 else (hour - 12 if hour > 12 else 12)
-    time_str = f"{hour_12}:{minute:02d} {am_pm}"
-
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
+    xml.append(
+        f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" '
+        f'stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">'
+    )
     xml.append(f'  <title lang="zh">{title_escaped}</title>')
     xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
-    xml.append(f'  <date>{time_str}</date>')
+    xml.append(f'  <date>{s["time"]}</date>')
     xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
@@ -80,4 +76,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} history songs, exact times from playlist")
+print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
