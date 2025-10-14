@@ -3,7 +3,7 @@ name: Update Radio EPG
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"  # runs every hour (optional)
+    - cron: "*/10 * * * *"  # runs every hour (optional)
 
 permissions:
   contents: write    # ✅ allow writing files back to the repo
