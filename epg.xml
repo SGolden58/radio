@@ -4,6 +4,11 @@
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="23:53" stop="23:48">
+  <title lang="zh">艾薇</title>
+  <desc lang="zh"></desc>
+  <date>23:53</date>
+</programme>
 <programme channel="988" start="23:48" stop="23:37">
   <title lang="zh">陶喆 + 蔡依林</title>
   <desc lang="zh"></desc>
@@ -494,14 +499,9 @@
   <desc lang="zh"></desc>
   <date>15:20</date>
 </programme>
-<programme channel="988" start="15:15" stop="15:10">
+<programme channel="988" start="15:15" stop="15:15">
   <title lang="zh">林俊杰</title>
   <desc lang="zh"></desc>
   <date>15:15</date>
-</programme>
-<programme channel="988" start="15:10" stop="15:10">
-  <title lang="zh">郭静</title>
-  <desc lang="zh"></desc>
-  <date>15:10</date>
 </programme>
 </tv>
