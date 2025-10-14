@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv>
+  <programme start="20251014125300 +0000" stop="20251014130300 +0000" channel="Radio">
+    <title lang="en">韦礼安</title>
+    <desc>Unknown</desc>
+  </programme>
   <programme start="20251014124100 +0000" stop="20251014125100 +0000" channel="Radio">
     <title lang="en">刘宇宁 (摩登兄弟)</title>
     <desc>Unknown</desc>
