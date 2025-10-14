@@ -58,8 +58,11 @@ for s in songs:
     title_escaped = html.escape(s['title'])  # Use the actual song title
     artist_escaped = html.escape(s['artist'])  # Use the actual artist name
 
+    # Combine title and artist for the title tag
+    combined_title = f"{title_escaped} + {artist_escaped}"  # Format: "song name + artist name"
+
     # Format title and description as per your requirement
-    formatted_title = title_escaped  # Title is now the actual song title
+    formatted_title = combined_title  # Title is now the song name + artist name
     formatted_desc = artist_escaped  # Description is the artist's name
 
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
