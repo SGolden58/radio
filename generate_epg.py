@@ -1,49 +1,53 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
+import datetime
 import html
 
-# Your radio playlist URL
 url = "https://radio-online.my/988-fm-playlist"
-
-# Fetch the page
 r = requests.get(url)
-r.raise_for_status()  # stop if request failed
+r.raise_for_status()
 
 soup = BeautifulSoup(r.text, "html.parser")
 
-# Find song entries (adjust selectors based on page structure)
+# The page has a table or div with songs. Adjust selector as needed
+songs_html = soup.select("table tr")  # example: table rows
 songs = []
-rows = soup.select("table tr")  # assuming songs are in table rows
-for tr in rows:
-    tds = tr.find_all("td")
-    if len(tds) >= 2:
-        time_str = tds[0].get_text(strip=True)
-        title = tds[1].get_text(strip=True)
-        songs.append((time_str, title))
+
+for row in songs_html[1:]:  # skip header
+    cols = row.find_all("td")
+    if len(cols) >= 2:
+        time_str = cols[0].get_text(strip=True)
+        title_artist = cols[1].get_text(strip=True)
+        if " - " in title_artist:
+            title, artist = title_artist.split(" - ", 1)
+        else:
+            title, artist = title_artist, "Unknown"
+        songs.append({
+            "time": time_str,
+            "title": title,
+            "artist": artist
+        })
 
 # Build XML
-now = datetime.utcnow()
-xml = [f'<?xml version="1.0" encoding="UTF-8"?>']
-xml.append(f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://radio-online.my/988-fm-playlist" source-info-url="{url}">')
-xml.append('<channel id="988"></channel>')
+xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
 
-for i, (time_str, title) in enumerate(songs):
+for s in songs:
+    # Parse time string, assuming format HH:MM
     try:
-        start = datetime.strptime(time_str, "%H:%M")
-        start = datetime.utcnow().replace(hour=start.hour, minute=start.minute, second=0, microsecond=0)
-        stop = start + timedelta(minutes=10)
+        now = datetime.datetime.utcnow()
+        h, m = map(int, s["time"].split(":"))
+        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
+        stop = start + datetime.timedelta(minutes=10)  # 10 min per song
     except:
-        start = now - timedelta(minutes=i*10)
-        stop = start + timedelta(minutes=10)
-    
-    xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-<title lang="zh">{html.escape(title)}</title>
-<desc>Unknown</desc>
-<date>{start.strftime("%Y-%m-%d")}</date>
-</programme>''')
+        start = datetime.datetime.utcnow()
+        stop = start + datetime.timedelta(minutes=10)
 
-xml.append('</tv>')
+    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="Radio">
+    <title lang="en">{html.escape(s['title'])}</title>
+    <desc>{html.escape(s['artist'])}</desc>
+  </programme>''')
+
+xml.append("</tv>")
 
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
