@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015035158 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&timezone=None">
+<tv date="20251015035729 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&timezone=None">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015205600 +0000" stop="20251015210600 +0000">
+    <title lang="zh">李玖哲</title>
+    <desc>Unknown</desc>
+    <date>20:56</date>
+</programme>
+<programme channel="988" start="20251015205200 +0000" stop="20251015210200 +0000">
+    <title lang="zh">Tf boys</title>
+    <desc>Unknown</desc>
+    <date>20:52</date>
+</programme>
 <programme channel="988" start="20251015204800 +0000" stop="20251015205800 +0000">
     <title lang="zh">萧秉治</title>
     <desc>Unknown</desc>
@@ -293,15 +303,5 @@
     <title lang="zh">邱锋泽</title>
     <desc>Unknown</desc>
     <date>16:10</date>
-</programme>
-<programme channel="988" start="20251015160600 +0000" stop="20251015161600 +0000">
-    <title lang="zh">孙燕姿</title>
-    <desc>Unknown</desc>
-    <date>16:06</date>
-</programme>
-<programme channel="988" start="20251015160000 +0000" stop="20251015161000 +0000">
-    <title lang="zh">戴佩妮</title>
-    <desc>Unknown</desc>
-    <date>16:00</date>
 </programme>
 </tv>
