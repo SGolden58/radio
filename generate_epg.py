@@ -25,7 +25,7 @@ for row in rows:
             print("Skipping:", e)
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv generator-info-name="Radio EPG Script">\n'
-xml += '  <channel id="988fm.my"><display-name>988 FM</display-name></channel>\n'
+xml += '  <channel id="988"><display-name>988</display-name></channel>\n'
 
 for s in songs:
     start, stop, artist, title = s
