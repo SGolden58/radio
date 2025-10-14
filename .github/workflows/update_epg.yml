@@ -1,63 +1,43 @@
-name: Update Radio EPG
+name: Update EPG
 
+# Run every 15 minutes
 on:
   schedule:
-    - cron: '*/15 * * * *'   # runs every 15 minutes
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # Step 1: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Step 2: Setup Python
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      - name: Generate epg.xml
+      # Step 3: Install dependencies if any
+      - name: Install dependencies
         run: |
-          echo "Creating epg.xml..."
-          python3 << 'EOF'
-import requests, html, datetime
+          pip install -r requirements.txt || echo "No requirements file"
 
-url = "https://player.listenlive.co/63371/en/songhistory"
-r = requests.get(url)
-songs = r.json().get("songs", [])[:10]  # take 10 latest songs
-
-now = datetime.datetime.utcnow()
-xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv generator-info-name="Radio EPG Script">']
-xml.append('  <channel id="988"><display-name>988 FM</display-name></channel>')
-
-for i, s in enumerate(songs):
-    start = now - datetime.timedelta(minutes=i*15)
-    stop = start + datetime.timedelta(minutes=15)
-    title = html.escape(s.get("title", "Unknown Song"))
-    artist = html.escape(s.get("artist", "Unknown Artist"))
-    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="988">
-    <title lang="en">{title}</title>
-    <desc>{artist}</desc>
-  </programme>''')
-
-xml.append("</tv>")
-
-with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write("\n".join(xml))
-EOF
-
-      - name: Commit and push changes
+      # Step 4: Run your EPG Python script
+      - name: Generate EPG
         run: |
-          git config --global user.emai
+          python epg_generator.py
 
-
-- name: Commit and push
-  run: |
-    git config user.name "GitHub Actions"
-    git config user.email "actions@github.com"
-    git add epg.xml
-    git commit -m "Update EPG $(date)" || echo "No changes to commit"
-    git fetch origin main
-    git reset --hard origin/main
-    git push origin main --force
+      # Step 5: Commit and force push
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add epg.xml
+          git commit -m "Update EPG $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git fetch origin main
+          git reset --hard origin/main
+          git push origin main --force
