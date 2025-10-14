@@ -1,40 +1,45 @@
 import requests
 from bs4 import BeautifulSoup
-import datetime
 import html
 
-# Your original URL
 url = "https://radio-online.my/988-fm-playlist"
-
-headers = {"User-Agent": "Mozilla/5.0"}
-r = requests.get(url, headers=headers)
+r = requests.get(url)
 r.raise_for_status()
 
 soup = BeautifulSoup(r.text, "html.parser")
 
-# Update these selectors based on actual HTML of the page
-songs = []
-for item in soup.select("li.playlist-item"):  # Replace if needed
-    title_tag = item.select_one(".song-title")  # Replace with actual class
-    artist_tag = item.select_one(".song-artist")  # Replace with actual class
-    title = title_tag.get_text(strip=True) if title_tag else "Unknown Title"
-    artist = artist_tag.get_text(strip=True) if artist_tag else "Unknown Artist"
-    songs.append({"title": title, "artist": artist})
+# The site has a table or list with song times, title, and artist
+# This may need adjusting if the site's HTML changes
+epg_entries = []
 
-if not songs:
-    songs = [{"title": "No Song", "artist": "N/A"}]
+for row in soup.select("table tbody tr"):  # adjust selector based on actual page
+    try:
+        time_cell = row.select_one("td.time").get_text(strip=True)
+        title_cell = row.select_one("td.song").get_text(strip=True)
+        artist_cell = row.select_one("td.artist").get_text(strip=True)
+        
+        epg_entries.append({
+            "start": time_cell,
+            "title": html.escape(title_cell),
+            "artist": html.escape(artist_cell)
+        })
+    except AttributeError:
+        continue
 
-now = datetime.datetime.utcnow()
+# Generate XML
 xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
 
-interval = 6  # each song 6 minutes
+for i, e in enumerate(epg_entries):
+    start = e["start"]  # directly from page, format might need adjustment
+    # if end time not provided, assume next song start or +5 min
+    if i+1 < len(epg_entries):
+        stop = epg_entries[i+1]["start"]
+    else:
+        stop = "99999999999999 +0000"  # placeholder for last song
 
-for i, s in enumerate(songs):
-    start = now - datetime.timedelta(minutes=i*interval)
-    stop = start + datetime.timedelta(minutes=interval)
-    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="Radio">
-    <title lang="en">{html.escape(s["title"])}</title>
-    <desc>{html.escape(s["artist"])}</desc>
+    xml.append(f'''  <programme start="{start}" stop="{stop}" channel="Radio">
+    <title lang="en">{e["title"]}</title>
+    <desc>{e["artist"]}</desc>
   </programme>''')
 
 xml.append("</tv>")
@@ -42,4 +47,4 @@ xml.append("</tv>")
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print("epg.xml generated successfully")
+print("epg.xml updated successfully.")
