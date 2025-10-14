@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015030148 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">
+<tv date="20251015030726 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015200400 +0000" stop="20251015201400 +0000">
+    <title lang="zh">Billie eilish + Unknown</title>
+    <desc>Unknown</desc>
+    <date>20:04</date>
+</programme>
 <programme channel="988" start="20251015200100 +0000" stop="20251015201100 +0000">
     <title lang="zh">派伟俊 patrick brasca + 周杰伦 + Unknown</title>
     <desc>Unknown</desc>
@@ -298,10 +303,5 @@
     <title lang="zh">Hinry 刘卓轩 + Unknown</title>
     <desc>Unknown</desc>
     <date>15:00</date>
-</programme>
-<programme channel="988" start="20251015145500 +0000" stop="20251015150500 +0000">
-    <title lang="zh">丁当 + Unknown</title>
-    <desc>Unknown</desc>
-    <date>14:55</date>
 </programme>
 </tv>
