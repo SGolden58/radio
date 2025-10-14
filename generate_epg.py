@@ -17,7 +17,6 @@ for row in songs_html[1:]:  # skip header
         time_str = cols[0].get_text(strip=True)  # e.g., "5:56"
         title_artist = cols[1].get_text(strip=True)
 
-        # Split title and artist
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
@@ -32,8 +31,8 @@ for row in songs_html[1:]:  # skip header
 # === 3️⃣ Build XML EPG ===
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<tv date="" generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=">',
+    f'<tv date="" generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=">',
     '<channel id="988">',
     '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
@@ -43,13 +42,8 @@ xml = [
 # === 4️⃣ Add songs as <programme> ===
 for i, s in enumerate(songs):
     start_time = s["time"]
-    # Stop time = 1 second before next song start, but keep same format
-    if i + 1 < len(songs):
-        stop_time = songs[i + 1]["time"]
-    else:
-        stop_time = start_time
+    stop_time = songs[i + 1]["time"] if i + 1 < len(songs) else start_time
 
-    # Escape special characters like &
     title_escaped = html.escape(s['title'], quote=True)
     artist_escaped = html.escape(s['artist'], quote=True)
 
