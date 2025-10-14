@@ -4,6 +4,26 @@
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="23:33" stop="23:28">
+  <title lang="zh">胡彦斌</title>
+  <desc lang="zh">男人ktv</desc>
+  <date>23:33 pm</date>
+</programme>
+<programme channel="988" start="23:28" stop="23:20">
+  <title lang="zh">Lay 张艺兴</title>
+  <desc lang="zh">麻婆豆腐</desc>
+  <date>23:28 pm</date>
+</programme>
+<programme channel="988" start="23:20" stop="23:16">
+  <title lang="zh">Lbi利比</title>
+  <desc lang="zh">小城夏天</desc>
+  <date>23:20 pm</date>
+</programme>
+<programme channel="988" start="23:16" stop="23:07">
+  <title lang="zh">汪苏泷</title>
+  <desc lang="zh">娱乐世代</desc>
+  <date>23:16 pm</date>
+</programme>
 <programme channel="988" start="23:07" stop="23:00">
   <title lang="zh">韦礼安 + donghae 东海 (super junior成员)</title>
   <desc lang="zh">最好的朋友</desc>
@@ -479,29 +499,9 @@
   <desc lang="zh">还有事情可庆祝</desc>
   <date>15:04 pm</date>
 </programme>
-<programme channel="988" start="15:00" stop="14:55">
+<programme channel="988" start="15:00" stop="15:00">
   <title lang="zh">Hinry 刘卓轩</title>
   <desc lang="zh">遇怪魔我急于变大个</desc>
   <date>15:00 pm</date>
-</programme>
-<programme channel="988" start="14:55" stop="14:49">
-  <title lang="zh">丁当</title>
-  <desc lang="zh">亲人</desc>
-  <date>14:55 pm</date>
-</programme>
-<programme channel="988" start="14:49" stop="14:42">
-  <title lang="zh">家家</title>
-  <desc lang="zh">还没</desc>
-  <date>14:49 pm</date>
-</programme>
-<programme channel="988" start="14:42" stop="14:38">
-  <title lang="zh">周殷廷</title>
-  <desc lang="zh">想和你</desc>
-  <date>14:42 pm</date>
-</programme>
-<programme channel="988" start="14:38" stop="14:38">
-  <title lang="zh">陈奕迅 + the duo band</title>
-  <desc lang="zh">我们万岁</desc>
-  <date>14:38 pm</date>
 </programme>
 </tv>
