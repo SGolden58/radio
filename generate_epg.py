@@ -2,6 +2,31 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import html
+import yaml
+import os
+
+# Load YAML configuration
+with open("config.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+refresh_duration = config.get("refresh_duration_minutes", 10)
+
+# Check if the EPG file exists and read the last refresh time
+epg_file = "epg.xml"
+last_refresh_time = None
+
+if os.path.exists(epg_file):
+    # Get the last modification time of the file
+    last_refresh_time = datetime.datetime.fromtimestamp(os.path.getmtime(epg_file))
+
+# Determine if we need to refresh based on the last refresh time
+now = datetime.datetime.utcnow()
+if last_refresh_time and (now - last_refresh_time).total_seconds() < refresh_duration * 60:
+    print("Using existing EPG data, no refresh needed.")
+    with open(epg_file, "r", encoding="utf-8") as f:
+        epg_data = f.read()
+    print(epg_data)
+    exit()
 
 # URL of the radio station's playlist
 url = "https://radio-online.my/988-fm-playlist"
@@ -43,7 +68,6 @@ for row in songs_html[1:]:  # Skip header row
         })
 
 # Build XML structure for EPG
-now = datetime.datetime.utcnow()
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={}">'.format(
@@ -82,12 +106,9 @@ for s in songs:
 xml.append('</channel>')  # Close channel tag
 xml.append('</tv>')       # Close tv tag
 
-# Debugging: Check the final XML structure
-print("\n".join(xml))
-
 # Write the XML to a file
 try:
-    with open("epg.xml", "w", encoding="utf-8") as f:
+    with open(epg_file, "w", encoding="utf-8") as f:
         f.write("\n".join(xml))
     print("EPG XML generated successfully.")
 except IOError as e:
