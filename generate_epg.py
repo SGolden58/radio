@@ -53,7 +53,20 @@ for s in songs:
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
-    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
     '<channel id="988">',
+    '<display-name lang="zh">988</display-name>',
+    '<icon src=""/>',
+    '</channel>'
+]  # <-- Make sure the list closes with ]
+
+# === 5️⃣ Add programmes ===
+for i, s in enumerate(songs):
+    start_dt = start_times[i]
+    if not start_dt:
+        continue
+
+    # Stop time = 1 second before next song
+    if i + 1 < len(start_times) and start_times[i + 1]:
+        stop_dt = start_times[i + 1] - datetime.timedelta(seconds=1)
+    else:
