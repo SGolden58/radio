@@ -4,7 +4,7 @@ import datetime
 import html
 
 # URL of your radio song history
-url = "https://player.listenlive.co/63371/en/songhistory"
+url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
 r.raise_for_status()  # fail if request fails
 
