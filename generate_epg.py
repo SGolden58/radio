@@ -21,8 +21,8 @@ for row in rows[1:]:  # skip header
         if artist and title and time_str:
             songs.append({"time": time_str, "artist": artist, "title": title})
 
-# === 3️⃣ Prepare start times and stop times ===
-tz = datetime.timezone(datetime.timedelta(hours=8))
+# === 3️⃣ Prepare start times and stop times (Kuala Lumpur UTC+8) ===
+tz = datetime.timezone(datetime.timedelta(hours=8))  # KL timezone
 today = datetime.datetime.now(tz).date()
 start_times = []
 
@@ -72,4 +72,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
+print(f"✅ EPG.xml generated — {len(songs)} songs, KL timezone applied")
