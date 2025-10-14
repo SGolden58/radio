@@ -37,8 +37,8 @@ for row in songs_html[1:]:  # Skip header row
             "artist": artist
         })
 
-# Limit to the last 60 songs
-songs = songs[-60:]  # Get the last 60 songs
+# Limit to the last 60 songs and reverse the order for latest on top
+songs = songs[-60:][::-1]  # Get the last 60 songs and reverse the list
 
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
