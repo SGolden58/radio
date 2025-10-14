@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015072821" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015073509" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015003300 +0800" stop="20251015002259 +0800">
+  <title lang="zh">杨千嬅</title>
+  <desc lang="zh">炼金术</desc>
+  <date>0:33</date>
+</programme>
 <programme channel="988" start="20251015002300 +0800" stop="20251015001659 +0800">
   <title lang="zh">文慧如</title>
   <desc lang="zh">Everytime it hurts</desc>
-  <date>12:23 AM</date>
+  <date>0:23</date>
 </programme>
 <programme channel="988" start="20251015001700 +0800" stop="20251015000959 +0800">
   <title lang="zh">告五人</title>
   <desc lang="zh">黑夜狂奔</desc>
-  <date>12:17 AM</date>
+  <date>0:17</date>
 </programme>
 <programme channel="988" start="20251015001000 +0800" stop="20251015000259 +0800">
   <title lang="zh">曹格</title>
   <desc lang="zh">爱爱</desc>
-  <date>12:10 AM</date>
+  <date>0:10</date>
 </programme>
 <programme channel="988" start="20251015000300 +0800" stop="20251015000500 +0800">
   <title lang="zh">蕾拉</title>
   <desc lang="zh">你不一样</desc>
-  <date>12:03 AM</date>
+  <date>0:03</date>
 </programme>
 </tv>
