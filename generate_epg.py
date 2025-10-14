@@ -38,7 +38,7 @@ xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={now.strftime("%Y%m%d")}&amptimezone=None">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">',
     '<channel id="988">',
     '<display-name lang="Malaysia">988</display-name>',
     '<icon src=""/>',
