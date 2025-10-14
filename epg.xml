@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015073509" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015074253 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015003700 +0800" stop="20251015003259 +0800">
+  <title lang="zh">郭顶</title>
+  <desc lang="zh">水星记</desc>
+  <date>0:37</date>
+</programme>
 <programme channel="988" start="20251015003300 +0800" stop="20251015002259 +0800">
   <title lang="zh">杨千嬅</title>
   <desc lang="zh">炼金术</desc>
