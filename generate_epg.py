@@ -25,7 +25,7 @@ for row in songs_html[1:]:  # Skip header
             title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
         songs.append({
             "time": time_str,
-            "title": title,
+            "title": songs,
             "artist": artist
         })
 
@@ -56,7 +56,7 @@ for s in songs:
 
     # Escape title and artist names to handle special characters
     title_escaped = html.escape(s['title'])  # Use the actual song title
-    artist_escaped = html.escape(s['artist'] if s['artist'] != "Unknown" else "Unknown Artist")  # Use artist directly
+    artist_escaped = html.escape(s['artist'])  # Use the actual artist name
 
     # Format title and description as per your requirement
     formatted_title = title_escaped  # Title is now the actual song title
