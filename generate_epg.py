@@ -22,7 +22,7 @@ for row in rows[1:]:  # skip header
             songs.append({"time": time_str, "artist": artist, "title": title})
 
 # === 3️⃣ Prepare start times and stop times ===
-tz = datetime.timezone(datetime.timedelta(hours=8))  # Malaysia timezone
+tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
 start_times = []
 
@@ -38,13 +38,13 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
 
-# === 4️⃣ XML header (keep your exact style) ===
+# === 4️⃣ XML header ===
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")}" '
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
     '<channel id="988">',
     '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
@@ -56,14 +56,10 @@ for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-    # Escape special characters
     title_escaped = html.escape(s["artist"], quote=True)
     desc_escaped = html.escape(s["title"], quote=True)
 
-    xml.append(
-        f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" '
-        f'stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">'
-    )
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title lang="zh">{title_escaped}</title>')
     xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
     xml.append(f'  <date>{s["time"]}</date>')
