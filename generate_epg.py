@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import datetime
 import html
 
 # === 1️⃣ Fetch playlist page ===
@@ -8,55 +9,67 @@ r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
 # === 2️⃣ Extract songs from table ===
-songs_html = soup.select("table tr")
+rows = soup.select("table tr")
 songs = []
 
-for row in songs_html[1:]:  # skip header
+for row in rows[1:]:  # skip header
     cols = row.find_all("td")
-    if len(cols) >= 2:
-        time_str = cols[0].get_text(strip=True)  # e.g., "5:56"
-        title_artist = cols[1].get_text(strip=True)
+    if len(cols) >= 3:
+        time_str = cols[0].get_text(strip=True)
+        artist = cols[1].get_text(strip=True)
+        title = cols[2].get_text(strip=True)
+        if artist and title and time_str:
+            songs.append({"time": time_str, "artist": artist, "title": title})
 
-        if " - " in title_artist:
-            title, artist = title_artist.split(" - ", 1)
-        else:
-            title, artist = title_artist, ""
+# === 3️⃣ Prepare start times and stop times ===
+tz = datetime.timezone(datetime.timedelta(hours=8))
+today = datetime.datetime.now(tz).date()
+start_times = []
 
-        songs.append({
-            "time": time_str.strip(),
-            "title": title.strip(),
-            "artist": artist.strip()
-        })
+for s in songs:
+    h, m = map(int, s["time"].split(":"))
+    dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
+    start_times.append(dt)
 
-# === 3️⃣ Build XML EPG ===
+stop_times = []
+for i in range(len(start_times)):
+    if i + 1 < len(start_times):
+        stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
+    else:
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
+
+# === 4️⃣ XML header ===
+now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="" generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=">',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
     '<channel id="988">',
     '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
     '</channel>'
 ]
 
-# === 4️⃣ Add songs as <programme> ===
+# === 5️⃣ Add programmes ===
 for i, s in enumerate(songs):
-    start_time = s["time"]
-    stop_time = songs[i + 1]["time"] if i + 1 < len(songs) else start_time
+    start_dt = start_times[i]
+    stop_dt = stop_times[i]
 
-    title_escaped = html.escape(s['title'], quote=True)
-    artist_escaped = html.escape(s['artist'], quote=True)
+    title_escaped = html.escape(s["artist"], quote=True)
+    desc_escaped = html.escape(s["title"], quote=True)
 
-    xml.append(f'<programme channel="988" start="{start_time}" stop="{stop_time}">')
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title lang="zh">{title_escaped}</title>')
-    xml.append(f'  <desc lang="zh">{artist_escaped}</desc>')
-    xml.append(f'  <date>{start_time}</date>')
+    xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
+    xml.append(f'  <date>{s["time"]}</date>')
     xml.append('</programme>')
 
+# === 6️⃣ Close XML ===
 xml.append('</tv>')
 
-# === 5️⃣ Write XML file ===
+# === 7️⃣ Save XML ===
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print("✅ EPG XML successfully generated as epg.xml")
+print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
