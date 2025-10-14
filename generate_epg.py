@@ -20,7 +20,7 @@ for row in rows:
 songs = songs[:10]
 
 xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv generator-info-name="Radio EPG Script">\n'
-xml += '  <channel id="988"><display-name>988 FM</display-name></channel>\n'
+xml += '  <channel id="988"><display-name>988</display-name></channel>\n'
 
 now = datetime.now().replace(second=0, microsecond=0)
 for i, (time_str, artist, title) in enumerate(songs):
