@@ -1,240 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv generator-info-name="Radio EPG Script">
-  <channel id="988"><display-name>988</display-name></channel>
-  <programme start="20251014075200 +0800" stop="20251014075700 +0800" channel="988">
+  <channel id="988"><display-name>988 FM</display-name></channel>
+  <programme start="20251014072500 +0800" stop="20251014073000 +0800" channel="988">
+    <title lang="en">嘉宾</title>
+    <desc>张远</desc>
+  </programme>
+  <programme start="20251014073000 +0800" stop="20251014073500 +0800" channel="988">
+    <title lang="en">不能说的秘密 (电影《不能说的秘密》主题曲)</title>
+    <desc>周杰伦</desc>
+  </programme>
+  <programme start="20251014073500 +0800" stop="20251014074000 +0800" channel="988">
+    <title lang="en">We go up</title>
+    <desc>Babymonster</desc>
+  </programme>
+  <programme start="20251014074000 +0800" stop="20251014074500 +0800" channel="988">
+    <title lang="en">四点的海棠花未眠</title>
+    <desc>渡</desc>
+  </programme>
+  <programme start="20251014074500 +0800" stop="20251014075000 +0800" channel="988">
     <title lang="en">作为怪物</title>
     <desc>李宇春 + 吴青峰</desc>
   </programme>
-  <programme start="20251014074700 +0800" stop="20251014075200 +0800" channel="988">
+  <programme start="20251014075000 +0800" stop="20251014075500 +0800" channel="988">
     <title lang="en">Skibidi</title>
     <desc>林俊杰 + 成龙</desc>
   </programme>
-  <programme start="20251014074300 +0800" stop="20251014074800 +0800" channel="988">
+  <programme start="20251014075500 +0800" stop="20251014080000 +0800" channel="988">
     <title lang="en">亲亲</title>
     <desc>梁静茹</desc>
   </programme>
-  <programme start="20251014073600 +0800" stop="20251014074100 +0800" channel="988">
+  <programme start="20251014080000 +0800" stop="20251014080500 +0800" channel="988">
     <title lang="en">原来你跟每个人都说着一样的话</title>
     <desc>怕胖团</desc>
   </programme>
-  <programme start="20251014072400 +0800" stop="20251014072900 +0800" channel="988">
+  <programme start="20251014080500 +0800" stop="20251014081000 +0800" channel="988">
     <title lang="en">凡人歌 (原唱:李宗盛)</title>
     <desc>五月天 + 萧敬腾</desc>
   </programme>
-  <programme start="20251014072100 +0800" stop="20251014072600 +0800" channel="988">
+  <programme start="20251014081000 +0800" stop="20251014081500 +0800" channel="988">
     <title lang="en">耳石</title>
     <desc>林宇中</desc>
-  </programme>
-  <programme start="20251014071500 +0800" stop="20251014072000 +0800" channel="988">
-    <title lang="en">Gabriela</title>
-    <desc>Katseye</desc>
-  </programme>
-  <programme start="20251014071000 +0800" stop="20251014071500 +0800" channel="988">
-    <title lang="en">深信不疑</title>
-    <desc>蔡健雅</desc>
-  </programme>
-  <programme start="20251014070400 +0800" stop="20251014070900 +0800" channel="988">
-    <title lang="en">命运 (中国剧《兰陵王》插曲)</title>
-    <desc>家家</desc>
-  </programme>
-  <programme start="20251014065300 +0800" stop="20251014065800 +0800" channel="988">
-    <title lang="en">醒来 (影视剧《孤战迷城》片尾曲)</title>
-    <desc>李佳薇</desc>
-  </programme>
-  <programme start="20251014064900 +0800" stop="20251014065400 +0800" channel="988">
-    <title lang="en">就算会老去也要火热</title>
-    <desc>吴克群</desc>
-  </programme>
-  <programme start="20251014064300 +0800" stop="20251014064800 +0800" channel="988">
-    <title lang="en">想要和你 (ft. madison刘汉杰)</title>
-    <desc>李俊纬 + mad 刘汉杰</desc>
-  </programme>
-  <programme start="20251014064000 +0800" stop="20251014064500 +0800" channel="988">
-    <title lang="en">哄哄我</title>
-    <desc>Fuying 王赴颖 (fuying & sam) + lovell 陈馷佳</desc>
-  </programme>
-  <programme start="20251014063600 +0800" stop="20251014064100 +0800" channel="988">
-    <title lang="en">你想得美</title>
-    <desc>菲道尔</desc>
-  </programme>
-  <programme start="20251014062500 +0800" stop="20251014063000 +0800" channel="988">
-    <title lang="en">接住你</title>
-    <desc>理想混蛋</desc>
-  </programme>
-  <programme start="20251014062100 +0800" stop="20251014062600 +0800" channel="988">
-    <title lang="en">Still</title>
-    <desc>温力铭</desc>
-  </programme>
-  <programme start="20251014061400 +0800" stop="20251014061900 +0800" channel="988">
-    <title lang="en">我天生 - 有病版 (電影《有病才會喜歡你》主題曲)</title>
-    <desc>告五人</desc>
-  </programme>
-  <programme start="20251014060800 +0800" stop="20251014061300 +0800" channel="988">
-    <title lang="en">Famous</title>
-    <desc>Allday project</desc>
-  </programme>
-  <programme start="20251014060400 +0800" stop="20251014060900 +0800" channel="988">
-    <title lang="en">葡萄成熟时</title>
-    <desc>陈奕迅</desc>
-  </programme>
-  <programme start="20251014052300 +0800" stop="20251014052800 +0800" channel="988">
-    <title lang="en">倒带</title>
-    <desc>蔡依林</desc>
-  </programme>
-  <programme start="20251014050900 +0800" stop="20251014051400 +0800" channel="988">
-    <title lang="en">Strawberry love</title>
-    <desc>Mirror</desc>
-  </programme>
-  <programme start="20251014050500 +0800" stop="20251014051000 +0800" channel="988">
-    <title lang="en">头号甜心</title>
-    <desc>张韶涵</desc>
-  </programme>
-  <programme start="20251014045100 +0800" stop="20251014045600 +0800" channel="988">
-    <title lang="en">一个吻的时间 (feat. 冰球乐团)</title>
-    <desc>温岚 + 冰球乐团</desc>
-  </programme>
-  <programme start="20251014044600 +0800" stop="20251014045100 +0800" channel="988">
-    <title lang="en">Your wonderland</title>
-    <desc>77ke 柯棨棋</desc>
-  </programme>
-  <programme start="20251014044200 +0800" stop="20251014044700 +0800" channel="988">
-    <title lang="en">有趣</title>
-    <desc>单依纯 *</desc>
-  </programme>
-  <programme start="20251014043600 +0800" stop="20251014044100 +0800" channel="988">
-    <title lang="en">花千树</title>
-    <desc>容祖儿</desc>
-  </programme>
-  <programme start="20251014042400 +0800" stop="20251014042900 +0800" channel="988">
-    <title lang="en">好想拥抱你</title>
-    <desc>蔡咏琪</desc>
-  </programme>
-  <programme start="20251014041900 +0800" stop="20251014042400 +0800" channel="988">
-    <title lang="en">Butterflies (feat. taehyun of tomorrow x together & kim chaewon of le sserafim)</title>
-    <desc>Jvke</desc>
-  </programme>
-  <programme start="20251014040900 +0800" stop="20251014041400 +0800" channel="988">
-    <title lang="en">如果这就是爱情</title>
-    <desc>张靓颖</desc>
-  </programme>
-  <programme start="20251014040300 +0800" stop="20251014040800 +0800" channel="988">
-    <title lang="en">在最好的时间做最好的你</title>
-    <desc>冯允谦</desc>
-  </programme>
-  <programme start="20251014035200 +0800" stop="20251014035700 +0800" channel="988">
-    <title lang="en">守护永恒的爱</title>
-    <desc>孙燕姿</desc>
-  </programme>
-  <programme start="20251014034000 +0800" stop="20251014034500 +0800" channel="988">
-    <title lang="en">男孩像你</title>
-    <desc>薛凯琪</desc>
-  </programme>
-  <programme start="20251014033600 +0800" stop="20251014034100 +0800" channel="988">
-    <title lang="en">Rendezvous</title>
-    <desc>Ahof</desc>
-  </programme>
-  <programme start="20251014032200 +0800" stop="20251014032700 +0800" channel="988">
-    <title lang="en">On my way</title>
-    <desc>张敬轩</desc>
-  </programme>
-  <programme start="20251014031800 +0800" stop="20251014032300 +0800" channel="988">
-    <title lang="en">我是真的相信过爱情</title>
-    <desc>艾薇</desc>
-  </programme>
-  <programme start="20251014031000 +0800" stop="20251014031500 +0800" channel="988">
-    <title lang="en">不可能错过你</title>
-    <desc>王力宏</desc>
-  </programme>
-  <programme start="20251014030400 +0800" stop="20251014030900 +0800" channel="988">
-    <title lang="en">任性</title>
-    <desc>五月天</desc>
-  </programme>
-  <programme start="20251014025100 +0800" stop="20251014025600 +0800" channel="988">
-    <title lang="en">给我一个理由忘记</title>
-    <desc>A-lin</desc>
-  </programme>
-  <programme start="20251014024700 +0800" stop="20251014025200 +0800" channel="988">
-    <title lang="en">Mama (feat. 高尔宣osn)</title>
-    <desc>派伟俊 patrick brasca</desc>
-  </programme>
-  <programme start="20251014024300 +0800" stop="20251014024800 +0800" channel="988">
-    <title lang="en">我不想忘记你</title>
-    <desc>郭静</desc>
-  </programme>
-  <programme start="20251014023600 +0800" stop="20251014024100 +0800" channel="988">
-    <title lang="en">Weekend</title>
-    <desc>Taeyeon 太妍 (少女时代队长)</desc>
-  </programme>
-  <programme start="20251014023100 +0800" stop="20251014023600 +0800" channel="988">
-    <title lang="en">因果之灰 (电视剧《绝命法官》主题曲)</title>
-    <desc>张家辉</desc>
-  </programme>
-  <programme start="20251014022600 +0800" stop="20251014023100 +0800" channel="988">
-    <title lang="en">如果你也听说</title>
-    <desc>张惠妹</desc>
-  </programme>
-  <programme start="20251014021800 +0800" stop="20251014022300 +0800" channel="988">
-    <title lang="en">一二三</title>
-    <desc>Hebe 田馥甄</desc>
-  </programme>
-  <programme start="20251014021100 +0800" stop="20251014021600 +0800" channel="988">
-    <title lang="en">Nuna</title>
-    <desc>队长</desc>
-  </programme>
-  <programme start="20251014020600 +0800" stop="20251014021100 +0800" channel="988">
-    <title lang="en">天生一对 (台剧《无敌珊宝妹》主题曲)</title>
-    <desc>张栋梁 + 郭采洁</desc>
-  </programme>
-  <programme start="20251014015200 +0800" stop="20251014015700 +0800" channel="988">
-    <title lang="en">With you (everything feels so right)</title>
-    <desc>龚芷葳</desc>
-  </programme>
-  <programme start="20251014014500 +0800" stop="20251014015000 +0800" channel="988">
-    <title lang="en">相信你的人 (2019电影《银河补习班》推广曲)</title>
-    <desc>陈奕迅</desc>
-  </programme>
-  <programme start="20251014013400 +0800" stop="20251014013900 +0800" channel="988">
-    <title lang="en">等你下课</title>
-    <desc>周杰伦</desc>
-  </programme>
-  <programme start="20251014012100 +0800" stop="20251014012600 +0800" channel="988">
-    <title lang="en">有用的人（电影《小孩不笨》主题曲）</title>
-    <desc>陈国荣</desc>
-  </programme>
-  <programme start="20251014011300 +0800" stop="20251014011800 +0800" channel="988">
-    <title lang="en">会读书</title>
-    <desc>林俊杰</desc>
-  </programme>
-  <programme start="20251014010400 +0800" stop="20251014010900 +0800" channel="988">
-    <title lang="en">折飞机的人</title>
-    <desc>Zen俊倩</desc>
-  </programme>
-  <programme start="20251014005200 +0800" stop="20251014005700 +0800" channel="988">
-    <title lang="en">不属于</title>
-    <desc>李佳欢</desc>
-  </programme>
-  <programme start="20251014004500 +0800" stop="20251014005000 +0800" channel="988">
-    <title lang="en">草莓面包</title>
-    <desc>戴佩妮</desc>
-  </programme>
-  <programme start="20251014004100 +0800" stop="20251014004600 +0800" channel="988">
-    <title lang="en">仍然很想相信你 (电视剧《夺命提示》片尾曲)</title>
-    <desc>连诗雅</desc>
-  </programme>
-  <programme start="20251014002300 +0800" stop="20251014002800 +0800" channel="988">
-    <title lang="en">必杀技</title>
-    <desc>古巨基</desc>
-  </programme>
-  <programme start="20251014001900 +0800" stop="20251014002400 +0800" channel="988">
-    <title lang="en">粗心待遇</title>
-    <desc>九泽cp (陈零九 & 邱锋泽)</desc>
-  </programme>
-  <programme start="20251014001000 +0800" stop="20251014001500 +0800" channel="988">
-    <title lang="en">双栖动物</title>
-    <desc>蔡健雅</desc>
-  </programme>
-  <programme start="20251014000300 +0800" stop="20251014000800 +0800" channel="988">
-    <title lang="en">切歌</title>
-    <desc>李圣杰</desc>
   </programme>
 </tv>
