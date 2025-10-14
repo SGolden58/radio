@@ -28,13 +28,12 @@ for row in rows:
         title = title.strip()
         artist = artist.strip()
 
-        # Only include entries with something
         if not title and not artist:
             continue
 
         songs.append({"time": time_str, "title": title, "artist": artist})
 
-# Take the latest 33 songs (from bottom of list)
+# Take the latest 33 songs
 songs = songs[-33:]
 
 # === 3️⃣ Prepare start times ===
@@ -58,6 +57,3 @@ xml = [
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
     '<channel id="988">',
-    '<display-name lang="zh">988</display-name>',
-    '<icon src=""/>',
-    '</
