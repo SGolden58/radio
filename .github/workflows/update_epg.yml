@@ -1,16 +1,14 @@
 name: Update Radio EPG
 
-permissions:
-  contents: write
-
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/10 * * * *'   # every 10 minutes
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,9 +27,11 @@ jobs:
         run: python3 generate_epg.py
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git add epg.xml
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
-          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          git push origin HEAD:main
