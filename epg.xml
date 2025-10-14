@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015011637 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&timezone=None">
+<tv date="20251015012300 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&timezone=None">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015182100 +0000" stop="20251015183100 +0000">
+    <title lang="zh">A-lin</title>
+    <desc>Unknown</desc>
+    <date>18:21</date>
+</programme>
 <programme channel="988" start="20251015180600 +0000" stop="20251015181600 +0000">
     <title lang="zh">汪苏泷</title>
     <desc>Unknown</desc>
@@ -85,7 +90,7 @@
     <date>16:39</date>
 </programme>
 <programme channel="988" start="20251015163300 +0000" stop="20251015164300 +0000">
-    <title lang="zh">Fuying &amp; sam</title>
+    <title lang="zh">Fuying &amp;amp; sam</title>
     <desc>Unknown</desc>
     <date>16:33</date>
 </programme>
@@ -298,10 +303,5 @@
     <title lang="zh">张韶涵</title>
     <desc>Unknown</desc>
     <date>12:20</date>
-</programme>
-<programme channel="988" start="20251015120400 +0000" stop="20251015121400 +0000">
-    <title lang="zh">张震岳</title>
-    <desc>Unknown</desc>
-    <date>12:04</date>
 </programme>
 </tv>
