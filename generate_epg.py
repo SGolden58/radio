@@ -22,7 +22,7 @@ for row in rows[1:]:  # skip header
             songs.append({"time": time_str, "artist": artist, "title": title})
 
 # === 3️⃣ Prepare start times and stop times ===
-tz = datetime.timezone(datetime.timedelta(hours=8))
+tz = datetime.timezone(datetime.timedelta(hours=8))  # Malaysia time
 today = datetime.datetime.now(tz).date()
 start_times = []
 
@@ -44,7 +44,7 @@ xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
     '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
