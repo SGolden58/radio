@@ -22,10 +22,10 @@ for row in songs_html[1:]:  # Skip header
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
-            title, artist = title_artist, "Unknown"  # Default to "artist" if no artist
+            title, artist = title_artist, "Unknown"  # Default to "988" if no artist
         songs.append({
             "time": time_str,
-            "songs": title,
+            "title": title,
             "artist": artist
         })
 
