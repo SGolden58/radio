@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251014132509 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=2025-10-14">
+<tv date="20251014135210 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=2025-10-14">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
+  <programme channel="988" start="20251014144900 +0000" stop="20251014145900 +0000">
+    <title lang="zh">家家</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014144200 +0000" stop="20251014145200 +0000">
+    <title lang="zh">周殷廷</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014143800 +0000" stop="20251014144800 +0000">
+    <title lang="zh">陈奕迅 + the duo band</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014143200 +0000" stop="20251014144200 +0000">
+    <title lang="zh">Iu</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014142700 +0000" stop="20251014143700 +0000">
+    <title lang="zh">蕾拉</title>
+    <desc>Unknown</desc>
+  </programme>
   <programme channel="988" start="20251014142100 +0000" stop="20251014143100 +0000">
     <title lang="zh">卢广仲</title>
     <desc>Unknown</desc>
@@ -381,26 +401,6 @@
   </programme>
   <programme channel="988" start="20251014023600 +0000" stop="20251014024600 +0000">
     <title lang="zh">Taeyeon 太妍 (少女时代队长)</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014023100 +0000" stop="20251014024100 +0000">
-    <title lang="zh">张家辉</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014022600 +0000" stop="20251014023600 +0000">
-    <title lang="zh">张惠妹</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014021800 +0000" stop="20251014022800 +0000">
-    <title lang="zh">Hebe 田馥甄</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014021100 +0000" stop="20251014022100 +0000">
-    <title lang="zh">队长</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014020600 +0000" stop="20251014021600 +0000">
-    <title lang="zh">张栋梁 + 郭采洁</title>
     <desc>Unknown</desc>
   </programme>
 </channel>
