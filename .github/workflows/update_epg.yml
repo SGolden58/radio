@@ -1,8 +1,24 @@
-# Configuration for updating EPG (Electronic Program Guide)
-epg:
-  url: "https://radio-online.my/988-fm-playlist"  # URL to fetch the playlist
-  output_file: "epg.xml"  # Output filename for the generated XML
+# EPG Update Configuration
+
+# General settings
+settings:
   max_songs: 60  # Maximum number of songs to include in the EPG
   programme_duration_minutes: 3  # Duration for each song in minutes
   timezone: "+0800"  # Timezone offset for the EPG
+
+# Source configuration
+source:
+  url: "https://radio-online.my/988-fm-playlist"  # URL to fetch the playlist
+  format: "json"  # Format of the playlist (json, xml, etc.)
+
+# Output configuration
+output:
+  file: "epg.xml"  # Output filename for the generated XML
   generator_info_url: "https://sgolden58.github.io/radio/epg.xml"  # Generator info URL
+
+# EPG details
+epg:
+  title: "988 FM Playlist"  # Title of the EPG
+  description: "Current playlist for 988 FM"  # Description of the EPG
+  language: "en"  # Language of the EPG content
+  country: "MY"  # Country code for the EPG
