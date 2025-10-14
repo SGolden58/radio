@@ -57,21 +57,24 @@ for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
         start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=5)  # Each song lasts 5 minutes
+        stop = start + datetime.timedelta(minutes=1)  # Each song lasts 1 minute for 60 songs
     except ValueError:
         print(f"Invalid time format: {s['time']}. Using current time instead.")
         start = now
-        stop = start + datetime.timedelta(minutes=5)
+        stop = start + datetime.timedelta(minutes=1)
 
     # Escape special characters in title and artist
     title = html.escape(s['title']).replace('&', '&amp;')
     artist = html.escape(s['artist']).replace('&', '&amp;')
 
-    # Append programme entry
+    # Append programme entry with title and artist in the correct tags
     xml.append(f'''  <programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
     <title lang="zh">{title}</title>
     <desc>{artist}</desc>
   </programme>''')
+
+    # Update start time for the next song
+    start = stop  # Set the start of the next song to the end of the current one
 
 # Close the XML structure properly
 xml.append('</channel>')  # Close channel tag
