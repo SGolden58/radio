@@ -50,3 +50,14 @@ EOF
       - name: Commit and push changes
         run: |
           git config --global user.emai
+
+
+- name: Commit and push
+  run: |
+    git config user.name "GitHub Actions"
+    git config user.email "actions@github.com"
+    git add epg.xml
+    git commit -m "Update EPG $(date)" || echo "No changes to commit"
+    git fetch origin main
+    git reset --hard origin/main
+    git push origin main --force
