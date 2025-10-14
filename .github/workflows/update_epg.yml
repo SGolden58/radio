@@ -1,38 +1,8 @@
-name: Update Radio EPG
-
-on:
-  schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
-  workflow_dispatch:  # Allows manual triggering
-
-permissions:
-  contents: write  # Allows write access to the repository contents
-
-jobs:
-  update_epg:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'  # Specify the Python version
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
-
-      - name: Generate EPG XML
-        run: python generate_epg.py
-
-      - name: Commit and push changes
-        run: |
-          git config --local user.name "github-actions"
-          git config --local user.email "github-actions@github.com"
-          git add epg.xml
-          git commit -m "Update EPG XML" || echo "No changes to commit"
-          git push
+# Configuration for updating EPG (Electronic Program Guide)
+epg:
+  url: "https://radio-online.my/988-fm-playlist"  # URL to fetch the playlist
+  output_file: "epg.xml"  # Output filename for the generated XML
+  max_songs: 60  # Maximum number of songs to include in the EPG
+  programme_duration_minutes: 3  # Duration for each song in minutes
+  timezone: "+0800"  # Timezone offset for the EPG
+  generator_info_url: "https://sgolden58.github.io/radio/epg.xml"  # Generator info URL
