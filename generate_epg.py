@@ -22,7 +22,7 @@ for row in songs_html[1:]:  # Skip header
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
-            title, artist = title_artist, "Unknown"  # Default to "988" if no artist
+            title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
         songs.append({
             "time": time_str,
             "title": title,
@@ -38,7 +38,7 @@ xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&ampdate={now.strftime("%Y%m%d")}&amptimezone=None">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={now.strftime("%Y%m%d")}&amptimezone=None">',
     '<channel id="988">',
     '<display-name lang="Malaysia">988</display-name>',
     '<icon src=""/>',
@@ -55,12 +55,12 @@ for s in songs:
         continue  # Skip if time parsing fails
 
     # Escape title and artist names to handle special characters
-    title_escaped = html.escape("song")  # Set title to "song"
+    title_escaped = html.escape(s['title'])  # Use the actual song title
     artist_escaped = html.escape(s['artist'] if s['artist'] != "Unknown" else "Unknown Artist")  # Use artist directly
 
     # Format title and description as per your requirement
-    formatted_title = title_escaped  # Title is now just "song"
-    formatted_desc = artist_escaped  # Description is the artist
+    formatted_title = title_escaped  # Title is now the actual song title
+    formatted_desc = artist_escaped  # Description is the artist's name
 
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
     <title lang="zh">{formatted_title}</title>
