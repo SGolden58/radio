@@ -1,4 +1,4 @@
-<tv date="20251014130330 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=2025-10-14">
+<tv date="20251014130726 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=2025-10-14">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
@@ -403,4 +403,5 @@
     <title lang="zh">周杰伦</title>
     <desc>Unknown</desc>
   </programme>
+</channel>
 </tv>
