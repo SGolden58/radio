@@ -1,44 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tv generator-info-name="Radio EPG Script">
-  <channel id="988"><display-name>988 FM</display-name></channel>
-  <programme start="20251014072500 +0800" stop="20251014073000 +0800" channel="988">
-    <title lang="en">嘉宾</title>
-    <desc>张远</desc>
+  <channel id="988">
+    <display-name>988 FM</display-name>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+  </channel>
+
+  <programme start="20251014100000 +0800" stop="20251014101500 +0800" channel="988">
+    <title lang="en">Test Song 1</title>
+    <desc>Artist 1</desc>
   </programme>
-  <programme start="20251014073000 +0800" stop="20251014073500 +0800" channel="988">
-    <title lang="en">不能说的秘密 (电影《不能说的秘密》主题曲)</title>
-    <desc>周杰伦</desc>
-  </programme>
-  <programme start="20251014073500 +0800" stop="20251014074000 +0800" channel="988">
-    <title lang="en">We go up</title>
-    <desc>Babymonster</desc>
-  </programme>
-  <programme start="20251014074000 +0800" stop="20251014074500 +0800" channel="988">
-    <title lang="en">四点的海棠花未眠</title>
-    <desc>渡</desc>
-  </programme>
-  <programme start="20251014074500 +0800" stop="20251014075000 +0800" channel="988">
-    <title lang="en">作为怪物</title>
-    <desc>李宇春 + 吴青峰</desc>
-  </programme>
-  <programme start="20251014075000 +0800" stop="20251014075500 +0800" channel="988">
-    <title lang="en">Skibidi</title>
-    <desc>林俊杰 + 成龙</desc>
-  </programme>
-  <programme start="20251014075500 +0800" stop="20251014080000 +0800" channel="988">
-    <title lang="en">亲亲</title>
-    <desc>梁静茹</desc>
-  </programme>
-  <programme start="20251014080000 +0800" stop="20251014080500 +0800" channel="988">
-    <title lang="en">原来你跟每个人都说着一样的话</title>
-    <desc>怕胖团</desc>
-  </programme>
-  <programme start="20251014080500 +0800" stop="20251014081000 +0800" channel="988">
-    <title lang="en">凡人歌 (原唱:李宗盛)</title>
-    <desc>五月天 + 萧敬腾</desc>
-  </programme>
-  <programme start="20251014081000 +0800" stop="20251014081500 +0800" channel="988">
-    <title lang="en">耳石</title>
-    <desc>林宇中</desc>
+  <programme start="20251014101500 +0800" stop="20251014103000 +0800" channel="988">
+    <title lang="en">Test Song 2</title>
+    <desc>Artist 2</desc>
   </programme>
 </tv>
