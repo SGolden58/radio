@@ -1,78 +1,307 @@
-import requests
-from bs4 import BeautifulSoup
-import datetime
-import html
-
-# URL to fetch the playlist
-url = "https://radio-online.my/988-fm-playlist"
-r = requests.get(url)
-r.raise_for_status()
-
-soup = BeautifulSoup(r.text, "html.parser")
-
-# Select the songs from the table
-songs_html = soup.select("table tr")  # Adjust selector as needed
-songs = []
-
-for row in songs_html[1:]:  # Skip header
-    cols = row.find_all("td")
-    if len(cols) >= 2:
-        time_str = cols[0].get_text(strip=True)
-        title_artist = cols[1].get_text(strip=True)
-        if " - " in title_artist:
-            title, artist = title_artist.split(" - ", 1)
-        else:
-            title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
-        songs.append({
-            "time": time_str,
-            "title": title,
-            "artist": artist
-        })
-
-# Limit to the latest 60 songs
-songs = songs[:60]
-
-# Build XML
-now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia Time
-xml = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
-    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">',
-    '<channel id="988">',
-    '<display-name lang="Malaysia">988</display-name>',
-    '<icon src=""/>',
-    '</channel>'
-]
-
-# Add each song as a programme
-for s in songs:
-    try:
-        h, m = map(int, s["time"].split(":"))
-        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=10)  # 10 min per song
-    except ValueError:
-        continue  # Skip if time parsing fails
-
-    # Escape title and artist names to handle special characters
-    title_escaped = html.escape(s['title'])  # Use the actual song title
-    artist_escaped = html.escape(s['artist'])  # Use the actual artist name
-
-    # Combine title and artist for the title tag
-    combined_title = f"{title_escaped} + {artist_escaped}"  # Format: "song name + artist name"
-
-    # Format title and description as per your requirement
-    formatted_title = combined_title  # Title is now the song name + artist name
-    formatted_desc = artist_escaped  # Description is the artist's name
-
-    xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{formatted_title}</title>
-    <desc>{formatted_desc}</desc>
-    <date>{s["time"]}</date>
-</programme>''')
-
-xml.append("</tv>")
-
-# Write to epg.xml
-with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write("\n".join(xml))
+<?xml version="1.0" encoding="UTF-8"?>
+<tv date="20251015030148 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">
+<channel id="988">
+<display-name lang="Malaysia">988</display-name>
+<icon src=""/>
+</channel>
+<programme channel="988" start="20251015200100 +0000" stop="20251015201100 +0000">
+    <title lang="zh">派伟俊 patrick brasca + 周杰伦 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>20:01</date>
+</programme>
+<programme channel="988" start="20251015195300 +0000" stop="20251015200300 +0000">
+    <title lang="zh">张与辰 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:53</date>
+</programme>
+<programme channel="988" start="20251015195000 +0000" stop="20251015200000 +0000">
+    <title lang="zh">方力申 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:50</date>
+</programme>
+<programme channel="988" start="20251015194600 +0000" stop="20251015195600 +0000">
+    <title lang="zh">黎明 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:46</date>
+</programme>
+<programme channel="988" start="20251015194100 +0000" stop="20251015195100 +0000">
+    <title lang="zh">Ian 陈卓贤 (mirror成员) + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:41</date>
+</programme>
+<programme channel="988" start="20251015193600 +0000" stop="20251015194600 +0000">
+    <title lang="zh">周柏豪 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:36</date>
+</programme>
+<programme channel="988" start="20251015193300 +0000" stop="20251015194300 +0000">
+    <title lang="zh">林家谦 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:33</date>
+</programme>
+<programme channel="988" start="20251015193000 +0000" stop="20251015194000 +0000">
+    <title lang="zh">周吉佩 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:30</date>
+</programme>
+<programme channel="988" start="20251015192600 +0000" stop="20251015193600 +0000">
+    <title lang="zh">郑中基 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:26</date>
+</programme>
+<programme channel="988" start="20251015192200 +0000" stop="20251015193200 +0000">
+    <title lang="zh">林海峰 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:22</date>
+</programme>
+<programme channel="988" start="20251015191700 +0000" stop="20251015192700 +0000">
+    <title lang="zh">林峯 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:17</date>
+</programme>
+<programme channel="988" start="20251015191400 +0000" stop="20251015192400 +0000">
+    <title lang="zh">张进翘 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:14</date>
+</programme>
+<programme channel="988" start="20251015190900 +0000" stop="20251015191900 +0000">
+    <title lang="zh">刘德华 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:09</date>
+</programme>
+<programme channel="988" start="20251015190500 +0000" stop="20251015191500 +0000">
+    <title lang="zh">侧田 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:05</date>
+</programme>
+<programme channel="988" start="20251015190200 +0000" stop="20251015191200 +0000">
+    <title lang="zh">Gareth.t 汤令山 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>19:02</date>
+</programme>
+<programme channel="988" start="20251015185900 +0000" stop="20251015190900 +0000">
+    <title lang="zh">陈奕迅 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:59</date>
+</programme>
+<programme channel="988" start="20251015185300 +0000" stop="20251015190300 +0000">
+    <title lang="zh">Twins + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:53</date>
+</programme>
+<programme channel="988" start="20251015185000 +0000" stop="20251015190000 +0000">
+    <title lang="zh">Elva 苏妍 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:50</date>
+</programme>
+<programme channel="988" start="20251015184500 +0000" stop="20251015185500 +0000">
+    <title lang="zh">G.e.m 邓紫棋 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:45</date>
+</programme>
+<programme channel="988" start="20251015184200 +0000" stop="20251015185200 +0000">
+    <title lang="zh">小乐哥 (王唯乐) + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:42</date>
+</programme>
+<programme channel="988" start="20251015183700 +0000" stop="20251015184700 +0000">
+    <title lang="zh">大张伟 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:37</date>
+</programme>
+<programme channel="988" start="20251015183400 +0000" stop="20251015184400 +0000">
+    <title lang="zh">于文文 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:34</date>
+</programme>
+<programme channel="988" start="20251015182800 +0000" stop="20251015183800 +0000">
+    <title lang="zh">五月天 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:28</date>
+</programme>
+<programme channel="988" start="20251015182400 +0000" stop="20251015183400 +0000">
+    <title lang="zh">F.i.r + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:24</date>
+</programme>
+<programme channel="988" start="20251015182100 +0000" stop="20251015183100 +0000">
+    <title lang="zh">A-lin + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:21</date>
+</programme>
+<programme channel="988" start="20251015180600 +0000" stop="20251015181600 +0000">
+    <title lang="zh">汪苏泷 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:06</date>
+</programme>
+<programme channel="988" start="20251015180100 +0000" stop="20251015181100 +0000">
+    <title lang="zh">李荣浩 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>18:01</date>
+</programme>
+<programme channel="988" start="20251015175800 +0000" stop="20251015180800 +0000">
+    <title lang="zh">谢安琪 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:58</date>
+</programme>
+<programme channel="988" start="20251015175300 +0000" stop="20251015180300 +0000">
+    <title lang="zh">张与辰 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:53</date>
+</programme>
+<programme channel="988" start="20251015174800 +0000" stop="20251015175800 +0000">
+    <title lang="zh">Mc 张天赋 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:48</date>
+</programme>
+<programme channel="988" start="20251015174400 +0000" stop="20251015175400 +0000">
+    <title lang="zh">Bii 毕书尽 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:44</date>
+</programme>
+<programme channel="988" start="20251015174000 +0000" stop="20251015175000 +0000">
+    <title lang="zh">队长 + 鹿晗 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:40</date>
+</programme>
+<programme channel="988" start="20251015173800 +0000" stop="20251015174800 +0000">
+    <title lang="zh">瘦子e.so + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:38</date>
+</programme>
+<programme channel="988" start="20251015173300 +0000" stop="20251015174300 +0000">
+    <title lang="zh">姜涛 (mirror成员) + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:33</date>
+</programme>
+<programme channel="988" start="20251015173200 +0000" stop="20251015174200 +0000">
+    <title lang="zh">3p (3 production) + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:32</date>
+</programme>
+<programme channel="988" start="20251015172000 +0000" stop="20251015173000 +0000">
+    <title lang="zh">En 王翊恩 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:20</date>
+</programme>
+<programme channel="988" start="20251015171600 +0000" stop="20251015172600 +0000">
+    <title lang="zh">冯允谦 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:16</date>
+</programme>
+<programme channel="988" start="20251015171000 +0000" stop="20251015172000 +0000">
+    <title lang="zh">Edan 吕爵安 (mirror成员) + Unknown</title>
+    <desc>Unknown</desc>
+    <date>17:10</date>
+</programme>
+<programme channel="988" start="20251015165600 +0000" stop="20251015170600 +0000">
+    <title lang="zh">曹格 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:56</date>
+</programme>
+<programme channel="988" start="20251015164900 +0000" stop="20251015165900 +0000">
+    <title lang="zh">薛之谦 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:49</date>
+</programme>
+<programme channel="988" start="20251015163900 +0000" stop="20251015164900 +0000">
+    <title lang="zh">刘界辉 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:39</date>
+</programme>
+<programme channel="988" start="20251015163300 +0000" stop="20251015164300 +0000">
+    <title lang="zh">Fuying &amp; sam + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:33</date>
+</programme>
+<programme channel="988" start="20251015162600 +0000" stop="20251015163600 +0000">
+    <title lang="zh">卫兰 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:26</date>
+</programme>
+<programme channel="988" start="20251015162000 +0000" stop="20251015163000 +0000">
+    <title lang="zh">张碧晨 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:20</date>
+</programme>
+<programme channel="988" start="20251015161600 +0000" stop="20251015162600 +0000">
+    <title lang="zh">韦礼安 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:16</date>
+</programme>
+<programme channel="988" start="20251015161000 +0000" stop="20251015162000 +0000">
+    <title lang="zh">邱锋泽 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:10</date>
+</programme>
+<programme channel="988" start="20251015160600 +0000" stop="20251015161600 +0000">
+    <title lang="zh">孙燕姿 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:06</date>
+</programme>
+<programme channel="988" start="20251015160000 +0000" stop="20251015161000 +0000">
+    <title lang="zh">戴佩妮 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>16:00</date>
+</programme>
+<programme channel="988" start="20251015155700 +0000" stop="20251015160700 +0000">
+    <title lang="zh">Day6 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:57</date>
+</programme>
+<programme channel="988" start="20251015154700 +0000" stop="20251015155700 +0000">
+    <title lang="zh">郭家玮 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:47</date>
+</programme>
+<programme channel="988" start="20251015154200 +0000" stop="20251015155200 +0000">
+    <title lang="zh">蔡旻佑 + 咔咔 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:42</date>
+</programme>
+<programme channel="988" start="20251015153700 +0000" stop="20251015154700 +0000">
+    <title lang="zh">Gaston 庞加斯顿 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:37</date>
+</programme>
+<programme channel="988" start="20251015153300 +0000" stop="20251015154300 +0000">
+    <title lang="zh">谭咏麟 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:33</date>
+</programme>
+<programme channel="988" start="20251015152700 +0000" stop="20251015153700 +0000">
+    <title lang="zh">张妙格 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:27</date>
+</programme>
+<programme channel="988" start="20251015152000 +0000" stop="20251015153000 +0000">
+    <title lang="zh">蔡依林 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:20</date>
+</programme>
+<programme channel="988" start="20251015151500 +0000" stop="20251015152500 +0000">
+    <title lang="zh">林俊杰 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:15</date>
+</programme>
+<programme channel="988" start="20251015151000 +0000" stop="20251015152000 +0000">
+    <title lang="zh">郭静 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:10</date>
+</programme>
+<programme channel="988" start="20251015150400 +0000" stop="20251015151400 +0000">
+    <title lang="zh">杨千嬅 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:04</date>
+</programme>
+<programme channel="988" start="20251015150000 +0000" stop="20251015151000 +0000">
+    <title lang="zh">Hinry 刘卓轩 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>15:00</date>
+</programme>
+<programme channel="988" start="20251015145500 +0000" stop="20251015150500 +0000">
+    <title lang="zh">丁当 + Unknown</title>
+    <desc>Unknown</desc>
+    <date>14:55</date>
+</programme>
+</tv>
