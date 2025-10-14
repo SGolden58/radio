@@ -2,11 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
-# Fetch radio playlist page
+# --- Step 1: Fetch playlist page ---
 url = "https://radio-online.my/988-fm-playlist"
 res = requests.get(url)
 soup = BeautifulSoup(res.text, "html.parser")
 
+# --- Step 2: Extract table rows ---
 rows = soup.select("table tbody tr")
 
 songs = []
@@ -22,9 +23,11 @@ for row in rows:
             stop = start + timedelta(minutes=5)
             songs.append((start, stop, artist, title))
         except Exception as e:
-            print("Skipping:", e)
+            print("Skipping row:", e)
 
-xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv generator-info-name="Radio EPG Script">\n'
+# --- Step 3: Generate XML ---
+xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+xml += '<tv generator-info-name="Radio EPG Script">\n'
 xml += '  <channel id="988"><display-name>988</display-name></channel>\n'
 
 for s in songs:
@@ -36,5 +39,8 @@ for s in songs:
 
 xml += '</tv>\n'
 
+# --- Step 4: Save to epg.xml ---
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write(xml)
+
+print(f"EPG XML generated with {len(songs)} entries.")
