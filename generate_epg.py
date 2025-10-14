@@ -24,7 +24,7 @@ for row in songs_html[1:]:  # Skip header
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
-            title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
+            title, artist = title_artist, ""  # Set artist to empty if not found
         
         # Append song information to the list
         songs.append({
@@ -63,13 +63,13 @@ for s in songs:
     artist_escaped = html.escape(s['artist'])  # Use the actual artist name
 
     # Combine title and artist for the title tag
-    if artist_escaped == "Unknown":
-        formatted_title = f"{title_escaped} + Unknown"  # Format: "song name + Unknown"
+    if artist_escaped:
+        formatted_title = f"{title_escaped} + {artist_escaped}"  # Format: "songs name + artist name"
     else:
-        formatted_title = f"{title_escaped} + {artist_escaped}"  # Format: "song name + artist name"
+        formatted_title = title_escaped  # Use only the songs name if no artist is provided
 
-    # Set description to "Unknown" if no artist is provided
-    formatted_desc = "Unknown" if artist_escaped == "Unknown" else artist_escaped
+    # Set description to artist's name or "Unknown" if artist is not available
+    formatted_desc = artist_escaped if artist_escaped else "Unknown"
 
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
     <title lang="zh">{formatted_title}</title>
