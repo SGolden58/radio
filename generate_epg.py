@@ -19,25 +19,24 @@ for row in rows[1:]:  # skip header
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
-            songs.append({"time": time_str, "artist": artist, "title": title})
+            songs.append({"time_str": time_str, "artist": artist, "title": title})
 
-# === 3️⃣ Prepare start times and stop times (KL UTC+8) ===
+# === 3️⃣ Prepare start and stop times in Malaysia timezone ===
 tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
 
 start_times = []
 for s in songs:
-    # Convert "4:55" to datetime with today's date
-    h, m = map(int, s["time"].split(":"))
-    dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
-    start_times.append(dt)
+    h, m = map(int, s["time_str"].split(":"))
+    start_dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
+    start_times.append(start_dt)
 
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
         stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song
 
 # === 4️⃣ XML header ===
 now = datetime.datetime.now(tz)
@@ -60,7 +59,7 @@ for i, s in enumerate(songs):
     title_escaped = html.escape(s["artist"], quote=True)
     desc_escaped = html.escape(s["title"], quote=True)
 
-    # Format AM/PM for <date>
+    # Keep AM/PM based on KL timezone
     ampm_time = start_dt.strftime("%I:%M %p").lstrip("0")
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
@@ -76,4 +75,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} songs, KL timezone applied, correct AM/PM times")
+print(f"✅ EPG.xml generated — {len(songs)} songs, times exactly as URL in Malaysia timezone")
