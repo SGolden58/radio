@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015042802 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
+<tv date="20251015043527 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015213100 +0800" stop="20251015213200 +0800">
+    <title lang="zh">Unknown - S.h.e</title>
+    <desc lang="zh">Unknown - S.h.e</desc>
+    <date>21:31</date>
+</programme>
+<programme channel="988" start="20251015212800 +0800" stop="20251015212900 +0800">
+    <title lang="zh">Unknown - 林俊杰</title>
+    <desc lang="zh">Unknown - 林俊杰</desc>
+    <date>21:28</date>
+</programme>
 <programme channel="988" start="20251015212300 +0800" stop="20251015212400 +0800">
     <title lang="zh">Unknown - 理想混蛋</title>
     <desc lang="zh">Unknown - 理想混蛋</desc>
@@ -293,15 +303,5 @@
     <title lang="zh">Unknown - Edan 吕爵安 (mirror成员)</title>
     <desc lang="zh">Unknown - Edan 吕爵安 (mirror成员)</desc>
     <date>17:10</date>
-</programme>
-<programme channel="988" start="20251015165600 +0800" stop="20251015165700 +0800">
-    <title lang="zh">Unknown - 曹格</title>
-    <desc lang="zh">Unknown - 曹格</desc>
-    <date>16:56</date>
-</programme>
-<programme channel="988" start="20251015164900 +0800" stop="20251015165000 +0800">
-    <title lang="zh">Unknown - 薛之谦</title>
-    <desc lang="zh">Unknown - 薛之谦</desc>
-    <date>16:49</date>
 </programme>
 </tv>
