@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015012300 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&timezone=None">
+<tv date="20251015012803 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&timezone=None">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015182400 +0000" stop="20251015183400 +0000">
+    <title lang="zh">F.i.r</title>
+    <desc>Unknown</desc>
+    <date>18:24</date>
+</programme>
 <programme channel="988" start="20251015182100 +0000" stop="20251015183100 +0000">
     <title lang="zh">A-lin</title>
     <desc>Unknown</desc>
@@ -298,10 +303,5 @@
     <title lang="zh">毛不易</title>
     <desc>Unknown</desc>
     <date>12:24</date>
-</programme>
-<programme channel="988" start="20251015122000 +0000" stop="20251015123000 +0000">
-    <title lang="zh">张韶涵</title>
-    <desc>Unknown</desc>
-    <date>12:20</date>
 </programme>
 </tv>
