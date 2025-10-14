@@ -52,9 +52,13 @@ for s in songs:
     except ValueError:
         continue  # Skip if time parsing fails
 
+    # Escape title and artist names to handle special characters
+    title_escaped = html.escape(s['title']).replace('&', '&amp;')
+    artist_escaped = html.escape(s['artist']).replace('&', '&amp;')
+
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{html.escape(s['title'])}</title>
-    <desc>{html.escape(s['artist'])}</desc>
+    <title lang="zh">{title_escaped}</title>
+    <desc>{artist_escaped}</desc>
     <date>{s["time"]}</date>
 </programme>''')
 
