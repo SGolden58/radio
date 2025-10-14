@@ -1,246 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251014142823 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=2025-10-14">
+<tv date="20251014143741 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=2025-10-14">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
-  <programme channel="988" start="20251014032200 +0000" stop="20251014032300 +0000">
-    <title lang="zh">张敬轩</title>
+  <programme channel="988" start="20251014112100 +0000" stop="20251014112200 +0000">
+    <title lang="zh">告五人 + Unknown</title>
     <desc>Unknown</desc>
   </programme>
-  <programme channel="988" start="20251014033600 +0000" stop="20251014033700 +0000">
-    <title lang="zh">Ahof</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014034000 +0000" stop="20251014034100 +0000">
-    <title lang="zh">薛凯琪</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014035200 +0000" stop="20251014035300 +0000">
-    <title lang="zh">孙燕姿</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014040300 +0000" stop="20251014040400 +0000">
-    <title lang="zh">冯允谦</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014040900 +0000" stop="20251014041000 +0000">
-    <title lang="zh">张靓颖</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014041900 +0000" stop="20251014042000 +0000">
-    <title lang="zh">Jvke</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014042400 +0000" stop="20251014042500 +0000">
-    <title lang="zh">蔡咏琪</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014043600 +0000" stop="20251014043700 +0000">
-    <title lang="zh">容祖儿</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014044200 +0000" stop="20251014044300 +0000">
-    <title lang="zh">单依纯 *</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014044600 +0000" stop="20251014044700 +0000">
-    <title lang="zh">77ke 柯棨棋</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014045100 +0000" stop="20251014045200 +0000">
-    <title lang="zh">温岚 + 冰球乐团</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014050500 +0000" stop="20251014050600 +0000">
-    <title lang="zh">张韶涵</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014050900 +0000" stop="20251014051000 +0000">
-    <title lang="zh">Mirror</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014052300 +0000" stop="20251014052400 +0000">
-    <title lang="zh">蔡依林</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014060400 +0000" stop="20251014060500 +0000">
-    <title lang="zh">陈奕迅</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014060800 +0000" stop="20251014060900 +0000">
-    <title lang="zh">Allday project</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014061400 +0000" stop="20251014061500 +0000">
-    <title lang="zh">告五人</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014062100 +0000" stop="20251014062200 +0000">
-    <title lang="zh">温力铭</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014062500 +0000" stop="20251014062600 +0000">
-    <title lang="zh">理想混蛋</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014063600 +0000" stop="20251014063700 +0000">
-    <title lang="zh">菲道尔</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014064000 +0000" stop="20251014064100 +0000">
-    <title lang="zh">Fuying 王赴颖 (fuying &amp;amp; sam) + lovell 陈馷佳</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014064300 +0000" stop="20251014064400 +0000">
-    <title lang="zh">李俊纬 + mad 刘汉杰</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014064900 +0000" stop="20251014065000 +0000">
-    <title lang="zh">吴克群</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014065300 +0000" stop="20251014065400 +0000">
-    <title lang="zh">李佳薇</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014070400 +0000" stop="20251014070500 +0000">
-    <title lang="zh">家家</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014071000 +0000" stop="20251014071100 +0000">
-    <title lang="zh">蔡健雅</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014071500 +0000" stop="20251014071600 +0000">
-    <title lang="zh">Katseye</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014072100 +0000" stop="20251014072200 +0000">
-    <title lang="zh">林宇中</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014072400 +0000" stop="20251014072500 +0000">
-    <title lang="zh">五月天 + 萧敬腾</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014073600 +0000" stop="20251014073700 +0000">
-    <title lang="zh">怕胖团</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014074300 +0000" stop="20251014074400 +0000">
-    <title lang="zh">梁静茹</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014074700 +0000" stop="20251014074800 +0000">
-    <title lang="zh">林俊杰 + 成龙</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014075200 +0000" stop="20251014075300 +0000">
-    <title lang="zh">李宇春 + 吴青峰</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014080500 +0000" stop="20251014080600 +0000">
-    <title lang="zh">渡</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014081000 +0000" stop="20251014081100 +0000">
-    <title lang="zh">Babymonster</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014081300 +0000" stop="20251014081400 +0000">
-    <title lang="zh">周杰伦</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014082100 +0000" stop="20251014082200 +0000">
-    <title lang="zh">张远</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014082700 +0000" stop="20251014082800 +0000">
-    <title lang="zh">Hebe 田馥甄</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014083400 +0000" stop="20251014083500 +0000">
-    <title lang="zh">黎明</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014084000 +0000" stop="20251014084100 +0000">
-    <title lang="zh">谢安琪</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014084400 +0000" stop="20251014084500 +0000">
-    <title lang="zh">Wolf(s) 五坚情</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014085100 +0000" stop="20251014085200 +0000">
-    <title lang="zh">Dior 大颖</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014085400 +0000" stop="20251014085500 +0000">
-    <title lang="zh">丁当</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014091000 +0000" stop="20251014091100 +0000">
-    <title lang="zh">蔡依林</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014091300 +0000" stop="20251014091400 +0000">
-    <title lang="zh">郑秀文</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014091800 +0000" stop="20251014091900 +0000">
-    <title lang="zh">胡彦斌</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014092500 +0000" stop="20251014092600 +0000">
-    <title lang="zh">动力火车 + 玖壹壹</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014094100 +0000" stop="20251014094200 +0000">
-    <title lang="zh">周殷廷</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014094800 +0000" stop="20251014094900 +0000">
-    <title lang="zh">方泂镔</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014095200 +0000" stop="20251014095300 +0000">
-    <title lang="zh">艾怡良</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014100400 +0000" stop="20251014100500 +0000">
-    <title lang="zh">蔡健雅 + 孙燕姿</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014101100 +0000" stop="20251014101200 +0000">
-    <title lang="zh">陈势安</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014101700 +0000" stop="20251014101800 +0000">
-    <title lang="zh">汪苏泷</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014102500 +0000" stop="20251014102600 +0000">
-    <title lang="zh">Sabrina carpenter</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014102800 +0000" stop="20251014102900 +0000">
-    <title lang="zh">魏嘉莹</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014103600 +0000" stop="20251014103700 +0000">
-    <title lang="zh">农夫</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014104200 +0000" stop="20251014104300 +0000">
-    <title lang="zh">李荣浩</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014104700 +0000" stop="20251014104800 +0000">
-    <title lang="zh">Kiri t</title>
+  <programme channel="988" start="20251014111500 +0000" stop="20251014111600 +0000">
+    <title lang="zh">吕允 + Unknown</title>
     <desc>Unknown</desc>
   </programme>
   <programme channel="988" start="20251014110600 +0000" stop="20251014110700 +0000">
-    <title lang="zh">梁静茹</title>
+    <title lang="zh">梁静茹 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014104700 +0000" stop="20251014104800 +0000">
+    <title lang="zh">Kiri t + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014104200 +0000" stop="20251014104300 +0000">
+    <title lang="zh">李荣浩 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014103600 +0000" stop="20251014103700 +0000">
+    <title lang="zh">农夫 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014102800 +0000" stop="20251014102900 +0000">
+    <title lang="zh">魏嘉莹 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014102500 +0000" stop="20251014102600 +0000">
+    <title lang="zh">Sabrina carpenter + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014101700 +0000" stop="20251014101800 +0000">
+    <title lang="zh">汪苏泷 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014101100 +0000" stop="20251014101200 +0000">
+    <title lang="zh">陈势安 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014100400 +0000" stop="20251014100500 +0000">
+    <title lang="zh">蔡健雅 + 孙燕姿 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014095200 +0000" stop="20251014095300 +0000">
+    <title lang="zh">艾怡良 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014094800 +0000" stop="20251014094900 +0000">
+    <title lang="zh">方泂镔 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014094100 +0000" stop="20251014094200 +0000">
+    <title lang="zh">周殷廷 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014092500 +0000" stop="20251014092600 +0000">
+    <title lang="zh">动力火车 + 玖壹壹 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014091800 +0000" stop="20251014091900 +0000">
+    <title lang="zh">胡彦斌 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014091300 +0000" stop="20251014091400 +0000">
+    <title lang="zh">郑秀文 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014091000 +0000" stop="20251014091100 +0000">
+    <title lang="zh">蔡依林 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014085400 +0000" stop="20251014085500 +0000">
+    <title lang="zh">丁当 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014085100 +0000" stop="20251014085200 +0000">
+    <title lang="zh">Dior 大颖 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014084400 +0000" stop="20251014084500 +0000">
+    <title lang="zh">Wolf(s) 五坚情 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014084000 +0000" stop="20251014084100 +0000">
+    <title lang="zh">谢安琪 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014083400 +0000" stop="20251014083500 +0000">
+    <title lang="zh">黎明 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014082700 +0000" stop="20251014082800 +0000">
+    <title lang="zh">Hebe 田馥甄 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014082100 +0000" stop="20251014082200 +0000">
+    <title lang="zh">张远 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014081300 +0000" stop="20251014081400 +0000">
+    <title lang="zh">周杰伦 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014081000 +0000" stop="20251014081100 +0000">
+    <title lang="zh">Babymonster + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014080500 +0000" stop="20251014080600 +0000">
+    <title lang="zh">渡 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014075200 +0000" stop="20251014075300 +0000">
+    <title lang="zh">李宇春 + 吴青峰 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014074700 +0000" stop="20251014074800 +0000">
+    <title lang="zh">林俊杰 + 成龙 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014074300 +0000" stop="20251014074400 +0000">
+    <title lang="zh">梁静茹 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014073600 +0000" stop="20251014073700 +0000">
+    <title lang="zh">怕胖团 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014072400 +0000" stop="20251014072500 +0000">
+    <title lang="zh">五月天 + 萧敬腾 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014072100 +0000" stop="20251014072200 +0000">
+    <title lang="zh">林宇中 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014071500 +0000" stop="20251014071600 +0000">
+    <title lang="zh">Katseye + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014071000 +0000" stop="20251014071100 +0000">
+    <title lang="zh">蔡健雅 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014070400 +0000" stop="20251014070500 +0000">
+    <title lang="zh">家家 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014065300 +0000" stop="20251014065400 +0000">
+    <title lang="zh">李佳薇 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014064900 +0000" stop="20251014065000 +0000">
+    <title lang="zh">吴克群 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014064300 +0000" stop="20251014064400 +0000">
+    <title lang="zh">李俊纬 + mad 刘汉杰 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014064000 +0000" stop="20251014064100 +0000">
+    <title lang="zh">Fuying 王赴颖 (fuying &amp;amp; sam) + lovell 陈馷佳 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014063600 +0000" stop="20251014063700 +0000">
+    <title lang="zh">菲道尔 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014062500 +0000" stop="20251014062600 +0000">
+    <title lang="zh">理想混蛋 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014062100 +0000" stop="20251014062200 +0000">
+    <title lang="zh">温力铭 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014061400 +0000" stop="20251014061500 +0000">
+    <title lang="zh">告五人 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014060800 +0000" stop="20251014060900 +0000">
+    <title lang="zh">Allday project + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014060400 +0000" stop="20251014060500 +0000">
+    <title lang="zh">陈奕迅 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014052300 +0000" stop="20251014052400 +0000">
+    <title lang="zh">蔡依林 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014050900 +0000" stop="20251014051000 +0000">
+    <title lang="zh">Mirror + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014050500 +0000" stop="20251014050600 +0000">
+    <title lang="zh">张韶涵 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014045100 +0000" stop="20251014045200 +0000">
+    <title lang="zh">温岚 + 冰球乐团 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014044600 +0000" stop="20251014044700 +0000">
+    <title lang="zh">77ke 柯棨棋 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014044200 +0000" stop="20251014044300 +0000">
+    <title lang="zh">单依纯 * + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014043600 +0000" stop="20251014043700 +0000">
+    <title lang="zh">容祖儿 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014042400 +0000" stop="20251014042500 +0000">
+    <title lang="zh">蔡咏琪 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014041900 +0000" stop="20251014042000 +0000">
+    <title lang="zh">Jvke + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014040900 +0000" stop="20251014041000 +0000">
+    <title lang="zh">张靓颖 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014040300 +0000" stop="20251014040400 +0000">
+    <title lang="zh">冯允谦 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014035200 +0000" stop="20251014035300 +0000">
+    <title lang="zh">孙燕姿 + Unknown</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014034000 +0000" stop="20251014034100 +0000">
+    <title lang="zh">薛凯琪 + Unknown</title>
     <desc>Unknown</desc>
   </programme>
 </channel>
