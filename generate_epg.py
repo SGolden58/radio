@@ -29,7 +29,7 @@ xml += '  <channel id="988"><display-name>988</display-name></channel>\n'
 
 for s in songs:
     start, stop, artist, title = s
-    xml += f'  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop.strftime("%Y%m%d%H%M%S")} +0800" channel="988fm.my">\n'
+    xml += f'  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop.strftime("%Y%m%d%H%M%S")} +0800" channel="988">\n'
     xml += f'    <title lang="en">{title}</title>\n'
     xml += f'    <desc>{artist}</desc>\n'
     xml += '  </programme>\n'
