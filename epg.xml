@@ -1,8 +1,16 @@
-<tv date="20251014131232 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<tv date="20251014132509 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=2025-10-14">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
-</channel>
+  <programme channel="988" start="20251014142100 +0000" stop="20251014143100 +0000">
+    <title lang="zh">卢广仲</title>
+    <desc>Unknown</desc>
+  </programme>
+  <programme channel="988" start="20251014142000 +0000" stop="20251014143000 +0000">
+    <title lang="zh">金池</title>
+    <desc>Unknown</desc>
+  </programme>
   <programme channel="988" start="20251014140700 +0000" stop="20251014141700 +0000">
     <title lang="zh">单依纯 *</title>
     <desc>Unknown</desc>
@@ -393,14 +401,6 @@
   </programme>
   <programme channel="988" start="20251014020600 +0000" stop="20251014021600 +0000">
     <title lang="zh">张栋梁 + 郭采洁</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014015200 +0000" stop="20251014020200 +0000">
-    <title lang="zh">龚芷葳</title>
-    <desc>Unknown</desc>
-  </programme>
-  <programme channel="988" start="20251014014500 +0000" stop="20251014015500 +0000">
-    <title lang="zh">陈奕迅</title>
     <desc>Unknown</desc>
   </programme>
 </channel>
