@@ -37,8 +37,8 @@ for row in songs_html[1:]:  # Skip header row
             "artist": artist
         })
 
-# Limit to the last 60 songs and reverse the order for latest on top
-songs = songs[-60:][::-1]  # Get the last 60 songs and reverse the list
+# Limit to the last 60 songs (if needed) and keep the order as is
+songs = songs[-60:]  # Get the last 60 songs
 
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
@@ -67,9 +67,12 @@ for s in songs:
     title = html.escape(s['title']).replace('&', '&amp;')
     artist = html.escape(s['artist']).replace('&', '&amp;')
 
-    # Append programme entry with title and artist in the correct tags
+    # Combine title and artist for the <title> tag
+    combined_title = f"{title} + {artist}"
+
+    # Append programme entry with combined title in the correct tags
     xml.append(f'''  <programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{title}</title>
+    <title lang="zh">{combined_title}</title>
     <desc>{artist}</desc>
   </programme>''')
 
