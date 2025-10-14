@@ -25,7 +25,7 @@ for row in songs_html[1:]:  # Skip header
             title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
         songs.append({
             "time": time_str,
-            "title": title,
+            "title": songs,
             "artist": artist
         })
 
@@ -38,7 +38,7 @@ xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988%26date={now.strftime("%Y%m%d")}&timezone=None">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988%ampdate={now.strftime("%Y%m%d")}&amptimezone=None">',
     '<channel id="988">',
     '<display-name lang="Malaysia">988</display-name>',
     '<icon src=""/>',
