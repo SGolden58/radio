@@ -1,307 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015045325 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
+<tv date="20251015051811 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="20251015215200 +0800" stop="20251015214659 +0800">
-  <title lang="zh">林家谦</title>
-  <desc lang="zh">林家谦</desc>
-  <date>21:52</date>
+<programme channel="988" start="20251015164900 +0800" stop="20251015163859 +0800">
+  <title lang="zh">薛之谦</title>
+  <desc lang="zh">刘界辉</desc>
+  <date>16:49</date>
 </programme>
-<programme channel="988" start="20251015214700 +0800" stop="20251015214259 +0800">
-  <title lang="zh">告五人</title>
-  <desc lang="zh">告五人</desc>
-  <date>21:47</date>
+<programme channel="988" start="20251015163900 +0800" stop="20251015163259 +0800">
+  <title lang="zh">刘界辉</title>
+  <desc lang="zh">Fuying &amp; sam</desc>
+  <date>16:39</date>
 </programme>
-<programme channel="988" start="20251015214300 +0800" stop="20251015213959 +0800">
-  <title lang="zh">梁静茹 + 卢广仲</title>
-  <desc lang="zh">梁静茹 + 卢广仲</desc>
-  <date>21:43</date>
-</programme>
-<programme channel="988" start="20251015214000 +0800" stop="20251015213459 +0800">
-  <title lang="zh">温力铭</title>
-  <desc lang="zh">温力铭</desc>
-  <date>21:40</date>
-</programme>
-<programme channel="988" start="20251015213500 +0800" stop="20251015213059 +0800">
-  <title lang="zh">杨丞琳</title>
-  <desc lang="zh">杨丞琳</desc>
-  <date>21:35</date>
-</programme>
-<programme channel="988" start="20251015213100 +0800" stop="20251015212759 +0800">
-  <title lang="zh">S.h.e</title>
-  <desc lang="zh">S.h.e</desc>
-  <date>21:31</date>
-</programme>
-<programme channel="988" start="20251015212800 +0800" stop="20251015212259 +0800">
-  <title lang="zh">林俊杰</title>
-  <desc lang="zh">林俊杰</desc>
-  <date>21:28</date>
-</programme>
-<programme channel="988" start="20251015212300 +0800" stop="20251015211859 +0800">
-  <title lang="zh">理想混蛋</title>
-  <desc lang="zh">理想混蛋</desc>
-  <date>21:23</date>
-</programme>
-<programme channel="988" start="20251015211900 +0800" stop="20251015211459 +0800">
-  <title lang="zh">古巨基</title>
-  <desc lang="zh">古巨基</desc>
-  <date>21:19</date>
-</programme>
-<programme channel="988" start="20251015211500 +0800" stop="20251015210959 +0800">
-  <title lang="zh">光良</title>
-  <desc lang="zh">光良</desc>
-  <date>21:15</date>
-</programme>
-<programme channel="988" start="20251015211000 +0800" stop="20251015210559 +0800">
-  <title lang="zh">卫兰</title>
+<programme channel="988" start="20251015163300 +0800" stop="20251015162559 +0800">
+  <title lang="zh">Fuying &amp; sam</title>
   <desc lang="zh">卫兰</desc>
-  <date>21:10</date>
+  <date>16:33</date>
 </programme>
-<programme channel="988" start="20251015210600 +0800" stop="20251015210059 +0800">
-  <title lang="zh">李荣浩</title>
-  <desc lang="zh">李荣浩</desc>
-  <date>21:06</date>
+<programme channel="988" start="20251015162600 +0800" stop="20251015161959 +0800">
+  <title lang="zh">卫兰</title>
+  <desc lang="zh">张碧晨</desc>
+  <date>16:26</date>
 </programme>
-<programme channel="988" start="20251015210100 +0800" stop="20251015205559 +0800">
-  <title lang="zh">毛不易 + 单依纯</title>
-  <desc lang="zh">毛不易 + 单依纯</desc>
-  <date>21:01</date>
+<programme channel="988" start="20251015162000 +0800" stop="20251015161559 +0800">
+  <title lang="zh">张碧晨</title>
+  <desc lang="zh">韦礼安</desc>
+  <date>16:20</date>
 </programme>
-<programme channel="988" start="20251015205600 +0800" stop="20251015205159 +0800">
-  <title lang="zh">李玖哲</title>
-  <desc lang="zh">李玖哲</desc>
-  <date>20:56</date>
+<programme channel="988" start="20251015161600 +0800" stop="20251015160959 +0800">
+  <title lang="zh">韦礼安</title>
+  <desc lang="zh">邱锋泽</desc>
+  <date>16:16</date>
 </programme>
-<programme channel="988" start="20251015205200 +0800" stop="20251015204759 +0800">
-  <title lang="zh">Tf boys</title>
-  <desc lang="zh">Tf boys</desc>
-  <date>20:52</date>
-</programme>
-<programme channel="988" start="20251015204800 +0800" stop="20251015204459 +0800">
-  <title lang="zh">萧秉治</title>
-  <desc lang="zh">萧秉治</desc>
-  <date>20:48</date>
-</programme>
-<programme channel="988" start="20251015204500 +0800" stop="20251015204059 +0800">
-  <title lang="zh">詹天文</title>
-  <desc lang="zh">詹天文</desc>
-  <date>20:45</date>
-</programme>
-<programme channel="988" start="20251015204100 +0800" stop="20251015203659 +0800">
-  <title lang="zh">Tyson yoshi + 张敬轩</title>
-  <desc lang="zh">Tyson yoshi + 张敬轩</desc>
-  <date>20:41</date>
-</programme>
-<programme channel="988" start="20251015203700 +0800" stop="20251015203259 +0800">
-  <title lang="zh">孙燕姿</title>
+<programme channel="988" start="20251015161000 +0800" stop="20251015160559 +0800">
+  <title lang="zh">邱锋泽</title>
   <desc lang="zh">孙燕姿</desc>
-  <date>20:37</date>
+  <date>16:10</date>
 </programme>
-<programme channel="988" start="20251015203300 +0800" stop="20251015202759 +0800">
-  <title lang="zh">曾沛慈</title>
-  <desc lang="zh">曾沛慈</desc>
-  <date>20:33</date>
+<programme channel="988" start="20251015160600 +0800" stop="20251015155959 +0800">
+  <title lang="zh">孙燕姿</title>
+  <desc lang="zh">戴佩妮</desc>
+  <date>16:06</date>
 </programme>
-<programme channel="988" start="20251015202800 +0800" stop="20251015202359 +0800">
-  <title lang="zh">容祖儿</title>
-  <desc lang="zh">容祖儿</desc>
-  <date>20:28</date>
+<programme channel="988" start="20251015160000 +0800" stop="20251015155659 +0800">
+  <title lang="zh">戴佩妮</title>
+  <desc lang="zh">Day6</desc>
+  <date>16:00</date>
 </programme>
-<programme channel="988" start="20251015202400 +0800" stop="20251015201959 +0800">
-  <title lang="zh">A-lin</title>
+<programme channel="988" start="20251015155700 +0800" stop="20251015154659 +0800">
+  <title lang="zh">Day6</title>
+  <desc lang="zh">郭家玮</desc>
+  <date>15:57</date>
+</programme>
+<programme channel="988" start="20251015154700 +0800" stop="20251015154159 +0800">
+  <title lang="zh">郭家玮</title>
+  <desc lang="zh">蔡旻佑 + 咔咔</desc>
+  <date>15:47</date>
+</programme>
+<programme channel="988" start="20251015154200 +0800" stop="20251015153659 +0800">
+  <title lang="zh">蔡旻佑 + 咔咔</title>
+  <desc lang="zh">Gaston 庞加斯顿</desc>
+  <date>15:42</date>
+</programme>
+<programme channel="988" start="20251015153700 +0800" stop="20251015153259 +0800">
+  <title lang="zh">Gaston 庞加斯顿</title>
+  <desc lang="zh">谭咏麟</desc>
+  <date>15:37</date>
+</programme>
+<programme channel="988" start="20251015153300 +0800" stop="20251015152659 +0800">
+  <title lang="zh">谭咏麟</title>
+  <desc lang="zh">张妙格</desc>
+  <date>15:33</date>
+</programme>
+<programme channel="988" start="20251015152700 +0800" stop="20251015151959 +0800">
+  <title lang="zh">张妙格</title>
+  <desc lang="zh">蔡依林</desc>
+  <date>15:27</date>
+</programme>
+<programme channel="988" start="20251015152000 +0800" stop="20251015151459 +0800">
+  <title lang="zh">蔡依林</title>
+  <desc lang="zh">林俊杰</desc>
+  <date>15:20</date>
+</programme>
+<programme channel="988" start="20251015151500 +0800" stop="20251015150959 +0800">
+  <title lang="zh">林俊杰</title>
+  <desc lang="zh">郭静</desc>
+  <date>15:15</date>
+</programme>
+<programme channel="988" start="20251015151000 +0800" stop="20251015150359 +0800">
+  <title lang="zh">郭静</title>
+  <desc lang="zh">杨千嬅</desc>
+  <date>15:10</date>
+</programme>
+<programme channel="988" start="20251015150400 +0800" stop="20251015145959 +0800">
+  <title lang="zh">杨千嬅</title>
+  <desc lang="zh">Hinry 刘卓轩</desc>
+  <date>15:04</date>
+</programme>
+<programme channel="988" start="20251015150000 +0800" stop="20251015145459 +0800">
+  <title lang="zh">Hinry 刘卓轩</title>
+  <desc lang="zh">丁当</desc>
+  <date>15:00</date>
+</programme>
+<programme channel="988" start="20251015145500 +0800" stop="20251015144859 +0800">
+  <title lang="zh">丁当</title>
+  <desc lang="zh">家家</desc>
+  <date>14:55</date>
+</programme>
+<programme channel="988" start="20251015144900 +0800" stop="20251015144159 +0800">
+  <title lang="zh">家家</title>
+  <desc lang="zh">周殷廷</desc>
+  <date>14:49</date>
+</programme>
+<programme channel="988" start="20251015144200 +0800" stop="20251015143759 +0800">
+  <title lang="zh">周殷廷</title>
+  <desc lang="zh">陈奕迅 + the duo band</desc>
+  <date>14:42</date>
+</programme>
+<programme channel="988" start="20251015143800 +0800" stop="20251015143159 +0800">
+  <title lang="zh">陈奕迅 + the duo band</title>
+  <desc lang="zh">Iu</desc>
+  <date>14:38</date>
+</programme>
+<programme channel="988" start="20251015143200 +0800" stop="20251015142659 +0800">
+  <title lang="zh">Iu</title>
+  <desc lang="zh">蕾拉</desc>
+  <date>14:32</date>
+</programme>
+<programme channel="988" start="20251015142700 +0800" stop="20251015142059 +0800">
+  <title lang="zh">蕾拉</title>
+  <desc lang="zh">卢广仲</desc>
+  <date>14:27</date>
+</programme>
+<programme channel="988" start="20251015142100 +0800" stop="20251015141959 +0800">
+  <title lang="zh">卢广仲</title>
+  <desc lang="zh">金池</desc>
+  <date>14:21</date>
+</programme>
+<programme channel="988" start="20251015142000 +0800" stop="20251015140659 +0800">
+  <title lang="zh">金池</title>
+  <desc lang="zh">单依纯 *</desc>
+  <date>14:20</date>
+</programme>
+<programme channel="988" start="20251015140700 +0800" stop="20251015135959 +0800">
+  <title lang="zh">单依纯 *</title>
+  <desc lang="zh">阎奕格</desc>
+  <date>14:07</date>
+</programme>
+<programme channel="988" start="20251015140000 +0800" stop="20251015135359 +0800">
+  <title lang="zh">阎奕格</title>
+  <desc lang="zh">容祖儿 + 张敬轩</desc>
+  <date>14:00</date>
+</programme>
+<programme channel="988" start="20251015135400 +0800" stop="20251015134959 +0800">
+  <title lang="zh">容祖儿 + 张敬轩</title>
   <desc lang="zh">A-lin</desc>
-  <date>20:24</date>
+  <date>13:54</date>
 </programme>
-<programme channel="988" start="20251015202000 +0800" stop="20251015201559 +0800">
-  <title lang="zh">瘦子e.so</title>
-  <desc lang="zh">瘦子e.so</desc>
-  <date>20:20</date>
-</programme>
-<programme channel="988" start="20251015201600 +0800" stop="20251015201059 +0800">
-  <title lang="zh">王菀之</title>
-  <desc lang="zh">王菀之</desc>
-  <date>20:16</date>
-</programme>
-<programme channel="988" start="20251015201100 +0800" stop="20251015200759 +0800">
-  <title lang="zh">刘力扬</title>
-  <desc lang="zh">刘力扬</desc>
-  <date>20:11</date>
-</programme>
-<programme channel="988" start="20251015200800 +0800" stop="20251015200359 +0800">
-  <title lang="zh">Wolf(s) 五坚情</title>
-  <desc lang="zh">Wolf(s) 五坚情</desc>
-  <date>20:08</date>
-</programme>
-<programme channel="988" start="20251015200400 +0800" stop="20251015200059 +0800">
-  <title lang="zh">Billie eilish</title>
-  <desc lang="zh">Billie eilish</desc>
-  <date>20:04</date>
-</programme>
-<programme channel="988" start="20251015200100 +0800" stop="20251015195259 +0800">
-  <title lang="zh">派伟俊 patrick brasca + 周杰伦</title>
-  <desc lang="zh">派伟俊 patrick brasca + 周杰伦</desc>
-  <date>20:01</date>
-</programme>
-<programme channel="988" start="20251015195300 +0800" stop="20251015194959 +0800">
-  <title lang="zh">张与辰</title>
-  <desc lang="zh">张与辰</desc>
-  <date>19:53</date>
-</programme>
-<programme channel="988" start="20251015195000 +0800" stop="20251015194559 +0800">
-  <title lang="zh">方力申</title>
-  <desc lang="zh">方力申</desc>
-  <date>19:50</date>
-</programme>
-<programme channel="988" start="20251015194600 +0800" stop="20251015194059 +0800">
-  <title lang="zh">黎明</title>
-  <desc lang="zh">黎明</desc>
-  <date>19:46</date>
-</programme>
-<programme channel="988" start="20251015194100 +0800" stop="20251015193559 +0800">
-  <title lang="zh">Ian 陈卓贤 (mirror成员)</title>
-  <desc lang="zh">Ian 陈卓贤 (mirror成员)</desc>
-  <date>19:41</date>
-</programme>
-<programme channel="988" start="20251015193600 +0800" stop="20251015193259 +0800">
-  <title lang="zh">周柏豪</title>
-  <desc lang="zh">周柏豪</desc>
-  <date>19:36</date>
-</programme>
-<programme channel="988" start="20251015193300 +0800" stop="20251015192959 +0800">
-  <title lang="zh">林家谦</title>
-  <desc lang="zh">林家谦</desc>
-  <date>19:33</date>
-</programme>
-<programme channel="988" start="20251015193000 +0800" stop="20251015192559 +0800">
-  <title lang="zh">周吉佩</title>
-  <desc lang="zh">周吉佩</desc>
-  <date>19:30</date>
-</programme>
-<programme channel="988" start="20251015192600 +0800" stop="20251015192159 +0800">
-  <title lang="zh">郑中基</title>
-  <desc lang="zh">郑中基</desc>
-  <date>19:26</date>
-</programme>
-<programme channel="988" start="20251015192200 +0800" stop="20251015191659 +0800">
-  <title lang="zh">林海峰</title>
-  <desc lang="zh">林海峰</desc>
-  <date>19:22</date>
-</programme>
-<programme channel="988" start="20251015191700 +0800" stop="20251015191359 +0800">
-  <title lang="zh">林峯</title>
-  <desc lang="zh">林峯</desc>
-  <date>19:17</date>
-</programme>
-<programme channel="988" start="20251015191400 +0800" stop="20251015190859 +0800">
-  <title lang="zh">张进翘</title>
-  <desc lang="zh">张进翘</desc>
-  <date>19:14</date>
-</programme>
-<programme channel="988" start="20251015190900 +0800" stop="20251015190459 +0800">
-  <title lang="zh">刘德华</title>
-  <desc lang="zh">刘德华</desc>
-  <date>19:09</date>
-</programme>
-<programme channel="988" start="20251015190500 +0800" stop="20251015190159 +0800">
-  <title lang="zh">侧田</title>
-  <desc lang="zh">侧田</desc>
-  <date>19:05</date>
-</programme>
-<programme channel="988" start="20251015190200 +0800" stop="20251015185859 +0800">
-  <title lang="zh">Gareth.t 汤令山</title>
-  <desc lang="zh">Gareth.t 汤令山</desc>
-  <date>19:02</date>
-</programme>
-<programme channel="988" start="20251015185900 +0800" stop="20251015185259 +0800">
-  <title lang="zh">陈奕迅</title>
-  <desc lang="zh">陈奕迅</desc>
-  <date>18:59</date>
-</programme>
-<programme channel="988" start="20251015185300 +0800" stop="20251015184959 +0800">
-  <title lang="zh">Twins</title>
-  <desc lang="zh">Twins</desc>
-  <date>18:53</date>
-</programme>
-<programme channel="988" start="20251015185000 +0800" stop="20251015184459 +0800">
-  <title lang="zh">Elva 苏妍</title>
-  <desc lang="zh">Elva 苏妍</desc>
-  <date>18:50</date>
-</programme>
-<programme channel="988" start="20251015184500 +0800" stop="20251015184159 +0800">
-  <title lang="zh">G.e.m 邓紫棋</title>
-  <desc lang="zh">G.e.m 邓紫棋</desc>
-  <date>18:45</date>
-</programme>
-<programme channel="988" start="20251015184200 +0800" stop="20251015183659 +0800">
-  <title lang="zh">小乐哥 (王唯乐)</title>
-  <desc lang="zh">小乐哥 (王唯乐)</desc>
-  <date>18:42</date>
-</programme>
-<programme channel="988" start="20251015183700 +0800" stop="20251015183359 +0800">
-  <title lang="zh">大张伟</title>
-  <desc lang="zh">大张伟</desc>
-  <date>18:37</date>
-</programme>
-<programme channel="988" start="20251015183400 +0800" stop="20251015182759 +0800">
-  <title lang="zh">于文文</title>
-  <desc lang="zh">于文文</desc>
-  <date>18:34</date>
-</programme>
-<programme channel="988" start="20251015182800 +0800" stop="20251015182359 +0800">
-  <title lang="zh">五月天</title>
-  <desc lang="zh">五月天</desc>
-  <date>18:28</date>
-</programme>
-<programme channel="988" start="20251015182400 +0800" stop="20251015182059 +0800">
-  <title lang="zh">F.i.r</title>
-  <desc lang="zh">F.i.r</desc>
-  <date>18:24</date>
-</programme>
-<programme channel="988" start="20251015182100 +0800" stop="20251015180559 +0800">
+<programme channel="988" start="20251015135000 +0800" stop="20251015134359 +0800">
   <title lang="zh">A-lin</title>
-  <desc lang="zh">A-lin</desc>
-  <date>18:21</date>
+  <desc lang="zh">Tf boys 王源</desc>
+  <date>13:50</date>
 </programme>
-<programme channel="988" start="20251015180600 +0800" stop="20251015180059 +0800">
-  <title lang="zh">汪苏泷</title>
-  <desc lang="zh">汪苏泷</desc>
-  <date>18:06</date>
-</programme>
-<programme channel="988" start="20251015180100 +0800" stop="20251015175759 +0800">
-  <title lang="zh">李荣浩</title>
-  <desc lang="zh">李荣浩</desc>
-  <date>18:01</date>
-</programme>
-<programme channel="988" start="20251015175800 +0800" stop="20251015175259 +0800">
-  <title lang="zh">谢安琪</title>
-  <desc lang="zh">谢安琪</desc>
-  <date>17:58</date>
-</programme>
-<programme channel="988" start="20251015175300 +0800" stop="20251015174759 +0800">
-  <title lang="zh">张与辰</title>
-  <desc lang="zh">张与辰</desc>
-  <date>17:53</date>
-</programme>
-<programme channel="988" start="20251015174800 +0800" stop="20251015174359 +0800">
-  <title lang="zh">Mc 张天赋</title>
-  <desc lang="zh">Mc 张天赋</desc>
-  <date>17:48</date>
-</programme>
-<programme channel="988" start="20251015174400 +0800" stop="20251015173959 +0800">
-  <title lang="zh">Bii 毕书尽</title>
-  <desc lang="zh">Bii 毕书尽</desc>
-  <date>17:44</date>
-</programme>
-<programme channel="988" start="20251015174000 +0800" stop="20251015173759 +0800">
-  <title lang="zh">队长 + 鹿晗</title>
-  <desc lang="zh">队长 + 鹿晗</desc>
-  <date>17:40</date>
-</programme>
-<programme channel="988" start="20251015173800 +0800" stop="20251015174000 +0800">
-  <title lang="zh">瘦子e.so</title>
-  <desc lang="zh">瘦子e.so</desc>
-  <date>17:38</date>
+<programme channel="988" start="20251015134400 +0800" stop="20251015134600 +0800">
+  <title lang="zh">Tf boys 王源</title>
+  <desc lang="zh"></desc>
+  <date>13:44</date>
 </programme>
 </tv>
