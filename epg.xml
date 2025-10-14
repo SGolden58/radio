@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015031920 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">
+<tv date="20251015033028 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015202800 +0000" stop="20251015203800 +0000">
+    <title lang="zh">容祖儿</title>
+    <desc>Unknown</desc>
+    <date>20:28</date>
+</programme>
+<programme channel="988" start="20251015202400 +0000" stop="20251015203400 +0000">
+    <title lang="zh">A-lin</title>
+    <desc>Unknown</desc>
+    <date>20:24</date>
+</programme>
+<programme channel="988" start="20251015202000 +0000" stop="20251015203000 +0000">
+    <title lang="zh">瘦子e.so</title>
+    <desc>Unknown</desc>
+    <date>20:20</date>
+</programme>
 <programme channel="988" start="20251015201600 +0000" stop="20251015202600 +0000">
     <title lang="zh">王菀之</title>
     <desc>Unknown</desc>
@@ -288,20 +303,5 @@
     <title lang="zh">谭咏麟</title>
     <desc>Unknown</desc>
     <date>15:33</date>
-</programme>
-<programme channel="988" start="20251015152700 +0000" stop="20251015153700 +0000">
-    <title lang="zh">张妙格</title>
-    <desc>Unknown</desc>
-    <date>15:27</date>
-</programme>
-<programme channel="988" start="20251015152000 +0000" stop="20251015153000 +0000">
-    <title lang="zh">蔡依林</title>
-    <desc>Unknown</desc>
-    <date>15:20</date>
-</programme>
-<programme channel="988" start="20251015151500 +0000" stop="20251015152500 +0000">
-    <title lang="zh">林俊杰</title>
-    <desc>Unknown</desc>
-    <date>15:15</date>
 </programme>
 </tv>
