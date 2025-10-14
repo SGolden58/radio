@@ -15,18 +15,19 @@ songs = []
 for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
-        time_str = cols[0].get_text(strip=True)
+        time_str = cols[0].get_text(strip=True)  # e.g., 4:55
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
             songs.append({"time": time_str, "artist": artist, "title": title})
 
-# === 3️⃣ Prepare start times and stop times (Kuala Lumpur UTC+8) ===
-tz = datetime.timezone(datetime.timedelta(hours=8))  # KL timezone
+# === 3️⃣ Prepare start times and stop times (KL UTC+8) ===
+tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
-start_times = []
 
+start_times = []
 for s in songs:
+    # Convert "4:55" to datetime with today's date
     h, m = map(int, s["time"].split(":"))
     dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
     start_times.append(dt)
@@ -59,10 +60,13 @@ for i, s in enumerate(songs):
     title_escaped = html.escape(s["artist"], quote=True)
     desc_escaped = html.escape(s["title"], quote=True)
 
+    # Format AM/PM for <date>
+    ampm_time = start_dt.strftime("%I:%M %p").lstrip("0")
+
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title lang="zh">{title_escaped}</title>')
     xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
-    xml.append(f'  <date>{s["time"]}</date>')
+    xml.append(f'  <date>{ampm_time}</date>')
     xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
@@ -72,4 +76,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} songs, KL timezone applied")
+print(f"✅ EPG.xml generated — {len(songs)} songs, KL timezone applied, correct AM/PM times")
