@@ -1,10 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 import yaml
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def load_config():
-    with open('config.yaml', 'r') as file:
+    with open('update_epg.yml', 'r') as file:
         return yaml.safe_load(file)
 
 def fetch_playlist(url):
@@ -21,27 +21,29 @@ def fetch_playlist(url):
         artist = item.select_one('.artist-name').get_text(strip=True)  # Update this selector
         songs.append({'title': title, 'artist': artist})
 
-    return songs[:60]  # Limit to the latest 60 songs
+    return songs[:config['epg']['max_songs']]  # Limit to the configured max songs
 
-def generate_xml(songs):
+def generate_xml(songs, config):
     now = datetime.now()
     xml = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={}">'.format(
-            now.strftime("%Y%m%d%H%M%S"), now.strftime("%Y-%m-%d")),
+        '<tv date="{} {}" generator-info-url="{}" source-info-url="{}">'.format(
+            now.strftime("%Y%m%d%H%M%S"), config['epg']['timezone'],
+            config['epg']['generator_info_url'], config['epg']['generator_info_url']
+        ),
         '<channel id="988">',
         '<display-name lang="Malaysia">988</display-name>',
         '<icon src=""/>'
     ]
 
     for song in songs:
-        xml.append('<programme start="{}" stop="{}">'.format(
-            now.strftime("%Y%m%d%H%M%S"), 
-            (now + timedelta(minutes=3)).strftime("%Y%m%d%H%M%S")  # Example duration of 3 minutes
-        ))
+        start_time = now.strftime("%Y%m%d%H%M%S")
+        stop_time = (now + timedelta(minutes=config['epg']['programme_duration_minutes'])).strftime("%Y%m%d%H%M%S")
+        xml.append('<programme start="{}" stop="{}">'.format(start_time, stop_time))
         xml.append('<title>{}</title>'.format(song['title']))
         xml.append('<desc>{}</desc>'.format(song['artist']))
         xml.append('</programme>')
+        now += timedelta(minutes=config['epg']['programme_duration_minutes'])  # Increment time
 
     xml.append('</channel>')
     xml.append('</tv>')
@@ -50,16 +52,16 @@ def generate_xml(songs):
 
 def main():
     config = load_config()
-    url = config['url']
+    url = config['epg']['url']
     
     # Fetch the playlist from the URL
     songs = fetch_playlist(url)
     
     # Generate the XML
-    epg_xml = generate_xml(songs)
+    epg_xml = generate_xml(songs, config)
     
     # Save the XML to a file
-    with open('epg.xml', 'w', encoding='utf-8') as file:
+    with open(config['epg']['output_file'], 'w', encoding='utf-8') as file:
         file.write(epg_xml)
 
     print("EPG XML generated successfully!")
