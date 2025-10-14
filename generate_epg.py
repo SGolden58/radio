@@ -35,7 +35,7 @@ for i, e in enumerate(epg_entries):
     if i+1 < len(epg_entries):
         stop = epg_entries[i+1]["start"]
     else:
-        stop = "99999999999999 +0000"  # placeholder for last song
+        stop = "33 +0000"  # placeholder for last song
 
     xml.append(f'''  <programme start="{start}" stop="{stop}" channel="Radio">
     <title lang="en">{e["title"]}</title>
