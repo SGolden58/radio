@@ -1,40 +1,57 @@
 name: Update Radio EPG
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "*/10 * * * *"  # runs every hour (optional)
-
-permissions:
-  contents: write    # ✅ allow writing files back to the repo
+    - cron: '*/10 * * * *'   # runs every 15 minutes
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: pip install requests beautifulsoup4
-
-      - name: Generate EPG XML
-        run: python generate_epg.py
-
-      - name: Commit and push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate epg.xml
         run: |
-          git config --global user.name "GitHub Actions"
+          echo "Creating epg.xml..."
+          python3 << 'EOF'
+import requests, html, datetime
+
+url = "https://player.listenlive.co/63371/en/songhistory"
+r = requests.get(url)
+songs = r.json().get("songs", [])[:10]  # take 10 latest songs
+
+now = datetime.datetime.utcnow()
+xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv generator-info-name="Radio EPG Script">']
+xml.append('  <channel id="988"><display-name>988 FM</display-name></channel>')
+
+for i, s in enumerate(songs):
+    start = now - datetime.timedelta(minutes=i*15)
+    stop = start + datetime.timedelta(minutes=15)
+    title = html.escape(s.get("title", "Unknown Song"))
+    artist = html.escape(s.get("artist", "Unknown Artist"))
+    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="988">
+    <title lang="en">{title}</title>
+    <desc>{artist}</desc>
+  </programme>''')
+
+xml.append("</tv>")
+
+with open("epg.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(xml))
+EOF
+
+      - name: Commit and push changes
+        run: |
           git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git pull origin main --rebase || true
           git add epg.xml
-          git commit -m "Update EPG $(date)"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git main
+          git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
