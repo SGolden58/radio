@@ -38,38 +38,12 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
 
-# === 4️⃣ XML header ===
+# === 4️⃣ XML header with your requested format ===
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")}" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
-    '<display-name lang="zh">988</display-name>',
-    '<icon src=""/>',
-    '</channel>'
-]
-
-# === 5️⃣ Add programmes ===
-for i, s in enumerate(songs):
-    start_dt = start_times[i]
-    stop_dt = stop_times[i]
-
-    title_escaped = html.escape(s["artist"], quote=True)
-    desc_escaped = html.escape(s["title"], quote=True)
-
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-    xml.append(f'  <title lang="zh">{title_escaped}</title>')
-    xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
-    xml.append(f'  <date>{s["time"]}</date>')
-    xml.append('</programme>')
-
-# === 6️⃣ Close XML ===
-xml.append('</tv>')
-
-# === 7️⃣ Save XML ===
-with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write("\n".join(xml))
-
-print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
+    '<display-name lang="zh">988<
