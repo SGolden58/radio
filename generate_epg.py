@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import html
+from datetime import datetime
 
 # === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
@@ -18,7 +19,13 @@ for row in rows[1:]:  # skip header
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
-            songs.append({"time": time_str, "artist": artist, "title": title})
+            # Convert time to AM/PM for display
+            try:
+                dt = datetime.strptime(time_str, "%H:%M")
+                time_ampm = dt.strftime("%I:%M %p").lstrip("0").replace("AM", "am").replace("PM", "pm")
+            except:
+                time_ampm = time_str
+            songs.append({"time": time_str, "artist": artist, "title": title, "ampm": time_ampm})
 
 # === 3️⃣ Build XML ===
 xml = [
@@ -35,12 +42,12 @@ for i, song in enumerate(songs):
     if i + 1 < len(songs):
         stop_time = songs[i + 1]["time"]
     else:
-        stop_time = start_time  # last song same start as stop
+        stop_time = start_time  # last song
 
     xml.append(f'<programme channel="988" start="{start_time}" stop="{stop_time}">')
     xml.append(f'  <title lang="zh">{html.escape(song["artist"])}</title>')
     xml.append(f'  <desc lang="zh">{html.escape(song["title"])}</desc>')
-    xml.append(f'  <date>{start_time}</date>')
+    xml.append(f'  <date>{song["ampm"]}</date>')
     xml.append('</programme>')
 
 xml.append('</tv>')
@@ -49,4 +56,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} songs, times exactly as URL")
+print(f"✅ EPG.xml generated — {len(songs)} songs, times exactly as URL with AM/PM")
