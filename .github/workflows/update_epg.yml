@@ -2,7 +2,7 @@ name: Update Radio EPG
 
 on:
   schedule:
-    - cron: '*/10 * * * *'   # runs every 15 minutes
+    - cron: '0 * * * *'   # runs every hour
   workflow_dispatch:
 
 jobs:
@@ -23,20 +23,20 @@ jobs:
           python3 << 'EOF'
 import requests, html, datetime
 
+# Replace with your real JSON or HTML radio playlist source:
 url = "https://player.listenlive.co/63371/en/songhistory"
 r = requests.get(url)
-songs = r.json().get("songs", [])[:10]  # take 10 latest songs
+songs = r.json().get("songs", [])[:10]  # get latest 10 songs
 
 now = datetime.datetime.utcnow()
-xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv generator-info-name="Radio EPG Script">']
-xml.append('  <channel id="988"><display-name>988 FM</display-name></channel>')
+xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
 
 for i, s in enumerate(songs):
     start = now - datetime.timedelta(minutes=i*15)
     stop = start + datetime.timedelta(minutes=15)
     title = html.escape(s.get("title", "Unknown Song"))
     artist = html.escape(s.get("artist", "Unknown Artist"))
-    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="988">
+    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="Radio">
     <title lang="en">{title}</title>
     <desc>{artist}</desc>
   </programme>''')
