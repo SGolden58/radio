@@ -36,7 +36,9 @@ songs = songs[:60]
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia Time
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={now.strftime("%Y%m%d")}&timezone=None">',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988%26date={now.strftime("%Y%m%d")}&timezone=None">',
     '<channel id="988">',
     '<display-name lang="Malaysia">988</display-name>',
     '<icon src=""/>',
@@ -56,9 +58,13 @@ for s in songs:
     title_escaped = html.escape(s['title']).replace('&', '&amp;')
     artist_escaped = html.escape(s['artist']).replace('&', '&amp;')
 
+    # Format title and description as per your requirement
+    formatted_title = f"{title_escaped}(songs)"
+    formatted_desc = f"{artist_escaped}(artist)"
+
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{title_escaped}</title>
-    <desc>{artist_escaped}</desc>
+    <title lang="zh">{formatted_title}</title>
+    <desc>{formatted_desc}</desc>
     <date>{s["time"]}</date>
 </programme>''')
 
