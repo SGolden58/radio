@@ -43,7 +43,7 @@ print(f"Extracted songs: {songs}")
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
 xml = [
-    '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={}">'.format(
+    '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml">'.format(
         now.strftime("%Y%m%d%H%M%S"), now.strftime("%Y-%m-%d")),
     '<channel id="988">',
     '<display-name lang="Malaysia">988</display-name>',
