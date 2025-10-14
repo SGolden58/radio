@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015072130" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015072729" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015002300 +0800" stop="20251015001659 +0800">
+  <title lang="zh">文慧如</title>
+  <desc lang="zh">Everytime it hurts</desc>
+  <date>12:23 AM</date>
+</programme>
 <programme channel="988" start="20251015001700 +0800" stop="20251015000959 +0800">
   <title lang="zh">告五人</title>
   <desc lang="zh">黑夜狂奔</desc>
