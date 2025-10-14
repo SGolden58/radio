@@ -1,81 +1,75 @@
-#!/usr/bin/env python3
-"""
-988 FM EPG Generator v3.3 - Final Implementation
-"""
-
-import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
 import requests
-from typing import List, Dict
+from bs4 import BeautifulSoup
+import datetime
+import html
 
-EPG_URL = "https://sgolden58.github.io/radio/epg.xml"
-TIMEZONE_OFFSET = timedelta(hours=8)  # UTC+8
+# URL to fetch the playlist
+url = "https://radio-online.my/988-fm-playlist"
+r = requests.get(url)
+r.raise_for_status()
 
-def fetch_playlist() -> List[Dict]:
-    """Retrieve and parse live playlist data from specified URL"""
+soup = BeautifulSoup(r.text, "html.parser")
+
+# Select the songs from the table
+songs_html = soup.select("table tr")  # Adjust selector as needed
+songs = []
+
+for row in songs_html[1:]:  # Skip header
+    cols = row.find_all("td")
+    if len(cols) >= 2:
+        time_str = cols[0].get_text(strip=True)
+        title_artist = cols[1].get_text(strip=True)
+        if " - " in title_artist:
+            title, artist = title_artist.split(" - ", 1)
+        else:
+            title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
+        songs.append({
+            "time": time_str,
+            "title": title,  # Directly use the title from the playlist
+            "artist": artist
+        })
+
+# Limit to the latest 60 songs
+songs = songs[:60]
+
+# Build XML
+now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia Time
+xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={now.strftime("%Y%m%d")}&timezone=None">',
+    '<channel id="988">',
+    '<display-name lang="Malaysia">988</display-name>',
+    '<icon src=""/>',
+    '</channel>'
+]
+
+# Add each song as a programme
+for s in songs:
     try:
-        response = requests.get(EPG_URL, timeout=10)
-        response.raise_for_status()
-        
-        root = ET.fromstring(response.content)
-        return [
-            {
-                "title": prog.find('title').text.strip(),
-                "artist": prog.find('artist').text.strip(),
-                "duration": int(prog.find('duration').text)
-            }
-            for prog in root.findall('.//program')
-        ][::-1]  # Reverse for chronological order
-    
-    except Exception as e:
-        raise RuntimeError(f"Failed to fetch playlist: {str(e)}")
+        h, m = map(int, s["time"].split(":"))
+        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
+        stop = start + datetime.timedelta(minutes=10)  # 10 min per song
+    except ValueError:
+        continue  # Skip if time parsing fails
 
-def generate_epg() -> str:
-    """Generate EPG with millisecond-accurate timing and formatted titles"""
-    base_time = datetime.utcnow() + TIMEZONE_OFFSET
-    time_anchor = base_time.replace(microsecond=500000)  # Broadcast alignment
-    
-    tv = ET.Element("tv", 
-        date=time_anchor.strftime("%Y%m%d%H%M%S"),
-        generator-info-url=EPG_URL
-    )
-    
-    # Channel configuration
-    channel = ET.SubElement(tv, "channel", id="988")
-    ET.SubElement(channel, "display-name", lang="zh").text = "988 FM"
-    
-    try:
-        programs = fetch_playlist()
-        current_end = time_anchor
-        
-        for program in programs:
-            start_time = current_end - timedelta(seconds=program["duration"])
-            
-            programme = ET.SubElement(tv, "programme",
-                channel="988",
-                start=start_time.strftime("%Y%m%d%H%M%S +0800"),
-                stop=current_end.strftime("%Y%m%d%H%M%S +0800")
-            )
-            
-            # Formatted title with combined song and artist
-            formatted_title = f"{program['title']} - {program['artist']}"
-            ET.SubElement(programme, "title", lang="zh").text = formatted_title
-            ET.SubElement(programme, "desc").text = program['artist']
-            ET.SubElement(programme, "length", units="seconds").text = str(program["duration"])
-            
-            current_end = start_time
-            
-    except Exception as e:
-        ET.SubElement(tv, "error").text = str(e)
-    
-    ET.indent(tv, space="\t")
-    return ET.tostring(tv, encoding="utf-8", xml_declaration=True).decode()
+    # Escape title and artist names to handle special characters
+    title_escaped = html.escape(s['title'])
+    artist_escaped = html.escape(s['artist'])
 
-if __name__ == "__main__":
-    try:
-        epg_xml = generate_epg()
-        with open("988_epg.xml", "w", encoding="utf-8") as f:
-            f.write(epg_xml)
-        print(f"EPG generated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')}")
-    except Exception as e:
-        print(f"Critical error: {str(e)}")
+    # Format title and description as per your requirement
+    formatted_title = title_escaped  # Use the title directly
+    formatted_desc = artist_escaped  # Use the artist directly
+
+    xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
+    <title lang="zh">{formatted_title}</title>
+    <desc>{formatted_desc}</desc>
+    <date>{s["time"]}</date>
+</programme>''')
+
+xml.append("</tv>")
+
+# Write to epg.xml
+with open("epg.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(xml))
