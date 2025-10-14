@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015022610 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date=20251015&amptimezone=None">
+<tv date="20251015023204 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&ampdate=20251015&amptimezone=None">
 <channel id="988">
 <display-name lang="Malaysia">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015193000 +0000" stop="20251015194000 +0000">
+    <title lang="zh">song</title>
+    <desc>Unknown Artist</desc>
+    <date>19:30</date>
+</programme>
+<programme channel="988" start="20251015192600 +0000" stop="20251015193600 +0000">
+    <title lang="zh">song</title>
+    <desc>Unknown Artist</desc>
+    <date>19:26</date>
+</programme>
 <programme channel="988" start="20251015192200 +0000" stop="20251015193200 +0000">
     <title lang="zh">song</title>
     <desc>Unknown Artist</desc>
@@ -293,15 +303,5 @@
     <title lang="zh">song</title>
     <desc>Unknown Artist</desc>
     <date>14:20</date>
-</programme>
-<programme channel="988" start="20251015140700 +0000" stop="20251015141700 +0000">
-    <title lang="zh">song</title>
-    <desc>Unknown Artist</desc>
-    <date>14:07</date>
-</programme>
-<programme channel="988" start="20251015140000 +0000" stop="20251015141000 +0000">
-    <title lang="zh">song</title>
-    <desc>Unknown Artist</desc>
-    <date>14:00</date>
 </programme>
 </tv>
