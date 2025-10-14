@@ -9,22 +9,33 @@ r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
 # === 2️⃣ Extract songs from table ===
-songs_html = soup.select("table tr")
+# Using a more flexible selector to handle <tbody> if present
+rows = soup.select("table tr")
 songs = []
 
-for row in songs_html[1:]:  # skip header
+for row in rows:
     cols = row.find_all("td")
     if len(cols) >= 2:
         time_str = cols[0].get_text(strip=True)
         title_artist = cols[1].get_text(strip=True)
 
+        if not time_str or not title_artist:
+            continue
+
+        # Split artist and title
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
-            title, artist = title.strip(), artist.strip()
         else:
             title, artist = title_artist.strip(), ""
 
-        songs.append({"time": time_str, "title": title, "artist": artist})
+        title = title.strip()
+        artist = artist.strip()
+
+        songs.append({
+            "time": time_str,  # Use the exact time from the site
+            "title": title,
+            "artist": artist
+        })
 
 # Keep latest 60 songs
 songs = songs[:60]
@@ -33,7 +44,7 @@ songs = songs[:60]
 tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
 
-# Parse start times
+# === 4️⃣ Parse start times ===
 start_times = []
 for s in songs:
     try:
@@ -43,7 +54,7 @@ for s in songs:
     except Exception:
         start_times.append(None)
 
-# === 4️⃣ XML header ===
+# === 5️⃣ Build XML header ===
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -56,43 +67,32 @@ xml = [
     '</channel>'
 ]
 
-# === 5️⃣ Add programme entries ===
+# === 6️⃣ Add programme entries ===
 for i, s in enumerate(songs):
     start_dt = start_times[i]
     if not start_dt:
         continue
 
-    # Stop time = 1 second before next song
+    # Stop = 1 second before next song
     if i + 1 < len(start_times) and start_times[i + 1]:
         stop_dt = start_times[i + 1] - datetime.timedelta(seconds=1)
     else:
-        # If last song, just +2 minutes (arbitrary, won't matter)
         stop_dt = start_dt + datetime.timedelta(minutes=2)
 
-    artist = s["artist"].strip()
-    title = s["title"].strip()
+    artist = s["artist"]
+    title = s["title"]
 
-    # Remove duplicates like "杨丞琳 - 杨丞琳"
+    # Fix identical artist/title
     if artist == title:
-        title = ""
-
-    if artist and title:
-        display = f"{artist} - {title}"
+        display_title = artist
+        # Fallback desc = next song title if exists
+        display_desc = songs[i + 1]["title"] if i + 1 < len(songs) else artist
     else:
-        display = artist or title  # show whichever exists
+        display_title = artist or title
+        display_desc = title or artist
 
-    display_escaped = html.escape(display, quote=True)
+    # Escape XML
+    title_escaped = html.escape(display_title, quote=True)
+    desc_escaped = html.escape(display_desc, quote=True)
 
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-    xml.append(f'  <title lang="zh">{display_escaped}</title>')
-    xml.append(f'  <desc lang="zh">{display_escaped}</desc>')
-    xml.append(f'  <date>{s["time"]}</date>')
-    xml.append('</programme>')
-
-xml.append('</tv>')
-
-# === 6️⃣ Save XML ===
-with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write("\n".join(xml))
-
-print("✅ EPG.xml generated successfully — accurate start times, clean display")
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{sto_
