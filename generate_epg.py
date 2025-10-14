@@ -1,42 +1,50 @@
-import requests
-from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-import xml.sax.saxutils as saxutils  # ✅ use this to escape & < >
 
-url = "https://radio-online.my/988-fm-playlist"
-res = requests.get(url)
-soup = BeautifulSoup(res.text, "html.parser")
+# OUTPUT XML FILE
+output_file = "epg.xml"
 
-rows = soup.select("table tbody tr")
+# CHANNEL INFO
+channel_id = "988"
+channel_name = "988 FM"
+channel_logo = "https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"
 
-songs = []
-for row in rows:
-    cols = [c.text.strip() for c in row.find_all("td")]
-    if len(cols) >= 3:
-        time_str, artist, title = cols[:3]
-        songs.append((time_str, artist, title))
+# SONG LIST (replace with your songs/artists)
+songs = [
+    ("Song 1", "Artist 1"),
+    ("Song 2", "Artist 2"),
+    ("Song 3", "Artist 3"),
+    ("Song 4", "Artist 4"),
+    ("Song 5", "Artist 5"),
+    ("Song 6", "Artist 6"),
+    ("Song 7", "Artist 7"),
+    ("Song 8", "Artist 8"),
+    ("Song 9", "Artist 9"),
+    ("Song 10", "Artist 10"),
+]
 
-# Only take first 10
-songs = songs[:10]
+# START TIME
+start_time = datetime.now().replace(minute=0, second=0, microsecond=0)
 
-xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv generator-info-name="Radio EPG Script">\n'
-xml += '  <channel id="988"><display-name>988 FM</display-name></channel>\n'
+# WRITE XML
+with open(output_file, "w", encoding="utf-8") as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+    f.write(f'<tv generator-info-name="Radio EPG Script">\n')
+    f.write(f'  <channel id="{channel_id}">\n')
+    f.write(f'    <display-name>{channel_name}</display-name>\n')
+    f.write(f'    <icon src="{channel_logo}"/>\n')
+    f.write(f'  </channel>\n\n')
 
-now = datetime.now().replace(second=0, microsecond=0)
-for i, (time_str, artist, title) in enumerate(songs):
-    start = now + timedelta(minutes=i * 5)
-    stop = start + timedelta(minutes=5)
+    for i, (title, artist) in enumerate(songs):
+        start = start_time + timedelta(minutes=5*i)
+        stop = start + timedelta(minutes=5)
+        start_str = start.strftime("%Y%m%d%H%M%S +0800")
+        stop_str = stop.strftime("%Y%m%d%H%M%S +0800")
+        date_str = start.strftime("%Y-%m-%d")
 
-    # ✅ Properly escape dangerous characters like & < >
-    artist = saxutils.escape(artist)
-    title = saxutils.escape(title)
+        f.write(f'  <programme channel="{channel_id}" start="{start_str}" stop="{stop_str}">\n')
+        f.write(f'    <title lang="zh">{title}</title>\n')
+        f.write(f'    <desc>{artist}</desc>\n')
+        f.write(f'    <date>{date_str}</date>\n')
+        f.write(f'  </programme>\n\n')
 
-    xml += f'  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop.strftime("%Y%m%d%H%M%S")} +0800" channel="988">\n'
-    xml += f'    <title lang="en">{title}</title>\n'
-    xml += f'    <desc>{artist}</desc>\n'
-    xml += '  </programme>\n'
-
-xml += '</tv>\n'
-
-with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write(xml)
+    f.write('</tv>')
