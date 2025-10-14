@@ -14,9 +14,10 @@ songs = []
 for row in songs_html[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 2:
-        time_str = cols[0].get_text(strip=True)  # e.g., 5:56
+        time_str = cols[0].get_text(strip=True)  # e.g., "5:56"
         title_artist = cols[1].get_text(strip=True)
 
+        # Split title and artist
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
@@ -42,12 +43,13 @@ xml = [
 # === 4️⃣ Add songs as <programme> ===
 for i, s in enumerate(songs):
     start_time = s["time"]
-    # Stop time = 1 second before next song start
+    # Stop time = 1 second before next song start, but keep same format
     if i + 1 < len(songs):
         stop_time = songs[i + 1]["time"]
     else:
-        stop_time = start_time  # last song
+        stop_time = start_time
 
+    # Escape special characters like &
     title_escaped = html.escape(s['title'], quote=True)
     artist_escaped = html.escape(s['artist'], quote=True)
 
