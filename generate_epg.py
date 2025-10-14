@@ -40,7 +40,6 @@ for row in songs_html[1:]:  # Skip header row
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
 xml = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
     '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&date={}">'.format(
         now.strftime("%Y%m%d%H%M%S"), now.strftime("%Y-%m-%d")),
     '<channel id="988">',
@@ -61,9 +60,13 @@ for s in songs:
         start = now
         stop = start + datetime.timedelta(minutes=10)
 
+    # Escape special characters in title and artist
+    title = html.escape(s['title']).replace('&', '&amp;')
+    artist = html.escape(s['artist']).replace('&', '&amp;')
+
     xml.append(f'''  <programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{html.escape(s['title'])}</title>
-    <desc>{html.escape(s['artist'])}</desc>
+    <title lang="zh">{title}</title>
+    <desc>{artist}</desc>
   </programme>''')
 
 # Close the XML structure
