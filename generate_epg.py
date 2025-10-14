@@ -24,21 +24,23 @@ songs = []
 # Extract song details from the HTML
 for row in songs_html[1:]:  # Skip header row
     cols = row.find_all("td")
-    if len(cols) >= 2:
+    if len(cols) >= 3:
         time_str = cols[0].get_text(strip=True)
-        title_artist = cols[1].get_text(strip=True)
-        if " - " in title_artist:
-            title, artist = title_artist.split(" - ", 1)
+        artist_title = cols[1].get_text(strip=True)
+        additional_info = cols[2].get_text(strip=True) if len(cols) > 2 else ""
+        
+        # Split artist and title based on the format
+        if " - " in artist_title:
+            artist, title = artist_title.split(" - ", 1)
         else:
-            title, artist = title_artist, "Unknown"
+            title, artist = artist_title, "Unknown"
+
         songs.append({
             "time": time_str,
             "title": title,
-            "artist": artist
+            "artist": artist,
+            "additional_info": additional_info
         })
-
-# Limit to the last 60 songs (if needed) and keep the order as is
-songs = songs[-60:]  # Get the last 60 songs
 
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
@@ -57,7 +59,7 @@ for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
         start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=1)  # Each song lasts 1 minute for 60 songs
+        stop = start + datetime.timedelta(minutes=1)  # Each song lasts 1 minute
     except ValueError:
         print(f"Invalid time format: {s['time']}. Using current time instead.")
         start = now
@@ -75,9 +77,6 @@ for s in songs:
     <title lang="zh">{combined_title}</title>
     <desc>{artist}</desc>
   </programme>''')
-
-    # Update start time for the next song
-    start = stop  # Set the start of the next song to the end of the current one
 
 # Close the XML structure properly
 xml.append('</channel>')  # Close channel tag
