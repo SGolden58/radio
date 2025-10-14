@@ -55,12 +55,12 @@ for s in songs:
         continue  # Skip if time parsing fails
 
     # Escape title and artist names to handle special characters
-    title_escaped = html.escape(s['title'])
-    artist_escaped = html.escape(s['artist'])
+    title_escaped = html.escape("song")  # Set title to "song"
+    artist_escaped = html.escape(s['artist'] if s['artist'] != "Unknown" else "Unknown Artist")  # Use artist directly
 
     # Format title and description as per your requirement
-    formatted_title = title_escaped  # Use the title directly
-    formatted_desc = artist_escaped  # Use the artist directly
+    formatted_title = title_escaped  # Title is now just "song"
+    formatted_desc = artist_escaped  # Description is the artist
 
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
     <title lang="zh">{formatted_title}</title>
