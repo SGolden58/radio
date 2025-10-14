@@ -3,65 +3,52 @@ from bs4 import BeautifulSoup
 import datetime
 import html
 
-# URL of your radio playlist
+# URL of the radio playlist
 url = "https://radio-online.my/988-fm-playlist"
-
-# Fetch the page
 r = requests.get(url)
-r.encoding = 'utf-8'  # ensure proper encoding
-soup = BeautifulSoup(r.text, 'html.parser')
+r.raise_for_status()
 
-# Parse songs (adjust selector if necessary)
-# Example: each song is in a <tr> with columns: time, title, artist
-rows = soup.select("table tbody tr")  # adjust if needed
+soup = BeautifulSoup(r.text, "html.parser")
+
+# Example: find table or divs with song info
+# Adjust selectors according to the webpage structure
 songs = []
-for row in rows:
-    cols = row.find_all("td")
-    if len(cols) >= 2:
-        time_text = cols[0].text.strip()  # e.g., '10:05'
-        title = html.escape(cols[1].text.strip())
-        artist = html.escape(cols[2].text.strip()) if len(cols) > 2 else "Unknown"
+for row in soup.select(".song-list tr"):  # Replace with actual selector
+    title_tag = row.select_one(".song-title")
+    artist_tag = row.select_one(".song-artist")
+    time_tag = row.select_one(".song-time")  # If available
+
+    if title_tag and artist_tag:
         songs.append({
-            "time": time_text,
-            "title": title,
-            "artist": artist
+            "title": title_tag.get_text(strip=True),
+            "artist": artist_tag.get_text(strip=True),
+            "time": time_tag.get_text(strip=True) if time_tag else None
         })
 
-# Generate XML
-now = datetime.datetime.now()
-tz_offset = "+0800"
+# Create XML
+now = datetime.datetime.utcnow()
+xml = [
+    f'<?xml version="1.0" encoding="UTF-8"?>',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://radio-online.my/988-fm-playlist" source-info-url="{url}">',
+    '<channel id="988"></channel>'
+]
 
-xml = [f'<tv date="{now.strftime("%Y%m%d%H%M%S")} {tz_offset}" '
-       f'generator-info-url="https://yourwebsite.com/generator.html" '
-       f'source-info-url="{url}?date={now.strftime("%Y%m%d")}&timezone=None">']
+for s in songs:
+    # If the playlist has a timestamp, parse it; otherwise, use 10-min intervals
+    start = now
+    stop = start + datetime.timedelta(minutes=10)
+    title = html.escape(s.get("title", "Unknown"))
+    artist = html.escape(s.get("artist", "Unknown"))
 
-# Channel definition
-xml.append('  <channel id="988">')
-xml.append('    <display-name>988 FM</display-name>')
-xml.append('  </channel>')
+    xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
+  <title lang="zh">{title}</title>
+  <desc>{artist}</desc>
+  <date>{now.strftime("%Y-%m-%d")}</date>
+</programme>''')
 
-# Generate programmes
-for i, song in enumerate(songs):
-    hour, minute = map(int, song['time'].split(':'))
-    start_time = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
-    # Estimate stop: next song's start or +10 mins if last
-    if i + 1 < len(songs):
-        next_hour, next_minute = map(int, songs[i+1]['time'].split(':'))
-        stop_time = now.replace(hour=next_hour, minute=next_minute, second=0, microsecond=0)
-    else:
-        stop_time = start_time + datetime.timedelta(minutes=10)
+    now = stop  # next start = previous stop
 
-    xml.append(f'  <programme channel="988" start="{start_time.strftime("%Y%m%d%H%M%S")} {tz_offset}" '
-               f'stop="{stop_time.strftime("%Y%m%d%H%M%S")} {tz_offset}">')
-    xml.append(f'    <title lang="zh">{song["title"]}</title>')
-    xml.append(f'    <desc>{song["artist"]}</desc>')
-    xml.append(f'    <date>{now.strftime("%Y-%m-%d")}</date>')
-    xml.append('  </programme>')
+xml.append("</tv>")
 
-xml.append('</tv>')
-
-# Save XML
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
-
-print("EPG generated successfully.")
