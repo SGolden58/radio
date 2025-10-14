@@ -1,39 +1,42 @@
-import html  # ADD THIS
+import requests
+from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
+import xml.sax.saxutils as saxutils  # ✅ use this to escape & < >
 
-def build_epg(songs):
-    now = datetime.now()
-    epg = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<tv generator-info-name="Radio-EPG">'
-    ]
-    epg.append('<channel id="988">')
-    epg.append('  <display-name>988 FM</display-name>')
-    epg.append('</channel>')
+url = "https://radio-online.my/988-fm-playlist"
+res = requests.get(url)
+soup = BeautifulSoup(res.text, "html.parser")
 
-    if not songs:
-        songs = [("00:00", "Unknown Artist", "No data")] * 10
+rows = soup.select("table tbody tr")
 
-    start_time = now.replace(minute=0, second=0, microsecond=0)
+songs = []
+for row in rows:
+    cols = [c.text.strip() for c in row.find_all("td")]
+    if len(cols) >= 3:
+        time_str, artist, title = cols[:3]
+        songs.append((time_str, artist, title))
 
-    for i in range(10):
-        if i < len(songs):
-            time_str, artist, title = songs[i]
-        else:
-            artist, title = "Unknown Artist", "No Data"
+# Only take first 10
+songs = songs[:10]
 
-        # Escape special XML characters here ⬇️
-        artist = html.escape(artist)
-        title = html.escape(title)
+xml = '<?xml version="1.0" encoding="UTF-8"?>\n<tv generator-info-name="Radio EPG Script">\n'
+xml += '  <channel id="988"><display-name>988 FM</display-name></channel>\n'
 
-        start = start_time + timedelta(minutes=i * 5)
-        stop = start + timedelta(minutes=5)
-        start_fmt = start.strftime("%Y%m%d%H%M%S") + " +0800"
-        stop_fmt = stop.strftime("%Y%m%d%H%M%S") + " +0800"
+now = datetime.now().replace(second=0, microsecond=0)
+for i, (time_str, artist, title) in enumerate(songs):
+    start = now + timedelta(minutes=i * 5)
+    stop = start + timedelta(minutes=5)
 
-        epg.append(f'<programme start="{start_fmt}" stop="{stop_fmt}" channel="988">')
-        epg.append(f'  <title lang="en">{title}</title>')
-        epg.append(f'  <desc lang="en">{artist}</desc>')
-        epg.append('</programme>')
+    # ✅ Properly escape dangerous characters like & < >
+    artist = saxutils.escape(artist)
+    title = saxutils.escape(title)
 
-    epg.append("</tv>")
-    return "\n".join(epg)
+    xml += f'  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop.strftime("%Y%m%d%H%M%S")} +0800" channel="988">\n'
+    xml += f'    <title lang="en">{title}</title>\n'
+    xml += f'    <desc>{artist}</desc>\n'
+    xml += '  </programme>\n'
+
+xml += '</tv>\n'
+
+with open("epg.xml", "w", encoding="utf-8") as f:
+    f.write(xml)
