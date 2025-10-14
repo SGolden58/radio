@@ -19,10 +19,14 @@ for row in songs_html[1:]:  # Skip header
     if len(cols) >= 2:
         time_str = cols[0].get_text(strip=True)
         title_artist = cols[1].get_text(strip=True)
+        
+        # Split title and artist correctly
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
             title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
+        
+        # Append song information to the list
         songs.append({
             "time": time_str,
             "title": title,
@@ -59,11 +63,13 @@ for s in songs:
     artist_escaped = html.escape(s['artist'])  # Use the actual artist name
 
     # Combine title and artist for the title tag
-    combined_title = f"{title_escaped} + {artist_escaped}"  # Format: "song name + artist name"
+    if artist_escaped == "Unknown":
+        formatted_title = f"{title_escaped} + Unknown"  # Format: "song name + Unknown"
+    else:
+        formatted_title = f"{title_escaped} + {artist_escaped}"  # Format: "song name + artist name"
 
-    # Format title and description as per your requirement
-    formatted_title = combined_title  # Title is now the song name + artist name
-    formatted_desc = artist_escaped  # Description is the artist's name
+    # Set description to "Unknown" if no artist is provided
+    formatted_desc = "Unknown" if artist_escaped == "Unknown" else artist_escaped
 
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
     <title lang="zh">{formatted_title}</title>
