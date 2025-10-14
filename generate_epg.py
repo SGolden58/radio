@@ -40,6 +40,7 @@ for row in songs_html[1:]:  # Skip header row
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
 xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
     '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={}">'.format(
         now.strftime("%Y%m%d%H%M%S"), now.strftime("%Y-%m-%d")),
     '<channel id="988">',
@@ -65,4 +66,21 @@ for s in songs:
 
     # Append programme entry
     xml.append(f'''  <programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-   
+    <title lang="zh">{title}</title>
+    <desc>{artist}</desc>
+  </programme>''')
+
+# Close the XML structure properly
+xml.append('</channel>')  # Close channel tag
+xml.append('</tv>')       # Close tv tag
+
+# Debugging: Check the final XML structure
+print("\n".join(xml))
+
+# Write the XML to a file
+try:
+    with open("epg.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(xml))
+    print("EPG XML generated successfully.")
+except IOError as e:
+    print(f"Error writing to file: {e}")
