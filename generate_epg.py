@@ -1,18 +1,14 @@
 import datetime
 import html
+import json
 
-# Assume you already have your real 'songs' list from your source
-# Each item must contain:
-#   song["time"]  → "YYYY-MM-DD HH:MM:SS"
-#   song["artist"]
-#   song["title"]
-
-# Example:
-# songs = get_song_list_from_api()
+# Load songs from JSON (replace this with your API call if needed)
+with open("songs.json", "r", encoding="utf-8") as f:
+    songs = json.load(f)
 
 now = datetime.datetime.now()
-
 output = []
+
 output.append('<?xml version="1.0" encoding="UTF-8"?>')
 output.append(
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
@@ -23,10 +19,9 @@ output.append('<channel id="988">')
 output.append('<display-name>SGolden Radio</display-name>')
 output.append('</channel>')
 
-# ⚡ Newest songs appear first
 for song in reversed(songs):
     start_time = datetime.datetime.strptime(song["time"], "%Y-%m-%d %H:%M:%S")
-    stop_time = start_time + datetime.timedelta(minutes=3)  # each song = 3 minutes
+    stop_time = start_time + datetime.timedelta(minutes=3)
 
     start_str = start_time.strftime("%Y%m%d%H%M%S") + " +0800"
     stop_str = stop_time.strftime("%Y%m%d%H%M%S") + " +0800"
@@ -42,7 +37,6 @@ for song in reversed(songs):
 
 output.append('</tv>')
 
-# Save file
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(output))
 
