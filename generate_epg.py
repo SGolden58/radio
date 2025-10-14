@@ -3,13 +3,28 @@ from bs4 import BeautifulSoup
 import datetime
 import html
 
-# Replace with your actual radio playlist URL
+# URL for latest songs
 url = "https://player.listenlive.co/63371/en/songhistory"
 r = requests.get(url)
-data = r.json()  # JSON with song list
 
-# Example: data['songs'] contains list of latest songs
-songs = data.get("songs", [])
+songs = []
+
+# Try JSON first
+try:
+    data = r.json()
+    songs = data.get("songs", [])
+except:
+    # Fallback: parse HTML if JSON fails
+    soup = BeautifulSoup(r.text, "html.parser")
+    # Example: find song info in HTML (adjust selectors)
+    for item in soup.select(".song-item"):  # <- adjust based on actual site
+        title = item.select_one(".title").get_text(strip=True)
+        artist = item.select_one(".artist").get_text(strip=True)
+        songs.append({"title": title, "artist": artist})
+
+if not songs:
+    # Fallback: placeholder songs if nothing found
+    songs = [{"title": f"Song {i+1}", "artist": "Unknown"} for i in range(10)]
 
 # Current UTC time
 now = datetime.datetime.utcnow()
@@ -23,9 +38,9 @@ xml.append('    <display-name>988 FM</display-name>')
 xml.append('    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>')
 xml.append('  </channel>')
 
-# Generate programme entries
+# Generate programme entries (6 minutes per song)
 for i, s in enumerate(songs):
-    start = now + datetime.timedelta(minutes=i*6)  # each song 6 minutes
+    start = now + datetime.timedelta(minutes=i*6)
     stop = start + datetime.timedelta(minutes=6)
     title = html.escape(s.get("title", "Unknown Song"))
     artist = html.escape(s.get("artist", "Unknown Artist"))
@@ -36,7 +51,6 @@ for i, s in enumerate(songs):
 
 xml.append("</tv>")
 
-# Write to epg.xml
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
