@@ -1,507 +1,507 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv>
+<tv date="20251014224027" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251014&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="23:33" stop="23:28">
+<programme channel="988" start="20251014233700" stop="20251014233259">
+  <title lang="zh">蔡瀞萱</title>
+  <desc lang="zh">有一盏灯等着我回家</desc>
+  <date>23:37 pm</date>
+</programme>
+<programme channel="988" start="20251014233300" stop="20251014232759">
   <title lang="zh">胡彦斌</title>
   <desc lang="zh">男人ktv</desc>
   <date>23:33 pm</date>
 </programme>
-<programme channel="988" start="23:28" stop="23:20">
+<programme channel="988" start="20251014232800" stop="20251014231959">
   <title lang="zh">Lay 张艺兴</title>
   <desc lang="zh">麻婆豆腐</desc>
   <date>23:28 pm</date>
 </programme>
-<programme channel="988" start="23:20" stop="23:16">
+<programme channel="988" start="20251014232000" stop="20251014231559">
   <title lang="zh">Lbi利比</title>
   <desc lang="zh">小城夏天</desc>
   <date>23:20 pm</date>
 </programme>
-<programme channel="988" start="23:16" stop="23:07">
+<programme channel="988" start="20251014231600" stop="20251014230659">
   <title lang="zh">汪苏泷</title>
   <desc lang="zh">娱乐世代</desc>
   <date>23:16 pm</date>
 </programme>
-<programme channel="988" start="23:07" stop="23:00">
+<programme channel="988" start="20251014230700" stop="20251014225959">
   <title lang="zh">韦礼安 + donghae 东海 (super junior成员)</title>
   <desc lang="zh">最好的朋友</desc>
   <date>23:07 pm</date>
 </programme>
-<programme channel="988" start="23:00" stop="22:56">
+<programme channel="988" start="20251014230000" stop="20251014225559">
   <title lang="zh">动力火车</title>
   <desc lang="zh">我陪你面对</desc>
   <date>23:00 pm</date>
 </programme>
-<programme channel="988" start="22:56" stop="22:53">
+<programme channel="988" start="20251014225600" stop="20251014225259">
   <title lang="zh">G.e.m 邓紫棋</title>
   <desc lang="zh">错过不错</desc>
   <date>22:56 pm</date>
 </programme>
-<programme channel="988" start="22:53" stop="22:49">
+<programme channel="988" start="20251014225300" stop="20251014224859">
   <title lang="zh">王蓝茵</title>
   <desc lang="zh">恶作剧 (偶像剧《恶作剧之吻》片尾曲)</desc>
   <date>22:53 pm</date>
 </programme>
-<programme channel="988" start="22:49" stop="22:45">
+<programme channel="988" start="20251014224900" stop="20251014224459">
   <title lang="zh">周笔畅</title>
   <desc lang="zh">最美的期待</desc>
   <date>22:49 pm</date>
 </programme>
-<programme channel="988" start="22:45" stop="22:43">
+<programme channel="988" start="20251014224500" stop="20251014224259">
   <title lang="zh">丁程鑫 (时代少年团成员)</title>
   <desc lang="zh">芥</desc>
   <date>22:45 pm</date>
 </programme>
-<programme channel="988" start="22:43" stop="22:39">
+<programme channel="988" start="20251014224300" stop="20251014223859">
   <title lang="zh">Karencici 林恺伦</title>
   <desc lang="zh">Ihateyou1000 (acoustic)</desc>
   <date>22:43 pm</date>
 </programme>
-<programme channel="988" start="22:39" stop="22:35">
+<programme channel="988" start="20251014223900" stop="20251014223459">
   <title lang="zh">艾薇</title>
   <desc lang="zh">计算浪漫</desc>
   <date>22:39 pm</date>
 </programme>
-<programme channel="988" start="22:35" stop="21:55">
+<programme channel="988" start="20251014223500" stop="20251014215459">
   <title lang="zh">张韶涵</title>
   <desc lang="zh">潘朵拉</desc>
   <date>22:35 pm</date>
 </programme>
-<programme channel="988" start="21:55" stop="21:52">
+<programme channel="988" start="20251014215500" stop="20251014215159">
   <title lang="zh">Tank</title>
   <desc lang="zh">三国恋</desc>
   <date>21:55 pm</date>
 </programme>
-<programme channel="988" start="21:52" stop="21:47">
+<programme channel="988" start="20251014215200" stop="20251014214659">
   <title lang="zh">林家谦</title>
   <desc lang="zh">四月物语</desc>
   <date>21:52 pm</date>
 </programme>
-<programme channel="988" start="21:47" stop="21:43">
+<programme channel="988" start="20251014214700" stop="20251014214259">
   <title lang="zh">告五人</title>
   <desc lang="zh">给你一瓶魔法药水</desc>
   <date>21:47 pm</date>
 </programme>
-<programme channel="988" start="21:43" stop="21:40">
+<programme channel="988" start="20251014214300" stop="20251014213959">
   <title lang="zh">梁静茹 + 卢广仲</title>
   <desc lang="zh">不是我不明白</desc>
   <date>21:43 pm</date>
 </programme>
-<programme channel="988" start="21:40" stop="21:35">
+<programme channel="988" start="20251014214000" stop="20251014213459">
   <title lang="zh">温力铭</title>
   <desc lang="zh">罪人</desc>
   <date>21:40 pm</date>
 </programme>
-<programme channel="988" start="21:35" stop="21:31">
+<programme channel="988" start="20251014213500" stop="20251014213059">
   <title lang="zh">杨丞琳</title>
   <desc lang="zh">过敏</desc>
   <date>21:35 pm</date>
 </programme>
-<programme channel="988" start="21:31" stop="21:28">
+<programme channel="988" start="20251014213100" stop="20251014212759">
   <title lang="zh">S.h.e</title>
   <desc lang="zh">别说对不起 (原曲: everytime)</desc>
   <date>21:31 pm</date>
 </programme>
-<programme channel="988" start="21:28" stop="21:23">
+<programme channel="988" start="20251014212800" stop="20251014212259">
   <title lang="zh">林俊杰</title>
   <desc lang="zh">对的时间点</desc>
   <date>21:28 pm</date>
 </programme>
-<programme channel="988" start="21:23" stop="21:19">
+<programme channel="988" start="20251014212300" stop="20251014211859">
   <title lang="zh">理想混蛋</title>
   <desc lang="zh">在地球爆炸之前</desc>
   <date>21:23 pm</date>
 </programme>
-<programme channel="988" start="21:19" stop="21:15">
+<programme channel="988" start="20251014211900" stop="20251014211459">
   <title lang="zh">古巨基</title>
   <desc lang="zh">欢乐今宵</desc>
   <date>21:19 pm</date>
 </programme>
-<programme channel="988" start="21:15" stop="21:10">
+<programme channel="988" start="20251014211500" stop="20251014210959">
   <title lang="zh">光良</title>
   <desc lang="zh">类情人</desc>
   <date>21:15 pm</date>
 </programme>
-<programme channel="988" start="21:10" stop="21:06">
+<programme channel="988" start="20251014211000" stop="20251014210559">
   <title lang="zh">卫兰</title>
   <desc lang="zh">爱你还爱你 (原曲:you are just at a higher place than me)</desc>
   <date>21:10 pm</date>
 </programme>
-<programme channel="988" start="21:06" stop="21:01">
+<programme channel="988" start="20251014210600" stop="20251014210059">
   <title lang="zh">李荣浩</title>
   <desc lang="zh">黑马</desc>
   <date>21:06 pm</date>
 </programme>
-<programme channel="988" start="21:01" stop="20:56">
+<programme channel="988" start="20251014210100" stop="20251014205559">
   <title lang="zh">毛不易 + 单依纯</title>
   <desc lang="zh">见信如晤</desc>
   <date>21:01 pm</date>
 </programme>
-<programme channel="988" start="20:56" stop="20:52">
+<programme channel="988" start="20251014205600" stop="20251014205159">
   <title lang="zh">李玖哲</title>
   <desc lang="zh">想太多</desc>
   <date>20:56 pm</date>
 </programme>
-<programme channel="988" start="20:52" stop="20:48">
+<programme channel="988" start="20251014205200" stop="20251014204759">
   <title lang="zh">Tf boys</title>
   <desc lang="zh">最好的那年</desc>
   <date>20:52 pm</date>
 </programme>
-<programme channel="988" start="20:48" stop="20:45">
+<programme channel="988" start="20251014204800" stop="20251014204459">
   <title lang="zh">萧秉治</title>
   <desc lang="zh">想悄悄住进你的灵魂 (电视剧《难哄》插曲)</desc>
   <date>20:48 pm</date>
 </programme>
-<programme channel="988" start="20:45" stop="20:41">
+<programme channel="988" start="20251014204500" stop="20251014204059">
   <title lang="zh">詹天文</title>
   <desc lang="zh">序章.结局 (港剧《巨塔之后》片尾曲)</desc>
   <date>20:45 pm</date>
 </programme>
-<programme channel="988" start="20:41" stop="20:37">
+<programme channel="988" start="20251014204100" stop="20251014203659">
   <title lang="zh">Tyson yoshi + 张敬轩</title>
   <desc lang="zh">By my side</desc>
   <date>20:41 pm</date>
 </programme>
-<programme channel="988" start="20:37" stop="20:33">
+<programme channel="988" start="20251014203700" stop="20251014203259">
   <title lang="zh">孙燕姿</title>
   <desc lang="zh">眼泪成诗</desc>
   <date>20:37 pm</date>
 </programme>
-<programme channel="988" start="20:33" stop="20:28">
+<programme channel="988" start="20251014203300" stop="20251014202759">
   <title lang="zh">曾沛慈</title>
   <desc lang="zh">迷之音</desc>
   <date>20:33 pm</date>
 </programme>
-<programme channel="988" start="20:28" stop="20:24">
+<programme channel="988" start="20251014202800" stop="20251014202359">
   <title lang="zh">容祖儿</title>
   <desc lang="zh">不配</desc>
   <date>20:28 pm</date>
 </programme>
-<programme channel="988" start="20:24" stop="20:20">
+<programme channel="988" start="20251014202400" stop="20251014201959">
   <title lang="zh">A-lin</title>
   <desc lang="zh">P.s.我爱你</desc>
   <date>20:24 pm</date>
 </programme>
-<programme channel="988" start="20:20" stop="20:16">
+<programme channel="988" start="20251014202000" stop="20251014201559">
   <title lang="zh">瘦子e.so</title>
   <desc lang="zh">Don&#x27;t worry about me</desc>
   <date>20:20 pm</date>
 </programme>
-<programme channel="988" start="20:16" stop="20:11">
+<programme channel="988" start="20251014201600" stop="20251014201059">
   <title lang="zh">王菀之</title>
   <desc lang="zh">末日</desc>
   <date>20:16 pm</date>
 </programme>
-<programme channel="988" start="20:11" stop="20:08">
+<programme channel="988" start="20251014201100" stop="20251014200759">
   <title lang="zh">刘力扬</title>
   <desc lang="zh">去飞吧</desc>
   <date>20:11 pm</date>
 </programme>
-<programme channel="988" start="20:08" stop="20:04">
+<programme channel="988" start="20251014200800" stop="20251014200359">
   <title lang="zh">Wolf(s) 五坚情</title>
   <desc lang="zh">月面着陆</desc>
   <date>20:08 pm</date>
 </programme>
-<programme channel="988" start="20:04" stop="20:01">
+<programme channel="988" start="20251014200400" stop="20251014200059">
   <title lang="zh">Billie eilish</title>
   <desc lang="zh">What was i made for? (from the motion picture “barbie”)</desc>
   <date>20:04 pm</date>
 </programme>
-<programme channel="988" start="20:01" stop="19:53">
+<programme channel="988" start="20251014200100" stop="20251014195259">
   <title lang="zh">派伟俊 patrick brasca + 周杰伦</title>
   <desc lang="zh">Six degrees</desc>
   <date>20:01 pm</date>
 </programme>
-<programme channel="988" start="19:53" stop="19:50">
+<programme channel="988" start="20251014195300" stop="20251014194959">
   <title lang="zh">张与辰</title>
   <desc lang="zh">深海</desc>
   <date>19:53 pm</date>
 </programme>
-<programme channel="988" start="19:50" stop="19:46">
+<programme channel="988" start="20251014195000" stop="20251014194559">
   <title lang="zh">方力申</title>
   <desc lang="zh">好好恋爱</desc>
   <date>19:50 pm</date>
 </programme>
-<programme channel="988" start="19:46" stop="19:41">
+<programme channel="988" start="20251014194600" stop="20251014194059">
   <title lang="zh">黎明</title>
   <desc lang="zh">顾家 (同居版)</desc>
   <date>19:46 pm</date>
 </programme>
-<programme channel="988" start="19:41" stop="19:36">
+<programme channel="988" start="20251014194100" stop="20251014193559">
   <title lang="zh">Ian 陈卓贤 (mirror成员)</title>
   <desc lang="zh">再见宁静海</desc>
   <date>19:41 pm</date>
 </programme>
-<programme channel="988" start="19:36" stop="19:33">
+<programme channel="988" start="20251014193600" stop="20251014193259">
   <title lang="zh">周柏豪</title>
   <desc lang="zh">我的宣言</desc>
   <date>19:36 pm</date>
 </programme>
-<programme channel="988" start="19:33" stop="19:30">
+<programme channel="988" start="20251014193300" stop="20251014192959">
   <title lang="zh">林家谦</title>
   <desc lang="zh">普渡众生 (电影《破·地狱》主题曲)</desc>
   <date>19:33 pm</date>
 </programme>
-<programme channel="988" start="19:30" stop="19:26">
+<programme channel="988" start="20251014193000" stop="20251014192559">
   <title lang="zh">周吉佩</title>
   <desc lang="zh">手机关掉的一刻</desc>
   <date>19:30 pm</date>
 </programme>
-<programme channel="988" start="19:26" stop="19:22">
+<programme channel="988" start="20251014192600" stop="20251014192159">
   <title lang="zh">郑中基</title>
   <desc lang="zh">美女与野兽</desc>
   <date>19:26 pm</date>
 </programme>
-<programme channel="988" start="19:22" stop="19:17">
+<programme channel="988" start="20251014192200" stop="20251014191659">
   <title lang="zh">林海峰</title>
   <desc lang="zh">Auntie</desc>
   <date>19:22 pm</date>
 </programme>
-<programme channel="988" start="19:17" stop="19:14">
+<programme channel="988" start="20251014191700" stop="20251014191359">
   <title lang="zh">林峯</title>
   <desc lang="zh">爱在三千的宇宙 (2024电视剧《家族荣耀之继承者》主题曲)</desc>
   <date>19:17 pm</date>
 </programme>
-<programme channel="988" start="19:14" stop="19:09">
+<programme channel="988" start="20251014191400" stop="20251014190859">
   <title lang="zh">张进翘</title>
   <desc lang="zh">今天我不想做嘢</desc>
   <date>19:14 pm</date>
 </programme>
-<programme channel="988" start="19:09" stop="19:05">
+<programme channel="988" start="20251014190900" stop="20251014190459">
   <title lang="zh">刘德华</title>
   <desc lang="zh">17岁</desc>
   <date>19:09 pm</date>
 </programme>
-<programme channel="988" start="19:05" stop="19:02">
+<programme channel="988" start="20251014190500" stop="20251014190159">
   <title lang="zh">侧田</title>
   <desc lang="zh">Kong</desc>
   <date>19:05 pm</date>
 </programme>
-<programme channel="988" start="19:02" stop="18:59">
+<programme channel="988" start="20251014190200" stop="20251014185859">
   <title lang="zh">Gareth.t 汤令山</title>
   <desc lang="zh">国际孤独等级</desc>
   <date>19:02 pm</date>
 </programme>
-<programme channel="988" start="18:59" stop="18:53">
+<programme channel="988" start="20251014185900" stop="20251014185259">
   <title lang="zh">陈奕迅</title>
   <desc lang="zh">盲婚哑嫁</desc>
   <date>18:59 pm</date>
 </programme>
-<programme channel="988" start="18:53" stop="18:50">
+<programme channel="988" start="20251014185300" stop="20251014184959">
   <title lang="zh">Twins</title>
   <desc lang="zh">你讲你爱我</desc>
   <date>18:53 pm</date>
 </programme>
-<programme channel="988" start="18:50" stop="18:45">
+<programme channel="988" start="20251014185000" stop="20251014184459">
   <title lang="zh">Elva 苏妍</title>
   <desc lang="zh">还没离开</desc>
   <date>18:50 pm</date>
 </programme>
-<programme channel="988" start="18:45" stop="18:42">
+<programme channel="988" start="20251014184500" stop="20251014184159">
   <title lang="zh">G.e.m 邓紫棋</title>
   <desc lang="zh">情人 (原唱:beyond)</desc>
   <date>18:45 pm</date>
 </programme>
-<programme channel="988" start="18:42" stop="18:37">
+<programme channel="988" start="20251014184200" stop="20251014183659">
   <title lang="zh">小乐哥 (王唯乐)</title>
   <desc lang="zh">慢慢 (抖音)</desc>
   <date>18:42 pm</date>
 </programme>
-<programme channel="988" start="18:37" stop="18:34">
+<programme channel="988" start="20251014183700" stop="20251014183359">
   <title lang="zh">大张伟</title>
   <desc lang="zh">阳光彩虹小白马</desc>
   <date>18:37 pm</date>
 </programme>
-<programme channel="988" start="18:34" stop="18:28">
+<programme channel="988" start="20251014183400" stop="20251014182759">
   <title lang="zh">于文文</title>
   <desc lang="zh">是我</desc>
   <date>18:34 pm</date>
 </programme>
-<programme channel="988" start="18:28" stop="18:24">
+<programme channel="988" start="20251014182800" stop="20251014182359">
   <title lang="zh">五月天</title>
   <desc lang="zh">温柔</desc>
   <date>18:28 pm</date>
 </programme>
-<programme channel="988" start="18:24" stop="18:21">
+<programme channel="988" start="20251014182400" stop="20251014182059">
   <title lang="zh">F.i.r</title>
   <desc lang="zh">我们的爱</desc>
   <date>18:24 pm</date>
 </programme>
-<programme channel="988" start="18:21" stop="18:06">
+<programme channel="988" start="20251014182100" stop="20251014180559">
   <title lang="zh">A-lin</title>
   <desc lang="zh">失恋无罪</desc>
   <date>18:21 pm</date>
 </programme>
-<programme channel="988" start="18:06" stop="18:01">
+<programme channel="988" start="20251014180600" stop="20251014180059">
   <title lang="zh">汪苏泷</title>
   <desc lang="zh">大娱乐家</desc>
   <date>18:06 pm</date>
 </programme>
-<programme channel="988" start="18:01" stop="17:58">
+<programme channel="988" start="20251014180100" stop="20251014175759">
   <title lang="zh">李荣浩</title>
   <desc lang="zh">模特</desc>
   <date>18:01 pm</date>
 </programme>
-<programme channel="988" start="17:58" stop="17:53">
+<programme channel="988" start="20251014175800" stop="20251014175259">
   <title lang="zh">谢安琪</title>
   <desc lang="zh">年度之歌</desc>
   <date>17:58 pm</date>
 </programme>
-<programme channel="988" start="17:53" stop="17:48">
+<programme channel="988" start="20251014175300" stop="20251014174759">
   <title lang="zh">张与辰</title>
   <desc lang="zh">有谁来爱（《深海》中文版）</desc>
   <date>17:53 pm</date>
 </programme>
-<programme channel="988" start="17:48" stop="17:44">
+<programme channel="988" start="20251014174800" stop="20251014174359">
   <title lang="zh">Mc 张天赋</title>
   <desc lang="zh">怀疑人生</desc>
   <date>17:48 pm</date>
 </programme>
-<programme channel="988" start="17:44" stop="17:40">
+<programme channel="988" start="20251014174400" stop="20251014173959">
   <title lang="zh">Bii 毕书尽</title>
   <desc lang="zh">Love more</desc>
   <date>17:44 pm</date>
 </programme>
-<programme channel="988" start="17:40" stop="17:38">
+<programme channel="988" start="20251014174000" stop="20251014173759">
   <title lang="zh">队长 + 鹿晗</title>
   <desc lang="zh">一天</desc>
   <date>17:40 pm</date>
 </programme>
-<programme channel="988" start="17:38" stop="17:33">
+<programme channel="988" start="20251014173800" stop="20251014173259">
   <title lang="zh">瘦子e.so</title>
   <desc lang="zh">伯父</desc>
   <date>17:38 pm</date>
 </programme>
-<programme channel="988" start="17:33" stop="17:32">
+<programme channel="988" start="20251014173300" stop="20251014173159">
   <title lang="zh">姜涛 (mirror成员)</title>
   <desc lang="zh">作品的说话</desc>
   <date>17:33 pm</date>
 </programme>
-<programme channel="988" start="17:32" stop="17:20">
+<programme channel="988" start="20251014173200" stop="20251014171959">
   <title lang="zh">3p (3 production)</title>
   <desc lang="zh">欢乐世界</desc>
   <date>17:32 pm</date>
 </programme>
-<programme channel="988" start="17:20" stop="17:16">
+<programme channel="988" start="20251014172000" stop="20251014171559">
   <title lang="zh">En 王翊恩</title>
   <desc lang="zh">爱错 (原唱:王力宏)</desc>
   <date>17:20 pm</date>
 </programme>
-<programme channel="988" start="17:16" stop="17:10">
+<programme channel="988" start="20251014171600" stop="20251014170959">
   <title lang="zh">冯允谦</title>
   <desc lang="zh">我好想你</desc>
   <date>17:16 pm</date>
 </programme>
-<programme channel="988" start="17:10" stop="16:56">
+<programme channel="988" start="20251014171000" stop="20251014165559">
   <title lang="zh">Edan 吕爵安 (mirror成员)</title>
   <desc lang="zh">小谐星</desc>
   <date>17:10 pm</date>
 </programme>
-<programme channel="988" start="16:56" stop="16:49">
+<programme channel="988" start="20251014165600" stop="20251014164859">
   <title lang="zh">曹格</title>
   <desc lang="zh">无辜</desc>
   <date>16:56 pm</date>
 </programme>
-<programme channel="988" start="16:49" stop="16:39">
+<programme channel="988" start="20251014164900" stop="20251014163859">
   <title lang="zh">薛之谦</title>
   <desc lang="zh">跃</desc>
   <date>16:49 pm</date>
 </programme>
-<programme channel="988" start="16:39" stop="16:33">
+<programme channel="988" start="20251014163900" stop="20251014163259">
   <title lang="zh">刘界辉</title>
   <desc lang="zh">未够</desc>
   <date>16:39 pm</date>
 </programme>
-<programme channel="988" start="16:33" stop="16:26">
+<programme channel="988" start="20251014163300" stop="20251014162559">
   <title lang="zh">Fuying &amp; sam</title>
   <desc lang="zh">每当风起</desc>
   <date>16:33 pm</date>
 </programme>
-<programme channel="988" start="16:26" stop="16:20">
+<programme channel="988" start="20251014162600" stop="20251014161959">
   <title lang="zh">卫兰</title>
   <desc lang="zh">Little miss janice</desc>
   <date>16:26 pm</date>
 </programme>
-<programme channel="988" start="16:20" stop="16:16">
+<programme channel="988" start="20251014162000" stop="20251014161559">
   <title lang="zh">张碧晨</title>
   <desc lang="zh">彼时 (中国剧《我的真朋友》歌曲)</desc>
   <date>16:20 pm</date>
 </programme>
-<programme channel="988" start="16:16" stop="16:10">
+<programme channel="988" start="20251014161600" stop="20251014160959">
   <title lang="zh">韦礼安</title>
   <desc lang="zh">不变</desc>
   <date>16:16 pm</date>
 </programme>
-<programme channel="988" start="16:10" stop="16:06">
+<programme channel="988" start="20251014161000" stop="20251014160559">
   <title lang="zh">邱锋泽</title>
   <desc lang="zh">预言家</desc>
   <date>16:10 pm</date>
 </programme>
-<programme channel="988" start="16:06" stop="16:00">
+<programme channel="988" start="20251014160600" stop="20251014155959">
   <title lang="zh">孙燕姿</title>
   <desc lang="zh">直来直往</desc>
   <date>16:06 pm</date>
 </programme>
-<programme channel="988" start="16:00" stop="15:57">
+<programme channel="988" start="20251014160000" stop="20251014155659">
   <title lang="zh">戴佩妮</title>
   <desc lang="zh">往前飞</desc>
   <date>16:00 pm</date>
 </programme>
-<programme channel="988" start="15:57" stop="15:47">
+<programme channel="988" start="20251014155700" stop="20251014154659">
   <title lang="zh">Day6</title>
   <desc lang="zh">Maybe tomorrow</desc>
   <date>15:57 pm</date>
 </programme>
-<programme channel="988" start="15:47" stop="15:42">
+<programme channel="988" start="20251014154700" stop="20251014154159">
   <title lang="zh">郭家玮</title>
   <desc lang="zh">骄傲</desc>
   <date>15:47 pm</date>
 </programme>
-<programme channel="988" start="15:42" stop="15:37">
+<programme channel="988" start="20251014154200" stop="20251014153659">
   <title lang="zh">蔡旻佑 + 咔咔</title>
   <desc lang="zh">直球浪漫</desc>
   <date>15:42 pm</date>
 </programme>
-<programme channel="988" start="15:37" stop="15:33">
+<programme channel="988" start="20251014153700" stop="20251014153259">
   <title lang="zh">Gaston 庞加斯顿</title>
   <desc lang="zh">Ring ring ring (男声版) (原唱:s.h.e)</desc>
   <date>15:37 pm</date>
 </programme>
-<programme channel="988" start="15:33" stop="15:27">
+<programme channel="988" start="20251014153300" stop="20251014152659">
   <title lang="zh">谭咏麟</title>
   <desc lang="zh">爱情陷阱</desc>
   <date>15:33 pm</date>
 </programme>
-<programme channel="988" start="15:27" stop="15:20">
+<programme channel="988" start="20251014152700" stop="20251014151959">
   <title lang="zh">张妙格</title>
   <desc lang="zh">我期待的不是雪</desc>
   <date>15:27 pm</date>
 </programme>
-<programme channel="988" start="15:20" stop="15:15">
+<programme channel="988" start="20251014152000" stop="20251014151459">
   <title lang="zh">蔡依林</title>
   <desc lang="zh">Pillow</desc>
   <date>15:20 pm</date>
 </programme>
-<programme channel="988" start="15:15" stop="15:10">
+<programme channel="988" start="20251014151500" stop="20251014150959">
   <title lang="zh">林俊杰</title>
   <desc lang="zh">黑夜问白天</desc>
   <date>15:15 pm</date>
 </programme>
-<programme channel="988" start="15:10" stop="15:04">
+<programme channel="988" start="20251014151000" stop="20251014150359">
   <title lang="zh">郭静</title>
   <desc lang="zh">在树上唱歌</desc>
   <date>15:10 pm</date>
 </programme>
-<programme channel="988" start="15:04" stop="15:00">
+<programme channel="988" start="20251014150400" stop="20251014150900">
   <title lang="zh">杨千嬅</title>
   <desc lang="zh">还有事情可庆祝</desc>
   <date>15:04 pm</date>
-</programme>
-<programme channel="988" start="15:00" stop="15:00">
-  <title lang="zh">Hinry 刘卓轩</title>
-  <desc lang="zh">遇怪魔我急于变大个</desc>
-  <date>15:00 pm</date>
 </programme>
 </tv>
