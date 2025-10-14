@@ -4,6 +4,11 @@
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="23:00" stop="22:56">
+  <title lang="zh">动力火车</title>
+  <desc lang="zh">我陪你面对</desc>
+  <date>11:00 pm</date>
+</programme>
 <programme channel="988" start="22:56" stop="22:53">
   <title lang="zh">G.e.m 邓紫棋</title>
   <desc lang="zh">错过不错</desc>
@@ -494,14 +499,9 @@
   <desc lang="zh">我们万岁</desc>
   <date>2:38 pm</date>
 </programme>
-<programme channel="988" start="14:32" stop="14:27">
+<programme channel="988" start="14:32" stop="14:32">
   <title lang="zh">Iu</title>
   <desc lang="zh">Through the night</desc>
   <date>2:32 pm</date>
-</programme>
-<programme channel="988" start="14:27" stop="14:27">
-  <title lang="zh">蕾拉</title>
-  <desc lang="zh">慢动作</desc>
-  <date>2:27 pm</date>
 </programme>
 </tv>
