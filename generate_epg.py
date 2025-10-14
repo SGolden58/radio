@@ -37,18 +37,14 @@ for row in songs_html[1:]:  # Skip header row
             "artist": artist
         })
 
-# Debugging: Check if songs were extracted
-print(f"Extracted songs: {songs}")
-
 # Build XML structure for EPG
 now = datetime.datetime.utcnow()
 xml = [
-    '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml">'.format(
+    '<tv date="{} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={}">'.format(
         now.strftime("%Y%m%d%H%M%S"), now.strftime("%Y-%m-%d")),
     '<channel id="988">',
     '<display-name lang="Malaysia">988</display-name>',
-    '<icon src=""/>',
-    '</channel>'
+    '<icon src=""/>'
 ]
 
 # Generate program entries in the XML
@@ -67,22 +63,6 @@ for s in songs:
     title = html.escape(s['title']).replace('&', '&amp;')
     artist = html.escape(s['artist']).replace('&', '&amp;')
 
+    # Append programme entry
     xml.append(f'''  <programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{title}</title>
-    <desc>{artist}</desc>
-  </programme>''')
-
-# Close the XML structure
-xml.append("</channel>")
-xml.append("</tv>")
-
-# Debugging: Check the final XML structure
-print("\n".join(xml))
-
-# Write the XML to a file
-try:
-    with open("epg.xml", "w", encoding="utf-8") as f:
-        f.write("\n".join(xml))
-    print("EPG XML generated successfully.")
-except IOError as e:
-    print(f"Error writing to file: {e}")
+   
