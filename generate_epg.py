@@ -6,15 +6,13 @@ import html
 # URL to fetch the playlist
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
-r.raise_for_status()
-
 soup = BeautifulSoup(r.text, "html.parser")
 
-# Select the songs from the table
-songs_html = soup.select("table tr")  # Adjust selector as needed
+# Extract songs
+songs_html = soup.select("table tr")
 songs = []
 
-for row in songs_html[1:]:  # Skip header
+for row in songs_html[1:]:
     cols = row.find_all("td")
     if len(cols) >= 2:
         time_str = cols[0].get_text(strip=True)
@@ -22,18 +20,20 @@ for row in songs_html[1:]:  # Skip header
         if " - " in title_artist:
             title, artist = title_artist.split(" - ", 1)
         else:
-            title, artist = title_artist, "Unknown"  # Default to "Unknown" if no artist
+            title, artist = title_artist, "Unknown"
         songs.append({
             "time": time_str,
-            "title": title,  # Directly use the title from the playlist
+            "title": title,
             "artist": artist
         })
 
-# Limit to the latest 60 songs
+# Limit to latest 60 songs
 songs = songs[:60]
 
-# Build XML
-now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia Time
+# Malaysia timezone
+now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
+
+# XML Header
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
@@ -45,31 +45,27 @@ xml = [
     '</channel>'
 ]
 
-# Add each song as a programme
+# Add songs as <programme>
 for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
         start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=10)  # 10 min per song
+        stop = start + datetime.timedelta(minutes=10)
     except ValueError:
-        continue  # Skip if time parsing fails
+        continue
 
-    # Escape title and artist names to handle special characters
-    title_escaped = html.escape(s['title'])
-    artist_escaped = html.escape(s['artist'])
-
-    # Format title and description as per your requirement
-    formatted_title = title_escaped  # Use the title directly
-    formatted_desc = artist_escaped  # Use the artist directly
+    # Safe escape for XML
+    title_escaped = html.escape(s['title'], quote=True)
+    artist_escaped = html.escape(s['artist'], quote=True)
 
     xml.append(f'''<programme channel="988" start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000">
-    <title lang="zh">{formatted_title}</title>
-    <desc>{formatted_desc}</desc>
+    <title lang="zh">{title_escaped}</title>
+    <desc>{artist_escaped}</desc>
     <date>{s["time"]}</date>
 </programme>''')
 
 xml.append("</tv>")
 
-# Write to epg.xml
+# Write safely
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
