@@ -2,15 +2,14 @@ name: Update Radio EPG
 
 on:
   schedule:
-    - cron: '*/10 * * * *'   # every 10 minutes
+    - cron: '*/10 * * * *'  # every 10 minutes
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -24,7 +23,7 @@ jobs:
           pip install requests beautifulsoup4
 
       - name: Generate epg.xml
-        run: python3 generate_epg.py
+        run: python generate_epg.py
 
       - name: Commit and push changes
         env:
