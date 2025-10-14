@@ -1,49 +1,39 @@
-import datetime
-import xml.etree.ElementTree as ET
+import html  # ADD THIS
 
-# ===== CONFIG =====
-CHANNEL_ID = "988"
-CHANNEL_NAME = "988 FM"
-CHANNEL_ICON = "https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"
+def build_epg(songs):
+    now = datetime.now()
+    epg = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<tv generator-info-name="Radio-EPG">'
+    ]
+    epg.append('<channel id="988">')
+    epg.append('  <display-name>988 FM</display-name>')
+    epg.append('</channel>')
 
-# Replace this list with actual latest songs
-songs = [
-    {"title": "", "artist": ""},
-]
+    if not songs:
+        songs = [("00:00", "Unknown Artist", "No data")] * 10
 
-# ===== CREATE ROOT =====
-tv = ET.Element("tv")
-tv.set("generator-info-name", "Radio EPG Script")
-tv.set("date", datetime.datetime.now().strftime("%Y%m%d%H%M%S %z"))
+    start_time = now.replace(minute=0, second=0, microsecond=0)
 
-# ===== CHANNEL =====
-channel = ET.SubElement(tv, "channel", id=CHANNEL_ID)
-display_name = ET.SubElement(channel, "display-name")
-display_name.text = CHANNEL_NAME
-icon = ET.SubElement(channel, "icon", src=CHANNEL_ICON)
+    for i in range(10):
+        if i < len(songs):
+            time_str, artist, title = songs[i]
+        else:
+            artist, title = "Unknown Artist", "No Data"
 
-# ===== PROGRAMMES =====
-start_time = datetime.datetime.now()
-song_duration = datetime.timedelta(minutes=6)  # each song 6 minutes
+        # Escape special XML characters here ⬇️
+        artist = html.escape(artist)
+        title = html.escape(title)
 
-for song in songs:
-    stop_time = start_time + song_duration
-    prog = ET.SubElement(tv, "programme", channel=CHANNEL_ID)
-    prog.set("start", start_time.strftime("%Y%m%d%H%M%S +0800"))
-    prog.set("stop", stop_time.strftime("%Y%m%d%H%M%S +0800"))
-    
-    title = ET.SubElement(prog, "title", lang="zh")
-    title.text = song["title"]
-    
-    desc = ET.SubElement(prog, "desc")
-    desc.text = song["artist"]
-    
-    date_el = ET.SubElement(prog, "date")
-    date_el.text = start_time.strftime("%Y-%m-%d")
-    
-    start_time = stop_time  # next song
+        start = start_time + timedelta(minutes=i * 5)
+        stop = start + timedelta(minutes=5)
+        start_fmt = start.strftime("%Y%m%d%H%M%S") + " +0800"
+        stop_fmt = stop.strftime("%Y%m%d%H%M%S") + " +0800"
 
-# ===== WRITE XML =====
-tree = ET.ElementTree(tv)
-tree.write("epg.xml", encoding="UTF-8", xml_declaration=True)
-print("EPG XML generated successfully!")
+        epg.append(f'<programme start="{start_fmt}" stop="{stop_fmt}" channel="988">')
+        epg.append(f'  <title lang="en">{title}</title>')
+        epg.append(f'  <desc lang="en">{artist}</desc>')
+        epg.append('</programme>')
+
+    epg.append("</tv>")
+    return "\n".join(epg)
