@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015185352 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015190857 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name>988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="20251015115100 +0800" stop="20251016114700 +0800">
+<programme channel="988" start="20251015120200 +0800" stop="20251016115100 +0800">
+  <title>快乐崇拜</title>
+  <desc>潘玮柏 + 张韶涵</desc>
+  <date>12:02 PM</date>
+</programme>
+<programme channel="988" start="20251016115100 +0800" stop="20251016114700 +0800">
   <title>不如我们今天见</title>
   <desc>品冠</desc>
   <date>11:51 AM</date>
@@ -159,14 +164,9 @@
   <desc>Twice</desc>
   <date>8:10 AM</date>
 </programme>
-<programme channel="988" start="20251016080200 +0800" stop="20251016075200 +0800">
+<programme channel="988" start="20251016080200 +0800" stop="20251017075430 +0800">
   <title>明年</title>
   <desc>卢广仲</desc>
   <date>8:02 AM</date>
-</programme>
-<programme channel="988" start="20251016075200 +0800" stop="20251017074431 +0800">
-  <title>岁月风云 (港剧《岁月风云》主题曲)</title>
-  <desc>李克勤 + 周传雄</desc>
-  <date>7:52 AM</date>
 </programme>
 </tv>
