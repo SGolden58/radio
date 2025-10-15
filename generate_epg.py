@@ -42,11 +42,20 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song
 
+from datetime import datetime, timedelta, timezone
+
+tz_myt = timezone(timedelta(hours=8))  # Malaysia time zone
+
 # === 4️⃣ Build XML EPG (Televizo)  ===
-now = datetime.datetime.now(tz_myt)
+now = datetime.now(tz=tz_myt)
+
+# use this 'now' as your tv_date
+tv_date_str = now.strftime("%Y%m%d%H%M%S") + " +0800"
+base_date = now.date()  # use this date for all programme times
+
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'<tv date="{tv_date_str}" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
