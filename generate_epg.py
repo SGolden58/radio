@@ -1,19 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
+import html
 
-# Fetch playlist
+# === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
-# Extract songs
+# === 2️⃣ Extract songs from table ===
 rows = soup.select("table tr")
 songs = []
-for row in rows[1:]:
+
+for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
-        time_str = cols[0].get_text(strip=True)
+        time_str = cols[0].get_text(strip=True)  # e.g., "5:51"
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
@@ -22,17 +24,18 @@ for row in rows[1:]:
 # Take latest 33 songs
 songs = songs[:33]
 
-# Prepare start/stop times
+# === 3️⃣ Prepare start/stop datetimes ===
+# Use **Malaysia local time**, no extra offsets
 tz_myt = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz_myt).date()
 start_times = []
 
 for s in songs:
     h, m = map(int, s["time"].split(":"))
-    dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
-    start_times.append(dt)
+    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
+    start_times.append(dt_local)
 
-# If playlist crosses midnight
+# Adjust if playlist crosses midnight
 for i in range(1, len(start_times)):
     if start_times[i] < start_times[i-1]:
         start_times[i] += datetime.timedelta(days=1)
@@ -42,9 +45,9 @@ for i in range(len(start_times)):
     if i + 1 < len(start_times):
         stop_times.append(start_times[i+1] - datetime.timedelta(seconds=1))
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song guess
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song duration guess
 
-# Build XML
+# === 4️⃣ Build epg XML (Televizo)  ===
 now = datetime.datetime.now(tz_myt)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -55,12 +58,13 @@ xml = [
     '</channel>'
 ]
 
-# Add programmes with correct Malaysia AM/PM time
+# === 5️⃣ Add programmes with correct AM/PM ===
 for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-    ampm_time = start_dt.strftime("%-I:%M %p")  # 12-hour format, Malaysia local
+    # Directly use the hour/minute from playlist, Malaysia AM/PM
+    ampm_time = start_dt.strftime("%-I:%M %p")  # 12-hour
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title>{s["title"]}</title>')
@@ -73,4 +77,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated with exact Malaysia playlist times.")
+print(f"✅ EPG.xml generated — all times now match Malaysia local time exactly.")
