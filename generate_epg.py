@@ -63,8 +63,8 @@ for i, s in enumerate(songs):
     desc_escaped = html.escape(s["title"], quote=True)
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} UTC" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} UTC">')
-    xml.append(f'  <title lang="zh">{title_escaped}</title>')
-    xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
+    xml.append(f'  <title>{title_escaped}</title>')
+    xml.append(f'  <desc>{desc_escaped}</desc>')
     xml.append(f'  <date>{s["time"]}</date>')
     xml.append('</programme>')
 
