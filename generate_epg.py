@@ -67,16 +67,10 @@ for i, s in enumerate(songs):
     if i >= len(start_times) or i >= len(stop_times):
         continue
 
-    start_dt_utc = start_times[i].astimezone(datetime.timezone.utc)
-    stop_dt_utc = stop_times[i].astimezone(datetime.timezone.utc)
-
     artist_escaped = html.escape(s["artist"], quote=True)
     title_escaped = html.escape(s["title"], quote=True)
 
-    xml.append(
-        f'  <programme channel="988" start="{start_dt_utc.strftime("%Y%m%d%H%M%S")} +0000" '
-        f'stop="{stop_dt_utc.strftime("%Y%m%d%H%M%S")} +0000">'
-    )
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'    <title>{artist_escaped}</title>')
     xml.append(f'    <desc>{title_escaped}</desc>')
     xml.append(f'    <date>{s["time"]}</date>')
