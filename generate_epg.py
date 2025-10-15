@@ -37,20 +37,7 @@ for s in songs:
     except ValueError:
         continue
 
-# === FIXED: Compute stop times properly for Televizo ===
-stop_times = []
-for i in range(len(start_times)):
-    if i + 1 < len(start_times):
-        stop_times.append(start_times[i + 1])  # exact next start time, no -1 second
-    else:
-        # last song duration = average duration of previous songs
-        if len(start_times) > 1:
-            avg_duration = sum(
-                [(start_times[j + 1] - start_times[j]).seconds for j in range(len(start_times) - 1)]
-            ) // (len(start_times) - 1)
-            stop_times.append(start_times[i] + datetime.timedelta(seconds=avg_duration))
-        else:
-            stop_times.append(start_times[i] + datetime.timedelta(minutes=3))
+
 
 # === 4️⃣ Build XML EPG (Televizo)  ===
 now = datetime.datetime.now(tz_myt)
