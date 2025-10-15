@@ -25,26 +25,14 @@ songs = songs[:33]
 
 # === 3️⃣ Prepare datetime objects ===
 tz_myt = datetime.timezone(datetime.timedelta(hours=8))
-today = datetime.datetime.now(tz_myt).date()
+now = datetime.datetime.now(tz_myt)  # this becomes your <tv date>
 start_times = []
 
+current_start = now  # first programme starts exactly at <tv date>
+
 for s in songs:
-    try:
-        h, m = map(int, s["time"].split(":"))
-    except ValueError:
-        continue
-    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
-    start_times.append(dt_local)
-
-# Sort by time to avoid false midnight jumps
-start_times.sort()
-
-# Adjust dates if playlist crosses midnight safely
-day_offset = 0
-for i in range(1, len(start_times)):
-    if start_times[i] < start_times[i - 1]:
-        day_offset += 1
-    start_times[i] += datetime.timedelta(days=day_offset)
+    start_times.append(current_start)
+    current_start += datetime.timedelta(minutes=3)  # each song = 3 min (adjust as needed)
 
 # Prepare stop times (1 second before next song)
 stop_times = []
