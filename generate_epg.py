@@ -29,28 +29,41 @@ tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
 start_times = []
 
+# Time parsing with enhanced fallback
 for s in songs:
+    time_str = s["time"].strip().lower()
     try:
-        # Fixed: Parse time with AM/PM format
-        time_obj = datetime.datetime.strptime(s["time"], "%I:%M %p").time()
-        dt = datetime.datetime.combine(today, time_obj).astimezone(tz)
-        start_times.append(dt)
+        time_obj = datetime.strptime(time_str, "%H:%M").time()
     except ValueError:
-        # Fallback to 24h format if AM/PM parsing fails
-        h, m = map(int, s["time"].split(":"))
-        dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
-        start_times.append(dt)
+        try:
+            time_obj = datetime.strptime(time_str, "%I:%M %p").time()
+        except:
+            # Enhanced raw split with AM/PM detection
+            if 'am' in time_str or 'pm' in time_str:
+                h_part = time_str.split('am')[0].split('pm')[0]
+                h, m = map(int, h_part.split(':'))
+                h += 12 if 'pm' in time_str and h < 12 else 0
+            else:
+                h, m = map(int, time_str.split(':'))
+            time_obj = time(h, m)
+    
+    dt = datetime.combine(today, time_obj).replace(tzinfo=tz)
+    start_times.append(dt)
 
+# Stop time calculation
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
-        stop_time = start_times[i + 1] - datetime.timedelta(seconds=1)
+        stop_time = start_times[i+1] - timedelta(seconds=1)
     else:
-        stop_time = start_times[i] + datetime.timedelta(minutes=2)
+        # Use average song duration (3.5 minutes)
+        stop_time = start_times[i] + timedelta(minutes=3, seconds=30)
     
-    # Fixed: Midnight wrap check inside loop
+    # Midnight correction
     if stop_time.day != start_times[i].day:
-        stop_time = stop_time.replace(hour=23, minute=59, second=59)
+        stop_time = stop_time.replace(
+            hour=23, minute=59, second=59, microsecond=0
+        )
     
     stop_times.append(stop_time)
 
