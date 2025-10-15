@@ -28,18 +28,14 @@ tz_myt = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz_myt).date()
 start_times = []
 
+# === Add each song as a <programme> ===
 for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
     except ValueError:
         continue
-    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
+    dt_local = datetime.datetime(today.year, today.month, today.day, today.h, m, 0, tzinfo=tz_myt)
     start_times.append(dt_local)
-
-# Adjust dates if playlist crosses midnight
-for i in range(1, len(start_times)):
-    if start_times[i] < start_times[i - 1]:
-        start_times[i] += datetime.timedelta(days=1)
 
 # === FIXED: Compute stop times properly for Televizo ===
 stop_times = []
