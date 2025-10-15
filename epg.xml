@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015180351 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015181218 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name>988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="20251015105100 +0800" stop="20251016104559 +0800">
+<programme channel="988" start="20251015110500 +0800" stop="20251016105059 +0800">
+  <title>擦肩而过</title>
+  <desc>李圣杰</desc>
+  <date>11:05 AM</date>
+</programme>
+<programme channel="988" start="20251016105100 +0800" stop="20251016104559 +0800">
   <title>今天终于一人回家</title>
   <desc>李幸倪</desc>
   <date>10:51 AM</date>
@@ -159,14 +164,9 @@
   <desc>队长</desc>
   <date>7:22 AM</date>
 </programme>
-<programme channel="988" start="20251016071500 +0800" stop="20251016071059 +0800">
+<programme channel="988" start="20251016071500 +0800" stop="20251016071800 +0800">
   <title>Hands up</title>
   <desc>Meovv</desc>
   <date>7:15 AM</date>
-</programme>
-<programme channel="988" start="20251016071100 +0800" stop="20251016071400 +0800">
-  <title>青春住了谁 (2018台剧《前男友不是人》歌曲)</title>
-  <desc>杨丞琳</desc>
-  <date>7:11 AM</date>
 </programme>
 </tv>
