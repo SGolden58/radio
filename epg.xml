@@ -1,172 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015104347 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015185352 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name>988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="11:40" stop="11:32">
+<programme channel="988" start="20251015115100 +0800" stop="20251016114700 +0800">
+  <title>不如我们今天见</title>
+  <desc>品冠</desc>
+  <date>11:51 AM</date>
+</programme>
+<programme channel="988" start="20251016114700 +0800" stop="20251016114000 +0800">
+  <title>Lovin‘my body</title>
+  <desc>Je 庞琂予</desc>
+  <date>11:47 AM</date>
+</programme>
+<programme channel="988" start="20251016114000 +0800" stop="20251016113200 +0800">
   <title>如果爱能飞行</title>
   <desc>龚柯允</desc>
-  <date>11:40</date>
+  <date>11:40 AM</date>
 </programme>
-<programme channel="988" start="11:32" stop="11:25">
+<programme channel="988" start="20251016113200 +0800" stop="20251016112500 +0800">
   <title>Friendzone</title>
   <desc>吴宗翰</desc>
-  <date>11:32</date>
+  <date>11:32 AM</date>
 </programme>
-<programme channel="988" start="11:25" stop="11:15">
+<programme channel="988" start="20251016112500 +0800" stop="20251016111500 +0800">
   <title>从未见过的海 (netflix 影集《影后》序曲)</title>
   <desc>告五人</desc>
-  <date>11:25</date>
+  <date>11:25 AM</date>
 </programme>
-<programme channel="988" start="11:15" stop="11:05">
+<programme channel="988" start="20251016111500 +0800" stop="20251016110500 +0800">
   <title>分分钟需要你 (原唱:林子祥)</title>
   <desc>戴祖仪</desc>
-  <date>11:15</date>
+  <date>11:15 AM</date>
 </programme>
-<programme channel="988" start="11:05" stop="10:51">
+<programme channel="988" start="20251016110500 +0800" stop="20251016105100 +0800">
   <title>擦肩而过</title>
   <desc>李圣杰</desc>
-  <date>11:05</date>
+  <date>11:05 AM</date>
 </programme>
-<programme channel="988" start="10:51" stop="10:46">
+<programme channel="988" start="20251016105100 +0800" stop="20251016104600 +0800">
   <title>今天终于一人回家</title>
   <desc>李幸倪</desc>
-  <date>10:51</date>
+  <date>10:51 AM</date>
 </programme>
-<programme channel="988" start="10:46" stop="10:38">
+<programme channel="988" start="20251016104600 +0800" stop="20251016103800 +0800">
   <title>又离家出走 (2020版《离家出走》)</title>
   <desc>卫兰</desc>
-  <date>10:46</date>
+  <date>10:46 AM</date>
 </programme>
-<programme channel="988" start="10:38" stop="10:34">
+<programme channel="988" start="20251016103800 +0800" stop="20251016103400 +0800">
   <title>不做你的朋友</title>
   <desc>S.h.e</desc>
-  <date>10:38</date>
+  <date>10:38 AM</date>
 </programme>
-<programme channel="988" start="10:34" stop="10:24">
+<programme channel="988" start="20251016103400 +0800" stop="20251016102400 +0800">
   <title>我以为我只想要一首歌红</title>
   <desc>菲道尔</desc>
-  <date>10:34</date>
+  <date>10:34 AM</date>
 </programme>
-<programme channel="988" start="10:24" stop="10:17">
+<programme channel="988" start="20251016102400 +0800" stop="20251016101700 +0800">
   <title>Wait on me</title>
   <desc>Kai (exo成员)</desc>
-  <date>10:24</date>
+  <date>10:24 AM</date>
 </programme>
-<programme channel="988" start="10:17" stop="10:11">
+<programme channel="988" start="20251016101700 +0800" stop="20251016101100 +0800">
   <title>烈女</title>
   <desc>杨千嬅</desc>
-  <date>10:17</date>
+  <date>10:17 AM</date>
 </programme>
-<programme channel="988" start="10:11" stop="10:04">
+<programme channel="988" start="20251016101100 +0800" stop="20251016100400 +0800">
   <title>相对静止</title>
   <desc>Ap 潘宇谦 + 理想混蛋</desc>
-  <date>10:11</date>
+  <date>10:11 AM</date>
 </programme>
-<programme channel="988" start="10:04" stop="9:52">
+<programme channel="988" start="20251016100400 +0800" stop="20251016095200 +0800">
   <title>忘记拥抱</title>
   <desc>A-lin</desc>
-  <date>10:04</date>
+  <date>10:04 AM</date>
 </programme>
-<programme channel="988" start="9:52" stop="9:44">
+<programme channel="988" start="20251016095200 +0800" stop="20251016094400 +0800">
   <title>歌迷</title>
   <desc>林宥嘉</desc>
-  <date>9:52</date>
+  <date>9:52 AM</date>
 </programme>
-<programme channel="988" start="9:44" stop="9:39">
+<programme channel="988" start="20251016094400 +0800" stop="20251016093900 +0800">
   <title>好累</title>
   <desc>黄伟晋</desc>
-  <date>9:44</date>
+  <date>9:44 AM</date>
 </programme>
-<programme channel="988" start="9:39" stop="9:34">
+<programme channel="988" start="20251016093900 +0800" stop="20251016093400 +0800">
   <title>明知故犯</title>
   <desc>徐佳莹</desc>
-  <date>9:39</date>
+  <date>9:39 AM</date>
 </programme>
-<programme channel="988" start="9:34" stop="9:27">
+<programme channel="988" start="20251016093400 +0800" stop="20251016092700 +0800">
   <title>记得那天</title>
   <desc>龚芷葳</desc>
-  <date>9:34</date>
+  <date>9:34 AM</date>
 </programme>
-<programme channel="988" start="9:27" stop="9:24">
+<programme channel="988" start="20251016092700 +0800" stop="20251016092400 +0800">
   <title>明天仍要继续 (电视剧《他来自江湖》主题曲)</title>
   <desc>炎明熹 + 谭咏麟</desc>
-  <date>9:27</date>
+  <date>9:27 AM</date>
 </programme>
-<programme channel="988" start="9:24" stop="9:18">
+<programme channel="988" start="20251016092400 +0800" stop="20251016091800 +0800">
   <title>Invincible (from kaiju no. 8)</title>
   <desc>Onerepublic</desc>
-  <date>9:24</date>
+  <date>9:24 AM</date>
 </programme>
-<programme channel="988" start="9:18" stop="9:10">
+<programme channel="988" start="20251016091800 +0800" stop="20251016091000 +0800">
   <title>True love</title>
   <desc>蔡健雅</desc>
-  <date>9:18</date>
+  <date>9:18 AM</date>
 </programme>
-<programme channel="988" start="9:10" stop="8:51">
+<programme channel="988" start="20251016091000 +0800" stop="20251016085100 +0800">
   <title>六月飞霜</title>
   <desc>陈奕迅</desc>
-  <date>9:10</date>
+  <date>9:10 AM</date>
 </programme>
-<programme channel="988" start="8:51" stop="8:43">
+<programme channel="988" start="20251016085100 +0800" stop="20251016084300 +0800">
   <title>与我无关 (抖音)</title>
   <desc>阿冗</desc>
-  <date>8:51</date>
+  <date>8:51 AM</date>
 </programme>
-<programme channel="988" start="8:43" stop="8:40">
+<programme channel="988" start="20251016084300 +0800" stop="20251016084000 +0800">
   <title>计划书</title>
   <desc>泳儿</desc>
-  <date>8:43</date>
+  <date>8:43 AM</date>
 </programme>
-<programme channel="988" start="8:40" stop="8:33">
+<programme channel="988" start="20251016084000 +0800" stop="20251016083300 +0800">
   <title>才二十三</title>
   <desc>方大同</desc>
-  <date>8:40</date>
+  <date>8:40 AM</date>
 </programme>
-<programme channel="988" start="8:33" stop="8:25">
+<programme channel="988" start="20251016083300 +0800" stop="20251016082500 +0800">
   <title>日落</title>
   <desc>孙燕姿</desc>
-  <date>8:33</date>
+  <date>8:33 AM</date>
 </programme>
-<programme channel="988" start="8:25" stop="8:21">
+<programme channel="988" start="20251016082500 +0800" stop="20251016082100 +0800">
   <title>踮起腳尖愛 (hpy version)</title>
   <desc>洪佩瑜</desc>
-  <date>8:25</date>
+  <date>8:25 AM</date>
 </programme>
-<programme channel="988" start="8:21" stop="8:13">
+<programme channel="988" start="20251016082100 +0800" stop="20251016081300 +0800">
   <title>养分</title>
   <desc>曾比特</desc>
-  <date>8:21</date>
+  <date>8:21 AM</date>
 </programme>
-<programme channel="988" start="8:13" stop="8:10">
+<programme channel="988" start="20251016081300 +0800" stop="20251016081000 +0800">
   <title>胆小鬼 (原唱:梁咏琪)</title>
   <desc>方泂镔</desc>
-  <date>8:13</date>
+  <date>8:13 AM</date>
 </programme>
-<programme channel="988" start="8:10" stop="8:02">
+<programme channel="988" start="20251016081000 +0800" stop="20251016080200 +0800">
   <title>Me+you</title>
   <desc>Twice</desc>
-  <date>8:10</date>
+  <date>8:10 AM</date>
 </programme>
-<programme channel="988" start="8:02" stop="7:52">
+<programme channel="988" start="20251016080200 +0800" stop="20251016075200 +0800">
   <title>明年</title>
   <desc>卢广仲</desc>
-  <date>8:02</date>
+  <date>8:02 AM</date>
 </programme>
-<programme channel="988" start="7:52" stop="7:46">
+<programme channel="988" start="20251016075200 +0800" stop="20251017074431 +0800">
   <title>岁月风云 (港剧《岁月风云》主题曲)</title>
   <desc>李克勤 + 周传雄</desc>
-  <date>7:52</date>
-</programme>
-<programme channel="988" start="7:46" stop="7:42">
-  <title>回家路上</title>
-  <desc>戴佩妮</desc>
-  <date>7:46</date>
-</programme>
-<programme channel="988" start="7:42" stop="7:42">
-  <title>如果这就是爱情</title>
-  <desc>张靓颖</desc>
-  <date>7:42</date>
+  <date>7:52 AM</date>
 </programme>
 </tv>
