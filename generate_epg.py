@@ -37,12 +37,12 @@ for s in songs:
     dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
     start_times.append(dt_local)
 
-# if playlist crosses midnight, adjust dates
+# Adjust dates if playlist crosses midnight
 for i in range(1, len(start_times)):
     if start_times[i] < start_times[i - 1]:
         start_times[i] += datetime.timedelta(days=1)
 
-# compute stop times
+# Prepare stop times (1 second before next song)
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
@@ -50,15 +50,15 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song arbitrary
 
-# === 4️⃣ Build XML EPG (Televizo) ===
-now = datetime.datetime.now(tz_myt)  # Malaysia time
+# === 4️⃣ Build XML EPG (Televizo)  ===
+now = datetime.datetime.now(tz_myt)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
-    '<display-name>988</display-name>',
+    '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
     '</channel>'
 ]
@@ -68,13 +68,16 @@ for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-    artist_escaped = html.escape(s["artist"], quote=True)
     title_escaped = html.escape(s["title"], quote=True)
+    desc_escaped = html.escape(s["artist"], quote=True)
+
+    # AM/PM format for <date>
+    ampm_time = start_dt.strftime("%I:%M %p")  # 05:24 AM / PM
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-    xml.append(f'    <title>{title_escaped}</title>')
-    xml.append(f'    <desc>{artist_escaped}</desc>')
-    xml.append(f'    <date>{s["time"]}</date>')
+    xml.append(f'  <title lang="zh">{title_escaped}</title>')
+    xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
+    xml.append(f'  <date>{ampm_time}</date>')
     xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
@@ -84,4 +87,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated successfully — {len(songs)} songs, times kept in Malaysia +0800")
+print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
