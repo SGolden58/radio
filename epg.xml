@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015172605 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015173805 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name>988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="20251015102400 +0800" stop="20251016101659 +0800">
+<programme channel="988" start="20251015103400 +0800" stop="20251016102359 +0800">
+    <title>我以为我只想要一首歌红</title>
+    <desc>菲道尔</desc>
+    <date>10:34</date>
+</programme>
+<programme channel="988" start="20251016102400 +0800" stop="20251016101659 +0800">
     <title>Wait on me</title>
     <desc>Kai (exo成员)</desc>
     <date>10:24</date>
@@ -159,14 +164,9 @@
     <desc>棒棒堂</desc>
     <date>6:54</date>
 </programme>
-<programme channel="988" start="20251016065100 +0800" stop="20251016064459 +0800">
+<programme channel="988" start="20251016065100 +0800" stop="20251016065400 +0800">
     <title>Fortune cookie</title>
     <desc>Jasmine 张静汶</desc>
     <date>6:51</date>
-</programme>
-<programme channel="988" start="20251016064500 +0800" stop="20251016064800 +0800">
-    <title>You be you</title>
-    <desc>Veny 刘雨妮</desc>
-    <date>6:45</date>
 </programme>
 </tv>
