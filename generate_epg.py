@@ -49,7 +49,7 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song duration guess
 
-# === 4️⃣ Build XML header ===
+# === 3️⃣ Build XML EPG (Televizo) ===
 now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia time
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
