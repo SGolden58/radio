@@ -1,63 +1,93 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
-import html
 
 # === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
-# === 2️⃣ Extract songs ===
+# === 2️⃣ Extract songs from the playlist table ===
 rows = soup.select("table tr")
 songs = []
 
 for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
-        time_str = cols[0].get_text(strip=True)  # e.g., "5:51"
+        time_str = cols[0].get_text(strip=True)
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
             songs.append({"time": time_str, "artist": artist, "title": title})
 
-# Limit to last 33 songs
+# Limit to the latest 33 songs
 songs = songs[:33]
 
-# === 3️⃣ Build XML ===
-now = datetime.datetime.now()
+# === 3️⃣ Prepare datetime objects ===
+tz_myt = datetime.timezone(datetime.timedelta(hours=8))
+today = datetime.datetime.now(tz_myt).date()
+start_times = []
+
+for s in songs:
+    try:
+        h, m = map(int, s["time"].split(":"))
+    except ValueError:
+        continue
+    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
+    start_times.append(dt_local)
+
+# Adjust dates if playlist crosses midnight
+for i in range(1, len(start_times)):
+    if start_times[i] < start_times[i - 1]:
+        start_times[i] += datetime.timedelta(days=1)
+
+# === FIXED: Compute stop times properly for Televizo ===
+stop_times = []
+for i in range(len(start_times)):
+    if i + 1 < len(start_times):
+        stop_times.append(start_times[i + 1])  # exact next start time, no -1 second
+    else:
+        # last song duration = average duration of previous songs
+        if len(start_times) > 1:
+            avg_duration = sum(
+                [(start_times[j + 1] - start_times[j]).seconds for j in range(len(start_times) - 1)]
+            ) // (len(start_times) - 1)
+            stop_times.append(start_times[i] + datetime.timedelta(seconds=avg_duration))
+        else:
+            stop_times.append(start_times[i] + datetime.timedelta(minutes=3))
+
+# === 4️⃣ Build XML EPG (Televizo)  ===
+now = datetime.datetime.now(tz_myt)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
     '<display-name>988</display-name>',
     '<icon src=""/>',
     '</channel>'
 ]
 
-# === 4️⃣ Add programmes ===
-for i in range(len(songs)):
-    s = songs[i]
-    start_time_str = s["time"]
+# === 5️⃣ Add programme blocks ===
+for i, s in enumerate(songs):
+    start_dt = start_times[i]
+    stop_dt = stop_times[i]
 
-    # Compute stop time as "1 second before next song", use dummy stop for last song
-    if i + 1 < len(songs):
-        next_time_str = songs[i + 1]["time"]
-        stop_time_str = next_time_str  # for now, keep as string; we'll format later
-    else:
-        stop_time_str = start_time_str  # last song, arbitrary
+    # AM/PM format for <date>
+    ampm_time = start_dt.strftime("%-I:%M %p")  # 5:38 PM (Linux/mac) use %-I, Windows might need %#I
 
-    # Keep times exactly as in playlist, no conversion
-    xml.append(f'<programme channel="988" start="{start_time_str}" stop="{stop_time_str}">')
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title>{s["title"]}</title>')
     xml.append(f'  <desc>{s["artist"]}</desc>')
-    xml.append(f'  <date>{start_time_str}</date>')
+    xml.append(f'  <date>{ampm_time}</date>')
     xml.append('</programme>')
 
+# === 6️⃣ Close XML ===
 xml.append('</tv>')
 
-# === 5️⃣ Save XML ===
+# === 7️⃣ Save XML file ===
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print("✅ EPG.xml generated — times exactly match playlist.")
+print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
