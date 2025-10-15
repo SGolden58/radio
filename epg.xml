@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015111729 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
+<tv date="20251015124009 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015052400 +0800" stop="20251015050959 +0800">
+  <title lang="zh">陶喆</title>
+  <desc lang="zh">流沙</desc>
+  <date>5:24</date>
+</programme>
+<programme channel="988" start="20251015051000 +0800" stop="20251015050459 +0800">
+  <title lang="zh">林宥嘉</title>
+  <desc lang="zh">打空气的拳击手</desc>
+  <date>5:10</date>
+</programme>
+<programme channel="988" start="20251015050500 +0800" stop="20251015044559 +0800">
+  <title lang="zh">韦礼安</title>
+  <desc lang="zh">第一个想到你</desc>
+  <date>5:05</date>
+</programme>
+<programme channel="988" start="20251015044600 +0800" stop="20251015044059 +0800">
+  <title lang="zh">王力宏 + selina 任家萱</title>
+  <desc lang="zh">你是我心内的一首歌</desc>
+  <date>4:46</date>
+</programme>
+<programme channel="988" start="20251015044100 +0800" stop="20251015043559 +0800">
+  <title lang="zh">告五人</title>
+  <desc lang="zh">爱人错过</desc>
+  <date>4:41</date>
+</programme>
+<programme channel="988" start="20251015043600 +0800" stop="20251015043259 +0800">
+  <title lang="zh">韦礼安</title>
+  <desc lang="zh">第一个想到你</desc>
+  <date>4:36</date>
+</programme>
+<programme channel="988" start="20251015043300 +0800" stop="20251015042359 +0800">
+  <title lang="zh">洪佩瑜</title>
+  <desc lang="zh">包括但不限于</desc>
+  <date>4:33</date>
+</programme>
+<programme channel="988" start="20251015042400 +0800" stop="20251015041859 +0800">
+  <title lang="zh">Jin (bts成员)</title>
+  <desc lang="zh">Don’t say you love me</desc>
+  <date>4:24</date>
+</programme>
+<programme channel="988" start="20251015041900 +0800" stop="20251015040559 +0800">
+  <title lang="zh">Hebe 田馥甄</title>
+  <desc lang="zh">魔鬼中的天使</desc>
+  <date>4:19</date>
+</programme>
 <programme channel="988" start="20251015040600 +0800" stop="20251015040259 +0800">
   <title lang="zh">碰碰pongpong</title>
   <desc lang="zh">Feel the vibe</desc>
