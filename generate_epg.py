@@ -33,13 +33,18 @@ for s in songs:
         h, m = map(int, s["time"].split(":"))
     except ValueError:
         continue
-    dt_local = datetime.datetime(today.year, today.month, today.day, today.h, m, 0, tzinfo=tz_myt)
+    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
     start_times.append(dt_local)
 
-# Adjust dates if playlist crosses midnight
+# Sort by time to avoid false midnight jumps
+start_times.sort()
+
+# Adjust dates if playlist crosses midnight safely
+day_offset = 0
 for i in range(1, len(start_times)):
     if start_times[i] < start_times[i - 1]:
-        start_times[i] += datetime.timedelta(days=1)
+        day_offset += 1
+    start_times[i] += datetime.timedelta(days=day_offset)
 
 # Prepare stop times (1 second before next song)
 stop_times = []
@@ -47,7 +52,7 @@ for i in range(len(start_times)):
     if i + 1 < len(start_times):
         stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song arbitrary
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song
 
 # === 4️⃣ Build XML EPG (Televizo)  ===
 now = datetime.datetime.now(tz_myt)
