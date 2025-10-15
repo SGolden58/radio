@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
-import html
 
 # === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
@@ -58,7 +57,7 @@ xml = [
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
-    '<display-name lang="zh">988</display-name>',
+    '<display-name>988</display-name>',
     '<icon src=""/>',
     '</channel>'
 ]
@@ -68,15 +67,12 @@ for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-    title_escaped = html.escape(s["title"], quote=True)
-    desc_escaped = html.escape(s["artist"], quote=True)
-
     # AM/PM format for <date>
-    ampm_time = start_dt.strftime("%I:%M %p")  # 05:24 AM / PM
+    ampm_time = start_dt.strftime("%-I:%M %p")  # 5:38 PM (Linux/mac) use %-I, Windows might need %#I
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-    xml.append(f'  <title lang="zh">{title_escaped}</title>')
-    xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
+    xml.append(f'  <title>{s["title"]}</title>')
+    xml.append(f'  <desc>{s["artist"]}</desc>')
     xml.append(f'  <date>{ampm_time}</date>')
     xml.append('</programme>')
 
