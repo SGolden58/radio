@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015085134 +0000" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
-  <channel id="988">
-    <display-name>988</display-name>
-    <icon src=""/>
-  </channel>
-  <programme channel="988" start="20251015014400 +0000" stop="20251016013859 +0000">
+<tv date="20251015171128 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015>
+<channel id="988">
+<display-name>988</display-name>
+<icon src=""/>
+</channel>
+  <programme channel="988" start="20251015021100 +0000" stop="20251016020359 +0000">
+    <title>Ap 潘宇谦 + 理想混蛋</title>
+    <desc>相对静止</desc>
+    <date>10:11</date>
+  </programme>
+  <programme channel="988" start="20251016020400 +0000" stop="20251016015159 +0000">
+    <title>A-lin</title>
+    <desc>忘记拥抱</desc>
+    <date>10:04</date>
+  </programme>
+  <programme channel="988" start="20251016015200 +0000" stop="20251016014359 +0000">
+    <title>林宥嘉</title>
+    <desc>歌迷</desc>
+    <date>9:52</date>
+  </programme>
+  <programme channel="988" start="20251016014400 +0000" stop="20251016013859 +0000">
     <title>黄伟晋</title>
     <desc>好累</desc>
     <date>9:44</date>
@@ -149,24 +164,9 @@
     <desc>Don&#x27;t be the best (ft. feeeleven)</desc>
     <date>6:41</date>
   </programme>
-  <programme channel="988" start="20251015223700 +0000" stop="20251015222559 +0000">
+  <programme channel="988" start="20251015223700 +0000" stop="20251015224000 +0000">
     <title>Rosé (blackpink成员)</title>
     <desc>Messy (from f1® the movie)</desc>
     <date>6:37</date>
-  </programme>
-  <programme channel="988" start="20251015222600 +0000" stop="20251015222059 +0000">
-    <title>光良</title>
-    <desc>I miss you</desc>
-    <date>6:26</date>
-  </programme>
-  <programme channel="988" start="20251015222100 +0000" stop="20251015221359 +0000">
-    <title>詹雯婷 + marz23</title>
-    <desc>不简单的歌</desc>
-    <date>6:21</date>
-  </programme>
-  <programme channel="988" start="20251015221400 +0000" stop="20251015221700 +0000">
-    <title>周杰伦</title>
-    <desc>Mine mine</desc>
-    <date>6:14</date>
   </programme>
 </tv>
