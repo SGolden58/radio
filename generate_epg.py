@@ -49,7 +49,7 @@ xml = [
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">'
     '<channel id="988">',
-    '<display-name lang="zh">988</display-name>',
+    '<display-name>988</display-name>',
     '<icon src=""/>',
     '</channel>'
 ]
