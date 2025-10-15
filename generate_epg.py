@@ -45,9 +45,9 @@ for i in range(len(start_times)):
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")}" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}&amp;timezone=None">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">'
     '<channel id="988">',
     '<display-name lang="zh">988</display-name>',
     '<icon src=""/>',
