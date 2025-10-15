@@ -32,12 +32,15 @@ start_times = []
 for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
-        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=10)
     except ValueError:
         continue
+    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
+    start_times.append(dt_local)
 
-
+# Adjust dates if playlist crosses midnight
+for i in range(1, len(start_times)):
+    if start_times[i] < start_times[i - 1]:
+        start_times[i] += datetime.timedelta(days=1)
 
 # === 4️⃣ Build XML EPG (Televizo)  ===
 now = datetime.datetime.now(tz_myt)
