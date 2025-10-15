@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015151949 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
-<channel id="988">
+<tv date="20251015153305" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015"><channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015082500 +0800" stop="20251015082059 +0800">
+  <title lang="zh">洪佩瑜</title>
+  <desc lang="zh">踮起腳尖愛 (hpy version)</desc>
+  <date>8:25</date>
+</programme>
+<programme channel="988" start="20251015082100 +0800" stop="20251015081259 +0800">
+  <title lang="zh">曾比特</title>
+  <desc lang="zh">养分</desc>
+  <date>8:21</date>
+</programme>
 <programme channel="988" start="20251015081300 +0800" stop="20251015080959 +0800">
   <title lang="zh">方泂镔</title>
   <desc lang="zh">胆小鬼 (原唱:梁咏琪)</desc>
@@ -154,19 +163,9 @@
   <desc lang="zh">Don’t say you love me</desc>
   <date>4:24</date>
 </programme>
-<programme channel="988" start="20251015041900 +0800" stop="20251015040559 +0800">
+<programme channel="988" start="20251015041900 +0800" stop="20251015042100 +0800">
   <title lang="zh">Hebe 田馥甄</title>
   <desc lang="zh">魔鬼中的天使</desc>
   <date>4:19</date>
-</programme>
-<programme channel="988" start="20251015040600 +0800" stop="20251015040259 +0800">
-  <title lang="zh">碰碰pongpong</title>
-  <desc lang="zh">Feel the vibe</desc>
-  <date>4:06</date>
-</programme>
-<programme channel="988" start="20251015040300 +0800" stop="20251015040500 +0800">
-  <title lang="zh">Tablo (epik high队长) + rm (bts队长)</title>
-  <desc lang="zh">Stop the rain</desc>
-  <date>4:03</date>
 </programme>
 </tv>
