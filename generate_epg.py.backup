@@ -1,53 +1,86 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
-import html
 
+# === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
-r.raise_for_status()
-
 soup = BeautifulSoup(r.text, "html.parser")
 
-# The page has a table or div with songs. Adjust selector as needed
-songs_html = soup.select("table tr")  # example: table rows
+# === 2️⃣ Extract songs from the playlist table ===
+rows = soup.select("table tr")
 songs = []
 
-for row in songs_html[1:]:  # skip header
+for row in rows[1:]:  # skip header
     cols = row.find_all("td")
-    if len(cols) >= 2:
+    if len(cols) >= 3:
         time_str = cols[0].get_text(strip=True)
-        title_artist = cols[1].get_text(strip=True)
-        if " - " in title_artist:
-            title, artist = title_artist.split(" - ", 1)
-        else:
-            title, artist = title_artist, "Unknown"
-        songs.append({
-            "time": time_str,
-            "title": title,
-            "artist": artist
-        })
+        artist = cols[1].get_text(strip=True)
+        title = cols[2].get_text(strip=True)
+        if artist and title and time_str:
+            songs.append({"time": time_str, "artist": artist, "title": title})
 
-# Build XML
-xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<tv>']
+# Limit to the latest 33 songs
+songs = songs[:33]
+
+# === 3️⃣ Prepare datetime objects ===
+tz_myt = datetime.timezone(datetime.timedelta(hours=8))
+today = datetime.datetime.now(tz_myt).date()
+start_times = []
 
 for s in songs:
-    # Parse time string, assuming format HH:MM
     try:
-        now = datetime.datetime.utcnow()
         h, m = map(int, s["time"].split(":"))
-        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
-        stop = start + datetime.timedelta(minutes=10)  # 10 min per song
-    except:
-        start = datetime.datetime.utcnow()
-        stop = start + datetime.timedelta(minutes=10)
+    except ValueError:
+        continue
+    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
+    start_times.append(dt_local)
 
-    xml.append(f'''  <programme start="{start.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop.strftime("%Y%m%d%H%M%S")} +0000" channel="Radio">
-    <title lang="en">{html.escape(s['title'])}</title>
-    <desc>{html.escape(s['artist'])}</desc>
-  </programme>''')
+# Adjust dates if playlist crosses midnight
+for i in range(1, len(start_times)):
+    if start_times[i] < start_times[i - 1]:
+        start_times[i] += datetime.timedelta(days=1)
 
-xml.append("</tv>")
+# Prepare stop times (1 second before next song)
+stop_times = []
+for i in range(len(start_times)):
+    if i + 1 < len(start_times):
+        stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
+    else:
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song arbitrary
 
+# === 4️⃣ Build XML EPG (Televizo)  ===
+now = datetime.datetime.now(tz_myt)
+xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
+    '<channel id="988">',
+    '<display-name>988</display-name>',
+    '<icon src=""/>',
+    '</channel>'
+]
+
+# === 5️⃣ Add programme blocks ===
+for i, s in enumerate(songs):
+    start_dt = start_times[i]
+    stop_dt = stop_times[i]
+
+    # AM/PM format for <date>
+    ampm_time = start_dt.strftime("%-I:%M %p")  # 5:38 PM (Linux/mac) use %-I, Windows might need %#I
+
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
+    xml.append(f'  <title>{s["title"]}</title>')
+    xml.append(f'  <desc>{s["artist"]}</desc>')
+    xml.append(f'  <date>{ampm_time}</date>')
+    xml.append('</programme>')
+
+# === 6️⃣ Close XML ===
+xml.append('</tv>')
+
+# === 7️⃣ Save XML file ===
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
+
+print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
