@@ -3,21 +3,16 @@ from bs4 import BeautifulSoup
 import datetime
 import html
 
-# User confirmation before execution
-proceed = input("This script will fetch 988FM playlist data and generate EPG.xml. Continue? (y/n): ")
-if proceed.lower() != 'y':
-    exit()
-
-# === 1. Fetch playlist page ===
+# === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, "html.parser")
 
-# === 2. Extract songs from table ===
+# === 2️⃣ Extract songs from table ===
 rows = soup.select("table tr")
 songs = []
 
-for row in rows[1:]:  # Skip header row
+for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
         time_str = cols[0].get_text(strip=True)
@@ -26,41 +21,27 @@ for row in rows[1:]:  # Skip header row
         if artist and title and time_str:
             songs.append({"time": time_str, "artist": artist, "title": title})
 
-songs = songs[:33]  # Keep latest 33 songs
+# Limit to the latest 33 songs
+songs = songs[:33]
 
-# === 3. Improved time parsing with AM/PM handling ===
+# === 3️⃣ Prepare start times and stop times ===
 tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
 start_times = []
 
 for s in songs:
-    time_str = s["time"].strip().upper()
-    try:
-        # First attempt: AM/PM format
-        dt_obj = datetime.datetime.strptime(time_str, "%I:%M %p")
-        h = dt_obj.hour
-        m = dt_obj.minute
-    except ValueError:
-        try:
-            # Fallback to 24-hour format
-            h, m = map(int, time_str.split(":"))
-        except:
-            print(f"⚠️ Skipped invalid time format: {time_str}")
-            continue
-    
-    # Create timezone-aware datetime
+    h, m = map(int, s["time"].split(":"))
     dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
     start_times.append(dt)
 
-# === 4. Calculate stop times ===
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
         stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=2))
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
 
-# === 5. Generate XML structure ===
+# === 4️⃣ XML header ===
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -73,7 +54,7 @@ xml = [
     '</channel>'
 ]
 
-# Add programme entries
+# === 5️⃣ Add programmes ===
 for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
@@ -87,13 +68,11 @@ for i, s in enumerate(songs):
     xml.append(f'  <date>{s["time"]}</date>')
     xml.append('</programme>')
 
+# === 6️⃣ Close XML ===
 xml.append('</tv>')
 
-# Final confirmation before save
-save = input("Save EPG.xml? (y/n): ")
-if save.lower() == 'y':
-    with open("epg.xml", "w", encoding="utf-8") as f:
-        f.write("\n".join(xml))
-    print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
-else:
-    print("Operation cancelled.")
+# === 7️⃣ Save XML ===
+with open("epg.xml", "w", encoding="utf-8") as f:
+    f.write("\n".join(xml))
+
+print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
