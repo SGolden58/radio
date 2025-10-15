@@ -32,10 +32,10 @@ start_times = []
 for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
+        start = now.replace(hour=h, minute=m, second=0, microsecond=0)
+        stop = start + datetime.timedelta(minutes=10)
     except ValueError:
         continue
-    dt_local = datetime.datetime(today.year, today.month, today.day, today.h, m, 0, tzinfo=tz_myt)
-    start_times.append(dt_local)
 
 # === FIXED: Compute stop times properly for Televizo ===
 stop_times = []
