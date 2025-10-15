@@ -24,30 +24,35 @@ for row in rows[1:]:  # skip header
 # Limit to the latest 33 songs
 songs = songs[:33]
 
-# 12h AM/PM Parsing
-time_obj = datetime.datetime.strptime(s["time"], "%I:%M %p").time()
-# Midnight Wrap Protection
-if stop_time.day != start_times[i].day:
-    stop_time = stop_time.replace(hour=23, minute=59, second=59)
-# Original Time Preservation
-original_time = datetime.datetime.strptime(s["time"], "%I:%M %p").strftime("%I:%M %p")
-
 # === 3️⃣ Prepare start times and stop times ===
 tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
 start_times = []
 
 for s in songs:
-    h, m = map(int, s["time"].split(":"))
-    dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
-    start_times.append(dt)
+    try:
+        # Fixed: Parse time with AM/PM format
+        time_obj = datetime.datetime.strptime(s["time"], "%I:%M %p").time()
+        dt = datetime.datetime.combine(today, time_obj).astimezone(tz)
+        start_times.append(dt)
+    except ValueError:
+        # Fallback to 24h format if AM/PM parsing fails
+        h, m = map(int, s["time"].split(":"))
+        dt = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz)
+        start_times.append(dt)
 
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
-        stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
+        stop_time = start_times[i + 1] - datetime.timedelta(seconds=1)
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=2))  # last song arbitrary
+        stop_time = start_times[i] + datetime.timedelta(minutes=2)
+    
+    # Fixed: Midnight wrap check inside loop
+    if stop_time.day != start_times[i].day:
+        stop_time = stop_time.replace(hour=23, minute=59, second=59)
+    
+    stop_times.append(stop_time)
 
 # === 4️⃣ XML header ===
 now = datetime.datetime.now(tz)
@@ -67,13 +72,19 @@ for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
+    # Fixed: Preserve original time format
+    try:
+        original_time = datetime.datetime.strptime(s["time"], "%I:%M %p").strftime("%I:%M %p")
+    except ValueError:
+        original_time = s["time"]  # Fallback to raw string
+
     title_escaped = html.escape(s["artist"], quote=True)
     desc_escaped = html.escape(s["title"], quote=True)
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title lang="zh">{title_escaped}</title>')
     xml.append(f'  <desc lang="zh">{desc_escaped}</desc>')
-    xml.append(f'  <date>{s["time"]}</date>')
+    xml.append(f'  <date>{original_time}</date>')
     xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
@@ -83,4 +94,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} songs, exact times from playlist")
+print(f"✅ EPG.xml generated — {len(songs)} songs, time conversion fixed")
