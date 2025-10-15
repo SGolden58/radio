@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015155028" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015"><channel id="988">
-<display-name lang="zh">988</display-name>
+<tv date="20251015160256" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015"><channel id="988">
+<display-name>988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015085100 UTC" stop="20251015084259 UTC">
+  <title lang="zh">阿冗</title>
+  <desc lang="zh">与我无关 (抖音)</desc>
+  <date>8:51</date>
+</programme>
 <programme channel="988" start="20251015084300 UTC" stop="20251015083959 UTC">
   <title lang="zh">泳儿</title>
   <desc lang="zh">计划书</desc>
@@ -158,14 +163,9 @@
   <desc lang="zh">你是我心内的一首歌</desc>
   <date>4:46</date>
 </programme>
-<programme channel="988" start="20251015044100 UTC" stop="20251015043559 UTC">
+<programme channel="988" start="20251015044100 UTC" stop="20251015044300 UTC">
   <title lang="zh">告五人</title>
   <desc lang="zh">爱人错过</desc>
   <date>4:41</date>
-</programme>
-<programme channel="988" start="20251015043600 UTC" stop="20251015043800 UTC">
-  <title lang="zh">韦礼安</title>
-  <desc lang="zh">第一个想到你</desc>
-  <date>4:36</date>
 </programme>
 </tv>
