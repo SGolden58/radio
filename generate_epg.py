@@ -50,16 +50,16 @@ for i in range(len(start_times)):
         stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song duration guess
 
 # === 4️⃣ Build XML header ===
-now_utc = datetime.datetime.now(datetime.timezone.utc)
+now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia time
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now_utc.strftime("%Y%m%d%H%M%S")} +0000" '
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now_utc.strftime("%Y%m%d")}">',
-    '  <channel id="988">',
-    '    <display-name>988</display-name>',
-    '    <icon src=""/>',
-    '  </channel>'
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}>',
+    '<channel id="988">',
+    '<display-name>988</display-name>',
+    '<icon src=""/>',
+    '</channel>'
 ]
 
 # === 5️⃣ Add programme blocks ===
