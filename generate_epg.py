@@ -42,20 +42,21 @@ for i in range(1, len(start_times)):
     if start_times[i] < start_times[i - 1]:
         start_times[i] += datetime.timedelta(days=1)
 
+# compute stop times
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
         stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song duration guess
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song arbitrary
 
-# === 3️⃣ Build XML EPG (Televizo) ===
-now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))  # Malaysia time
+# === 4️⃣ Build XML EPG (Televizo) ===
+now = datetime.datetime.now(tz_myt)  # Malaysia time
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}>',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
     '<display-name>988</display-name>',
     '<icon src=""/>',
@@ -64,8 +65,8 @@ xml = [
 
 # === 5️⃣ Add programme blocks ===
 for i, s in enumerate(songs):
-    if i >= len(start_times) or i >= len(stop_times):
-        continue
+    start_dt = start_times[i]
+    stop_dt = stop_times[i]
 
     artist_escaped = html.escape(s["artist"], quote=True)
     title_escaped = html.escape(s["title"], quote=True)
@@ -74,7 +75,7 @@ for i, s in enumerate(songs):
     xml.append(f'    <title>{title_escaped}</title>')
     xml.append(f'    <desc>{artist_escaped}</desc>')
     xml.append(f'    <date>{s["time"]}</date>')
-    xml.append('  </programme>')
+    xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
 xml.append('</tv>')
@@ -83,4 +84,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated successfully — {len(songs)} songs found and converted to UTC time.")
+print(f"✅ EPG.xml generated successfully — {len(songs)} songs, times kept in Malaysia +0800")
