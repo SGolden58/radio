@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015102649 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
+<tv date="20251015104347 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015">
 <channel id="988">
 <display-name>988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="11:40" stop="11:32">
+  <title>如果爱能飞行</title>
+  <desc>龚柯允</desc>
+  <date>11:40</date>
+</programme>
+<programme channel="988" start="11:32" stop="11:25">
+  <title>Friendzone</title>
+  <desc>吴宗翰</desc>
+  <date>11:32</date>
+</programme>
 <programme channel="988" start="11:25" stop="11:15">
   <title>从未见过的海 (netflix 影集《影后》序曲)</title>
   <desc>告五人</desc>
@@ -154,19 +164,9 @@
   <desc>戴佩妮</desc>
   <date>7:46</date>
 </programme>
-<programme channel="988" start="7:42" stop="7:35">
+<programme channel="988" start="7:42" stop="7:42">
   <title>如果这就是爱情</title>
   <desc>张靓颖</desc>
   <date>7:42</date>
-</programme>
-<programme channel="988" start="7:35" stop="7:26">
-  <title>吃爱情的苦</title>
-  <desc>吴克群 + 吴莫愁</desc>
-  <date>7:35</date>
-</programme>
-<programme channel="988" start="7:26" stop="7:26">
-  <title>九秒九</title>
-  <desc>容祖儿</desc>
-  <date>7:26</date>
 </programme>
 </tv>
