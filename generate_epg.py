@@ -28,11 +28,29 @@ tz_myt = datetime.timezone(datetime.timedelta(hours=8))
 now = datetime.datetime.now(tz_myt)  # this becomes your <tv date>
 start_times = []
 
-current_start = now  # first programme starts exactly at <tv date>
+from datetime import datetime, timedelta, timezone
+
+tz_myt = timezone(timedelta(hours=8))
+today = datetime.now(tz=tz_myt).date()  # Malaysia date
+
+start_times = []
 
 for s in songs:
-    start_times.append(current_start)
-    current_start += datetime.timedelta(minutes=3)  # each song = 3 min (adjust as needed)
+    # parse song time from the playlist
+    try:
+        h, m = map(int, s["time"].split(":"))
+    except ValueError:
+        continue
+    start_dt = datetime.combine(today, datetime.time(hour=h, minute=m, tzinfo=tz_myt))
+    start_times.append(start_dt)
+
+# Prepare stop times (1 second before next song)
+stop_times = []
+for i in range(len(start_times)):
+    if i + 1 < len(start_times):
+        stop_times.append(start_times[i + 1] - timedelta(seconds=1))
+    else:
+        stop_times.append(start_times[i] + timedelta(minutes=3))  # last song
 
 # Prepare stop times (1 second before next song)
 stop_times = []
