@@ -45,7 +45,7 @@ for i in range(len(start_times)):
 now = datetime.datetime.now(tz)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")}" '
+    f'<tv date="{now_utc.strftime("%Y%m%d%H%M%S")} +0000" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">'
     '<channel id="988">',
@@ -62,7 +62,13 @@ for i, s in enumerate(songs):
     title_escaped = html.escape(s["artist"], quote=True)
     desc_escaped = html.escape(s["title"], quote=True)
 
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} UTC" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} UTC">')
+    # convert to UTC
+start_dt_utc = start_dt.astimezone(datetime.timezone.utc)
+stop_dt_utc = stop_dt.astimezone(datetime.timezone.utc)
+
+xml.append(
+    f'<programme channel="988" start="{start_dt_utc.strftime("%Y%m%d%H%M%S")} +0000" '
+    f'stop="{stop_dt_utc.strftime("%Y%m%d%H%M%S")} +0000">'
     xml.append(f'  <title>{title_escaped}</title>')
     xml.append(f'  <desc>{desc_escaped}</desc>')
     xml.append(f'  <date>{s["time"]}</date>')
