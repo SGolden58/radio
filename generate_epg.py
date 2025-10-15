@@ -24,6 +24,14 @@ for row in rows[1:]:  # skip header
 # Limit to the latest 33 songs
 songs = songs[:33]
 
+# 12h AM/PM Parsing
+time_obj = datetime.datetime.strptime(s["time"], "%I:%M %p").time()
+# Midnight Wrap Protection
+if stop_time.day != start_times[i].day:
+    stop_time = stop_time.replace(hour=23, minute=59, second=59)
+# Original Time Preservation
+original_time = datetime.datetime.strptime(s["time"], "%I:%M %p").strftime("%I:%M %p")
+
 # === 3️⃣ Prepare start times and stop times ===
 tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
