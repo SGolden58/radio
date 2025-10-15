@@ -28,7 +28,6 @@ tz_myt = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz_myt).date()
 start_times = []
 
-# === Add each song as a <programme> ===
 for s in songs:
     try:
         h, m = map(int, s["time"].split(":"))
@@ -41,6 +40,14 @@ for s in songs:
 for i in range(1, len(start_times)):
     if start_times[i] < start_times[i - 1]:
         start_times[i] += datetime.timedelta(days=1)
+
+# Prepare stop times (1 second before next song)
+stop_times = []
+for i in range(len(start_times)):
+    if i + 1 < len(start_times):
+        stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
+    else:
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song arbitrary
 
 # === 4️⃣ Build XML EPG (Televizo)  ===
 now = datetime.datetime.now(tz_myt)
@@ -66,7 +73,7 @@ for i, s in enumerate(songs):
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title>{s["title"]}</title>')
     xml.append(f'  <desc>{s["artist"]}</desc>')
-    xml.append(f'  <date>{now.strftime("%-I:%M %p")}</date>')
+    xml.append(f'  <date>{start_dt.strftime("%-I:%M %p")}</date>')
     xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
