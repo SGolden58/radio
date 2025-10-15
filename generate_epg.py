@@ -21,6 +21,9 @@ for row in rows[1:]:  # skip header
         if artist and title and time_str:
             songs.append({"time": time_str, "artist": artist, "title": title})
 
+# Limit to the latest 33 songs
+songs = songs[:33]
+
 # === 3️⃣ Prepare start times and stop times ===
 tz = datetime.timezone(datetime.timedelta(hours=8))
 today = datetime.datetime.now(tz).date()
