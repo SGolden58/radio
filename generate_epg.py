@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
- 
+
 # === 1️⃣ Fetch playlist page ===
 url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
@@ -28,29 +28,11 @@ tz_myt = datetime.timezone(datetime.timedelta(hours=8))
 now = datetime.datetime.now(tz_myt)  # this becomes your <tv date>
 start_times = []
 
-from datetime import datetime, timedelta, timezone
-
-tz_myt = timezone(timedelta(hours=8))
-today = datetime.now(tz=tz_myt).date()  # Malaysia date
-
-start_times = []
+current_start = now  # first programme starts exactly at <tv date>
 
 for s in songs:
-    # parse song time from the playlist
-    try:
-        h, m = map(int, s["time"].split(":"))
-    except ValueError:
-        continue
-    start_dt = datetime.combine(today, datetime.time(hour=h, minute=m, tzinfo=tz_myt))
-    start_times.append(start_dt)
-
-# Prepare stop times (1 second before next song)
-stop_times = []
-for i in range(len(start_times)):
-    if i + 1 < len(start_times):
-        stop_times.append(start_times[i + 1] - timedelta(seconds=1))
-    else:
-        stop_times.append(start_times[i] + timedelta(minutes=3))  # last song
+    start_times.append(current_start)
+    current_start += datetime.timedelta(minutes=3)  # each song = 3 min (adjust as needed)
 
 # Prepare stop times (1 second before next song)
 stop_times = []
@@ -60,21 +42,11 @@ for i in range(len(start_times)):
     else:
         stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song
 
-from datetime import datetime, timedelta, timezone
-
-tz_myt = timezone(timedelta(hours=8))  # Malaysia time zone
-
 # === 4️⃣ Build XML EPG (Televizo)  ===
-now = datetime.now(tz=tz_myt)
-
-# use this 'now' as your tv_date
-tv_date_str = now.strftime("%Y%m%d%H%M%S") + " +0800"
-base_date = now.date()  # use this date for all programme times
-
+now = datetime.datetime.now(tz_myt)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<?xml-stylesheet type="text/xsl" href="epg.xsl"?>',  # <-- as a string
-    f'<tv date="{tv_date_str}" '
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
