@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015124009 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
+<tv date="20251015133520 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015062600 +0800" stop="20251015062059 +0800">
+  <title lang="zh">光良</title>
+  <desc lang="zh">I miss you</desc>
+  <date>6:26</date>
+</programme>
+<programme channel="988" start="20251015062100 +0800" stop="20251015061359 +0800">
+  <title lang="zh">詹雯婷 + marz23</title>
+  <desc lang="zh">不简单的歌</desc>
+  <date>6:21</date>
+</programme>
+<programme channel="988" start="20251015061400 +0800" stop="20251015060759 +0800">
+  <title lang="zh">周杰伦</title>
+  <desc lang="zh">Mine mine</desc>
+  <date>6:14</date>
+</programme>
+<programme channel="988" start="20251015060800 +0800" stop="20251015060259 +0800">
+  <title lang="zh">周柏豪</title>
+  <desc lang="zh">让爱高飞 (电视剧《多功能老婆》片尾曲)</desc>
+  <date>6:08</date>
+</programme>
+<programme channel="988" start="20251015060300 +0800" stop="20251015052359 +0800">
+  <title lang="zh">3p (3 production)</title>
+  <desc lang="zh">鑫</desc>
+  <date>6:03</date>
+</programme>
 <programme channel="988" start="20251015052400 +0800" stop="20251015050959 +0800">
   <title lang="zh">陶喆</title>
   <desc lang="zh">流沙</desc>
