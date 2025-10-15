@@ -55,7 +55,7 @@ base_date = now.date()  # use this date for all programme times
 
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    <?xml-stylesheet type="text/xsl" href="epg.xsl"?>
+    '<?xml-stylesheet type="text/xsl" href="epg.xsl"?>',  # <-- as a string
     f'<tv date="{tv_date_str}" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
     f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
