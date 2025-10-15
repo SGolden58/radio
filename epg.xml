@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251015140203 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
+<tv date="20251015143202 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251015&amp;timezone=None">
 <channel id="988">
 <display-name lang="zh">988</display-name>
 <icon src=""/>
 </channel>
+<programme channel="988" start="20251015072600 +0800" stop="20251015072159 +0800">
+  <title lang="zh">容祖儿</title>
+  <desc lang="zh">九秒九</desc>
+  <date>7:26</date>
+</programme>
+<programme channel="988" start="20251015072200 +0800" stop="20251015071459 +0800">
+  <title lang="zh">队长</title>
+  <desc lang="zh">假动作 (原唱:房祖名)</desc>
+  <date>7:22</date>
+</programme>
+<programme channel="988" start="20251015071500 +0800" stop="20251015071059 +0800">
+  <title lang="zh">Meovv</title>
+  <desc lang="zh">Hands up</desc>
+  <date>7:15</date>
+</programme>
+<programme channel="988" start="20251015071100 +0800" stop="20251015070959 +0800">
+  <title lang="zh">杨丞琳</title>
+  <desc lang="zh">青春住了谁 (2018台剧《前男友不是人》歌曲)</desc>
+  <date>7:11</date>
+</programme>
+<programme channel="988" start="20251015071000 +0800" stop="20251015065359 +0800">
+  <title lang="zh">古巨基</title>
+  <desc lang="zh">大雄</desc>
+  <date>7:10</date>
+</programme>
 <programme channel="988" start="20251015065400 +0800" stop="20251015065059 +0800">
   <title lang="zh">棒棒堂</title>
   <desc lang="zh">夏日初体验 (2025版)</desc>
@@ -139,34 +164,9 @@
   <desc lang="zh">牵牵牵手</desc>
   <date>3:03</date>
 </programme>
-<programme channel="988" start="20251015025300 +0800" stop="20251015024759 +0800">
+<programme channel="988" start="20251015025300 +0800" stop="20251015025500 +0800">
   <title lang="zh">郁可唯</title>
   <desc lang="zh">暖心</desc>
   <date>2:53</date>
-</programme>
-<programme channel="988" start="20251015024800 +0800" stop="20251015023959 +0800">
-  <title lang="zh">张震岳 + 蔡健雅</title>
-  <desc lang="zh">思念是一种病</desc>
-  <date>2:48</date>
-</programme>
-<programme channel="988" start="20251015024000 +0800" stop="20251015023459 +0800">
-  <title lang="zh">蓝奕邦</title>
-  <desc lang="zh">身体健康</desc>
-  <date>2:40</date>
-</programme>
-<programme channel="988" start="20251015023500 +0800" stop="20251015022959 +0800">
-  <title lang="zh">Gareth.t 汤令山</title>
-  <desc lang="zh">紧急联络人</desc>
-  <date>2:35</date>
-</programme>
-<programme channel="988" start="20251015023000 +0800" stop="20251015022559 +0800">
-  <title lang="zh">Henry moodie</title>
-  <desc lang="zh">Comedown</desc>
-  <date>2:30</date>
-</programme>
-<programme channel="988" start="20251015022600 +0800" stop="20251015022800 +0800">
-  <title lang="zh">周汤豪</title>
-  <desc lang="zh">帅到分手</desc>
-  <date>2:26</date>
 </programme>
 </tv>
