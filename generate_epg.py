@@ -33,7 +33,7 @@ for s in songs:
         h, m = map(int, s["time"].split(":"))
     except ValueError:
         continue
-    dt_local = datetime.datetime(today.year, today.month, today.day, h, m, 0, tzinfo=tz_myt)
+    dt_local = datetime.datetime(today.year, today.month, today.day, today.h, m, 0, tzinfo=tz_myt)
     start_times.append(dt_local)
 
 # Adjust dates if playlist crosses midnight
