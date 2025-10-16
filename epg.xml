@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tv date="20251017053903 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251017"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
+<?xml version="1.0" encoding="UTF-8"?><tv date="20251017054937 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251017"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
   <programme channel="988" start="20251013000000 +0800" stop="20251013050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
@@ -12,6 +12,16 @@
   <programme channel="988" start="20251013050000 +0800" stop="20251013053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>
+  <programme channel="988" start="20251013053000 +0800" stop="20251013060000 +0800">
+    <title lang="zh">988 Music On Air</title>
+    <desc lang="zh">Music On Air</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
@@ -119,6 +129,16 @@
       <value>U</value>
     </rating>
   </programme>
+  <programme channel="988" start="20251014053000 +0800" stop="20251014060000 +0800">
+    <title lang="zh">988 Music On Air</title>
+    <desc lang="zh">Music On Air</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>
   <programme channel="988" start="20251014060000 +0800" stop="20251014100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
@@ -212,6 +232,16 @@
   <programme channel="988" start="20251015050000 +0800" stop="20251015053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>
+  <programme channel="988" start="20251015053000 +0800" stop="20251015060000 +0800">
+    <title lang="zh">988 Music On Air</title>
+    <desc lang="zh">Music On Air</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
@@ -319,6 +349,16 @@
       <value>U</value>
     </rating>
   </programme>
+  <programme channel="988" start="20251016053000 +0800" stop="20251016060000 +0800">
+    <title lang="zh">988 Music On Air</title>
+    <desc lang="zh">Music On Air</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>
   <programme channel="988" start="20251016060000 +0800" stop="20251016100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
@@ -419,6 +459,16 @@
       <value>U</value>
     </rating>
   </programme>
+  <programme channel="988" start="20251017053000 +0800" stop="20251017060000 +0800">
+    <title lang="zh">988 Music On Air</title>
+    <desc lang="zh">Music On Air</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>
   <programme channel="988" start="20251017060000 +0800" stop="20251017100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
@@ -459,7 +509,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251017160000 +0800" stop="20251017193000 +0800">
+  <programme channel="988" start="20251017160000 +0800" stop="20251017190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！敢做敢讲敢玩，游戏笑声不断，资讯丰富，让通勤时光变黄金。加入我们，月入“百万知识”不是梦，敢玩就最Power！</desc>
     <category>Music</category>
