@@ -60,14 +60,14 @@ for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-    # AM/PM format for <date>
-    ampm_time = start_dt.strftime("%-I:%M %p")  # 5:38 PM (Linux/mac) use %-I, Windows might need %#I
+hour_min = start_dt.strftime("%H:%M")
+ampm = "AM" if start_dt.hour < 12 else "PM"
 
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-    xml.append(f'  <title>{s["title"]}</title>')
-    xml.append(f'  <desc>{s["artist"]}</desc>')
-    xml.append(f'  <date>{start_dt.strftime("%-I:%M %p")}</date>')
-    xml.append('</programme>')
+xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
+xml.append(f'  <title>{s["title"]}</title>')
+xml.append(f'  <desc>{s["artist"]}</desc>')
+xml.append(f'  <date>{hour_min} {ampm}</date>')
+xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
 xml.append('</tv>')
