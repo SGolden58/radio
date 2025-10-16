@@ -1,172 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tv date="20251016145936 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251016">
+<tv date="20251016150726 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251016">
 <channel id="988">
 <display-name>988</display-name>
 <icon src=""/>
 </channel>
-<programme channel="988" start="20251016065936 +0000" stop="20251016070235 +0000">
+<programme channel="988" start="20251016150726 +0800" stop="20251016151025 +0800">
+  <title>两只恋人</title>
+  <desc>曹格</desc>
+  <date>08:04</date>
+</programme>
+<programme channel="988" start="20251016151026 +0800" stop="20251016151325 +0800">
   <title>数到十</title>
   <desc>曾沛慈</desc>
-  <date>15:51</date>
+  <date>07:51</date>
 </programme>
-<programme channel="988" start="20251016070236 +0000" stop="20251016070535 +0000">
+<programme channel="988" start="20251016151326 +0800" stop="20251016151625 +0800">
   <title>合照</title>
   <desc>菲道尔</desc>
-  <date>15:47</date>
+  <date>07:47</date>
 </programme>
-<programme channel="988" start="20251016070536 +0000" stop="20251016070835 +0000">
+<programme channel="988" start="20251016151626 +0800" stop="20251016151925 +0800">
   <title>Pillow</title>
   <desc>蔡依林</desc>
-  <date>15:43</date>
+  <date>07:43</date>
 </programme>
-<programme channel="988" start="20251016070836 +0000" stop="20251016071135 +0000">
+<programme channel="988" start="20251016151926 +0800" stop="20251016152225 +0800">
   <title>Do the dance</title>
   <desc>Illit</desc>
-  <date>15:36</date>
+  <date>07:36</date>
 </programme>
-<programme channel="988" start="20251016071136 +0000" stop="20251016071435 +0000">
+<programme channel="988" start="20251016152226 +0800" stop="20251016152525 +0800">
   <title>内伤</title>
   <desc>林健辉</desc>
-  <date>15:25</date>
+  <date>07:25</date>
 </programme>
-<programme channel="988" start="20251016071436 +0000" stop="20251016071735 +0000">
+<programme channel="988" start="20251016152526 +0800" stop="20251016152825 +0800">
   <title>因果之灰 (电视剧《绝命法官》主题曲)</title>
   <desc>张家辉</desc>
-  <date>15:21</date>
+  <date>07:21</date>
 </programme>
-<programme channel="988" start="20251016071736 +0000" stop="20251016072035 +0000">
+<programme channel="988" start="20251016152826 +0800" stop="20251016153125 +0800">
   <title>鸽子</title>
   <desc>杨宗纬</desc>
-  <date>15:20</date>
+  <date>07:20</date>
 </programme>
-<programme channel="988" start="20251016072036 +0000" stop="20251016072335 +0000">
+<programme channel="988" start="20251016153126 +0800" stop="20251016153425 +0800">
   <title>分手是需要练习的</title>
   <desc>A-lin</desc>
-  <date>15:10</date>
+  <date>07:10</date>
 </programme>
-<programme channel="988" start="20251016072336 +0000" stop="20251016072635 +0000">
+<programme channel="988" start="20251016153426 +0800" stop="20251016153725 +0800">
   <title>我想要占据你</title>
   <desc>告五人</desc>
-  <date>15:02</date>
+  <date>07:02</date>
 </programme>
-<programme channel="988" start="20251016072636 +0000" stop="20251016072935 +0000">
+<programme channel="988" start="20251016153726 +0800" stop="20251016154025 +0800">
   <title>珍珠奶茶</title>
   <desc>品冠</desc>
-  <date>14:52</date>
+  <date>06:52</date>
 </programme>
-<programme channel="988" start="20251016072936 +0000" stop="20251016073235 +0000">
+<programme channel="988" start="20251016154026 +0800" stop="20251016154325 +0800">
   <title>Sapphire</title>
   <desc>Ed sheeran</desc>
-  <date>14:45</date>
+  <date>06:45</date>
 </programme>
-<programme channel="988" start="20251016073236 +0000" stop="20251016073535 +0000">
+<programme channel="988" start="20251016154326 +0800" stop="20251016154625 +0800">
   <title>爱我别烦</title>
   <desc>阿肆 + 吴青峰</desc>
-  <date>14:42</date>
+  <date>06:42</date>
 </programme>
-<programme channel="988" start="20251016073536 +0000" stop="20251016073835 +0000">
+<programme channel="988" start="20251016154626 +0800" stop="20251016154925 +0800">
   <title>Honey (2020新版)</title>
   <desc>王心凌</desc>
-  <date>14:37</date>
+  <date>06:37</date>
 </programme>
-<programme channel="988" start="20251016073836 +0000" stop="20251016074135 +0000">
+<programme channel="988" start="20251016154926 +0800" stop="20251016155225 +0800">
   <title>只想把妳偷偷藏好 (2023电视剧《偷偷藏不住》主题曲)</title>
   <desc>汪苏泷 + 赵露思</desc>
-  <date>14:27</date>
+  <date>06:27</date>
 </programme>
-<programme channel="988" start="20251016074136 +0000" stop="20251016074435 +0000">
+<programme channel="988" start="20251016155226 +0800" stop="20251016155525 +0800">
   <title>太阳与地球</title>
   <desc>卢广仲</desc>
-  <date>14:23</date>
+  <date>06:23</date>
 </programme>
-<programme channel="988" start="20251016074436 +0000" stop="20251016074735 +0000">
+<programme channel="988" start="20251016155526 +0800" stop="20251016155825 +0800">
   <title>焰火 (电视剧《点燃我, 温暖你》主题曲)</title>
   <desc>周深</desc>
-  <date>14:15</date>
+  <date>06:15</date>
 </programme>
-<programme channel="988" start="20251016074736 +0000" stop="20251016075035 +0000">
+<programme channel="988" start="20251016155826 +0800" stop="20251016160125 +0800">
   <title>完美的一天</title>
   <desc>孙燕姿</desc>
-  <date>14:07</date>
+  <date>06:07</date>
 </programme>
-<programme channel="988" start="20251016075036 +0000" stop="20251016075335 +0000">
+<programme channel="988" start="20251016160126 +0800" stop="20251016160425 +0800">
   <title>因为你所以我</title>
   <desc>五月天</desc>
-  <date>14:03</date>
+  <date>06:03</date>
 </programme>
-<programme channel="988" start="20251016075336 +0000" stop="20251016075635 +0000">
+<programme channel="988" start="20251016160426 +0800" stop="20251016160725 +0800">
   <title>如果我们还在一起</title>
   <desc>宇宙人</desc>
-  <date>13:24</date>
+  <date>05:24</date>
 </programme>
-<programme channel="988" start="20251016075636 +0000" stop="20251016075935 +0000">
+<programme channel="988" start="20251016160726 +0800" stop="20251016161025 +0800">
   <title>讲不出再见（时光音乐会 live）</title>
   <desc>谭咏麟</desc>
-  <date>13:16</date>
+  <date>05:16</date>
 </programme>
-<programme channel="988" start="20251016075936 +0000" stop="20251016080235 +0000">
+<programme channel="988" start="20251016161026 +0800" stop="20251016161325 +0800">
   <title>心花怒放</title>
   <desc>容祖儿</desc>
-  <date>13:10</date>
+  <date>05:10</date>
 </programme>
-<programme channel="988" start="20251016080236 +0000" stop="20251016080535 +0000">
+<programme channel="988" start="20251016161326 +0800" stop="20251016161625 +0800">
   <title>眼底星空</title>
   <desc>李圣杰</desc>
-  <date>12:51</date>
+  <date>04:51</date>
 </programme>
-<programme channel="988" start="20251016080536 +0000" stop="20251016080835 +0000">
+<programme channel="988" start="20251016161626 +0800" stop="20251016161925 +0800">
   <title>在我怀里</title>
   <desc>方泂镔</desc>
-  <date>12:40</date>
+  <date>04:40</date>
 </programme>
-<programme channel="988" start="20251016080836 +0000" stop="20251016081135 +0000">
+<programme channel="988" start="20251016161926 +0800" stop="20251016162225 +0800">
   <title>信之卷</title>
   <desc>Anson 江𤒹生 (mirror成员)</desc>
-  <date>12:35</date>
+  <date>04:35</date>
 </programme>
-<programme channel="988" start="20251016081136 +0000" stop="20251016081435 +0000">
+<programme channel="988" start="20251016162226 +0800" stop="20251016162525 +0800">
   <title>如何去爱 (电视剧《承欢记》成长主题曲)</title>
   <desc>郁可唯</desc>
-  <date>12:22</date>
+  <date>04:22</date>
 </programme>
-<programme channel="988" start="20251016081436 +0000" stop="20251016081735 +0000">
+<programme channel="988" start="20251016162526 +0800" stop="20251016162825 +0800">
   <title>可以了</title>
   <desc>陈奕迅</desc>
-  <date>12:17</date>
+  <date>04:17</date>
 </programme>
-<programme channel="988" start="20251016081736 +0000" stop="20251016082035 +0000">
+<programme channel="988" start="20251016162826 +0800" stop="20251016163125 +0800">
   <title>不忍心要你走</title>
   <desc>陈威全</desc>
-  <date>12:06</date>
+  <date>04:06</date>
 </programme>
-<programme channel="988" start="20251016082036 +0000" stop="20251016082335 +0000">
+<programme channel="988" start="20251016163126 +0800" stop="20251016163425 +0800">
   <title>你的答案 (抖音)</title>
   <desc>阿冗</desc>
-  <date>12:02</date>
+  <date>04:02</date>
 </programme>
-<programme channel="988" start="20251016082336 +0000" stop="20251016082635 +0000">
+<programme channel="988" start="20251016163426 +0800" stop="20251016163725 +0800">
   <title>Eyes closed</title>
   <desc>Jisoo + zayn</desc>
-  <date>11:46</date>
+  <date>03:46</date>
 </programme>
-<programme channel="988" start="20251016082636 +0000" stop="20251016082935 +0000">
+<programme channel="988" start="20251016163726 +0800" stop="20251016164025 +0800">
   <title>只愿和你相爱</title>
   <desc>动力火车 + 阎奕格</desc>
-  <date>11:41</date>
+  <date>03:41</date>
 </programme>
-<programme channel="988" start="20251016082936 +0000" stop="20251016083235 +0000">
+<programme channel="988" start="20251016164026 +0800" stop="20251016164325 +0800">
   <title>轻轻对你说</title>
   <desc>卢广仲</desc>
-  <date>11:29</date>
+  <date>03:29</date>
 </programme>
-<programme channel="988" start="20251016083236 +0000" stop="20251016083535 +0000">
+<programme channel="988" start="20251016164326 +0800" stop="20251016164626 +0800">
   <title>What you want</title>
   <desc>Cortis</desc>
-  <date>11:23</date>
-</programme>
-<programme channel="988" start="20251016083536 +0000" stop="20251016083836 +0000">
-  <title>我的亲爱小孩</title>
-  <desc>小男孩乐团</desc>
-  <date>11:08</date>
+  <date>03:23</date>
 </programme>
 </tv>
