@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # Every Monday
+    - cron: '0 0 * * 1' # Runs every Monday
   workflow_dispatch:
 
 jobs:
@@ -34,29 +34,31 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add epg.xml
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
   cleanup:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Install GitHub CLI
-        run: sudo apt-get update && sudo apt-get install -y gh
-
-      - name: Delete old workflow runs (all workflows) keeping only 6
+      - name: Cleanup old Update Radio EPG runs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          KEEP_LATEST: 6
+          KEEP_LATEST: 2
         run: |
-          echo "Fetching all workflow runs..."
-          ALL_RUNS=$(gh api repos/${{ github.repository }}/actions/runs \
+          echo "Fetching workflow ID for Update Radio EPG..."
+          workflow_id=$(gh api repos/${{ github.repository }}/actions/workflows \
+            -q '.workflows[] | select(.name=="Update Radio EPG") | .id')
+
+          echo "Fetching workflow runs..."
+          runs=$(gh api repos/${{ github.repository }}/actions/workflows/$workflow_id/runs \
             -q '.workflow_runs | sort_by(.created_at) | reverse | .['$KEEP_LATEST':] | .[].id')
 
-          if [ -z "$ALL_RUNS" ]; then
-            echo "Nothing to delete."
+          if [ -z "$runs" ]; then
+            echo "No old runs to delete."
           else
-            for RUN_ID in $ALL_RUNS; do
-              echo "Deleting run $RUN_ID"
-              gh api -X DELETE repos/${{ github.repository }}/actions/runs/$RUN_ID
+            echo "Deleting old runs..."
+            for run_id in $runs; do
+              echo "Deleting run $run_id"
+              gh api -X DELETE repos/${{ github.repository }}/actions/runs/$run_id
             done
           fi
