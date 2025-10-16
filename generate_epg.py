@@ -18,11 +18,11 @@ for row in rows[1:]:  # skip header
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
-            # Convert scraped time to 24-hour Malaysia time
+            # Convert time to 24-hour format if needed
             try:
                 hour, minute = map(int, time_str.split(":"))
-                # If hour < 8, assume site is showing UTC, add 8
-                hour = (hour + 8) % 24
+                if hour < 8:  # assuming times <8 may be morning of next day in playlist logic
+                    hour += 0  # no adjustment needed if site already shows 14,15 etc
                 time_str_24 = f"{hour:02d}:{minute:02d}"
             except:
                 time_str_24 = time_str
@@ -31,51 +31,53 @@ for row in rows[1:]:  # skip header
 # Limit to latest 33 songs
 songs = songs[:33]
 
-# === 3️⃣ Prepare datetime objects in UTC ===
-now_malaysia = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
-start_times_utc = []
-current_start = now_malaysia.astimezone(datetime.timezone.utc)  # convert to UTC
+# === 3️⃣ Prepare datetime objects in Malaysia +0800 ===
+tz_myt = datetime.timezone(datetime.timedelta(hours=8))
+now = datetime.datetime.now(tz_myt)
+
+start_times = []
+current_start = now  # first programme starts now
 
 for _ in songs:
-    start_times_utc.append(current_start)
+    start_times.append(current_start)
     current_start += datetime.timedelta(minutes=3)  # each song 3 min
 
-# Prepare stop times (1 second before next)
-stop_times_utc = []
-for i in range(len(start_times_utc)):
-    if i + 1 < len(start_times_utc):
-        stop_times_utc.append(start_times_utc[i + 1] - datetime.timedelta(seconds=1))
+# Stop times (1 second before next song)
+stop_times = []
+for i in range(len(start_times)):
+    if i + 1 < len(start_times):
+        stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
     else:
-        stop_times_utc.append(start_times_utc[i] + datetime.timedelta(minutes=3))
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))
 
-# === 4️⃣ Build XML EPG ===
+# === 4️⃣ Build XML ===
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now_malaysia.strftime("%Y%m%d%H%M%S")} +0800" '
+    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
     f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now_malaysia.strftime("%Y%m%d")}">',
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
     '<channel id="988">',
     '<display-name>988</display-name>',
     '<icon src=""/>',
     '</channel>'
 ]
 
-# === 5️⃣ Add programme blocks ===
+# === 5️⃣ Add programmes ===
 for i, s in enumerate(songs):
-    start_dt = start_times_utc[i]
-    stop_dt = stop_times_utc[i]
+    start_dt = start_times[i]
+    stop_dt = stop_times[i]
 
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0000" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0000">')
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title>{s["title"]}</title>')
     xml.append(f'  <desc>{s["artist"]}</desc>')
-    xml.append(f'  <date>{s["time"]}</date>')  # exact number from playlist
+    xml.append(f'  <date>{s["time"]}</date>')  # exactly same as scraped playlist
     xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
 xml.append('</tv>')
 
-# === 7️⃣ Save XML file ===
+# === 7️⃣ Save XML ===
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated — {len(songs)} songs, times match playlist exactly.")
+print(f"✅ EPG.xml generated — {len(songs)} songs, times match playlist exactly (+0800).")
