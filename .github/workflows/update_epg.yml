@@ -45,26 +45,19 @@ jobs:
 
       - name: Delete old workflow runs
         env:
-          GITHUB_TOKEN_PAT: ${{ secrets.PAT_TOKEN }} # PAT with repo+workflow permissions
+          GITHUB_TOKEN_PAT: ${{ secrets.PAT_TOKEN }} # Personal Access Token with repo+workflow permissions
           KEEP_LATEST: 6
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.repository }}
         run: |
           echo "$GITHUB_TOKEN_PAT" | gh auth login --with-token
-
           echo "Fetching workflow runs..."
-          runs=$(gh api --paginate "repos/$OWNER/$REPO/actions/runs" -q '.workflow_runs[] | {id, workflow_id, created_at}' | \
-            jq -r '. | "\(.id) \(.workflow_id) \(.created_at)"' | sort -k3 -r)
-
-          declare -A kept
-          echo "$runs" | while read run_id workflow_id created_at; do
-            if [ -z "${kept[$workflow_id]}" ]; then
-              kept[$workflow_id]=0
-            fi
-            if [ "${kept[$workflow_id]}" -lt "$KEEP_LATEST" ]; then
-              kept[$workflow_id]=$(( kept[$workflow_id] + 1 ))
-            else
-              echo "Deleting workflow run $run_id from workflow $workflow_id"
-              gh api --method DELETE "repos/$OWNER/$REPO/actions/runs/$run_id"
-            fi
-          done
+          gh api --paginate "repos/$OWNER/$REPO/actions/runs" -q '.workflow_runs[] | {id, workflow_id, created_at}' | \
+            jq -r '. | "\(.id) \(.workflow_id) \(.created_at)"' | sort -k3 -r | while read run_id workflow_id created_at; do
+              kept_count=$(gh api "repos/$OWNER/$REPO/actions/workflows/$workflow_id/runs?per_page=100" \
+                -q ".workflow_runs | map(select(.status != \"in_progress\")) | length")
+              if [ "$kept_count" -gt "$KEEP_LATEST" ]; then
+                echo "Deleting workflow run $run_id from workflow $workflow_id"
+                gh api --method DELETE "repos/$OWNER/$REPO/actions/runs/$run_id"
+              fi
+            done
