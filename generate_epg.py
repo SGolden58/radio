@@ -119,8 +119,8 @@ def build_epg_xml(songs, start_times, stop_times, tz_myt, now, live_artist=None,
         title_escaped = html.escape(live_song if live_song else "")
         artist_escaped = html.escape(live_artist if live_artist else "")
         xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-        xml.append(f'  <title>{title_escaped} + {artist_escaped}</title>')
-        xml.append(f'  <desc>{artist_escaped}</desc>')
+        xml.append(f'  <title>{s["title"]} + {s["artist"]}</title>')
+        xml.append(f'  <desc>{s["artist"]}</desc>')
         xml.append(f'  <date>{start_dt.strftime(hour_format)}</date>')
         xml.append('</programme>')
 
@@ -133,8 +133,8 @@ def build_epg_xml(songs, start_times, stop_times, tz_myt, now, live_artist=None,
         artist_escaped = html.escape(s["artist"])
 
         xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-        xml.append(f'  <title>{title_escaped} + {artist_escaped}</title>')
-        xml.append(f'  <desc>{artist_escaped}</desc>')
+        xml.append(f'  <title>{s["title"]} + {s["artist"]}</title>')
+        xml.append(f'  <desc>{s["artist"]}</desc>')
         xml.append(f'  <date>{start_dt.strftime(hour_format)}</date>')
         xml.append('</programme>')
 
