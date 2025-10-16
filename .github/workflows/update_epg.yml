@@ -35,3 +35,29 @@ jobs:
           git add epg.xml
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+
+cleanup:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Delete old workflow runs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEP_LATEST: 6
+        run: |
+          echo "Fetching workflow runs..."
+          runs=$(gh api repos/${{ github.repository }}/actions/runs \
+            -q '.workflow_runs | sort_by(.created_at) | reverse | .['$KEEP_LATEST':] | .[].id')
+          
+          if [ -z "$runs" ]; then
+            echo "No runs to delete."
+          else
+            echo "Deleting old runs..."
+            for run_id in $runs; do
+              echo "Deleting run $run_id"
+              gh api -X DELETE repos/${{ github.repository }}/actions/runs/$run_id
+            done
+          fi
