@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-   - cron: '0 0 * * 1' # Runs every week
+    - cron: '0 0 * * 1'  # Runs every Monday
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pytz   # 👈 added pytz here
+          pip install requests beautifulsoup4 pytz
 
       - name: Generate epg.xml
         run: python3 generate_epg.py
@@ -36,12 +36,12 @@ jobs:
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
-cleanup:
+  cleanup:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Delete old workflow runs
         env:
