@@ -61,9 +61,9 @@ def generate_epg():
         desc_escaped = html.escape(s["artist"], quote=True)
 
         xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-        xml.append(f'  <title{s["title"]} + {s["artist"]}</title>')
-        xml.append(f'  <desc>{s["artist"]}</desc>')
-        xml.append(f'  <date>{s["time"]}</date>')
+    xml.append(f'  <title>{s["title"]} + {s["artist"]}</title>')
+    xml.append(f'  <desc>{s["artist"]}</desc>')
+    xml.append(f'  <date>{start_dt.strftime("%-I:%M %p")}</date>')
         xml.append('</programme>')
 
     xml.append('</tv>')
