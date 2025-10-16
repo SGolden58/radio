@@ -36,24 +36,30 @@ jobs:
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
+jobs:
   cleanup:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+
+      - name: Install GitHub CLI
+        run: sudo apt update && sudo apt install gh -y
 
       - name: Delete old workflow runs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           KEEP_LATEST: 6
         run: |
-          echo "Fetching workflow runs..."
+          echo "Authenticating gh CLI..."
+          gh auth setup-git
+          
+          echo "Fetching workflow runs for 'Update Radio EPG'..."
           runs=$(gh api repos/${{ github.repository }}/actions/runs \
-            -q '.workflow_runs | sort_by(.created_at) | reverse | .['$KEEP_LATEST':] | .[].id')
+            -q '.workflow_runs | map(select(.name=="Update Radio EPG")) | sort_by(.created_at) | reverse | .['$KEEP_LATEST':] | .[].id')
           
           if [ -z "$runs" ]; then
-            echo "No runs to delete."
+            echo "No old runs to delete."
           else
             echo "Deleting old runs..."
             for run_id in $runs; do
@@ -61,3 +67,4 @@ jobs:
               gh api -X DELETE repos/${{ github.repository }}/actions/runs/$run_id
             done
           fi
+
