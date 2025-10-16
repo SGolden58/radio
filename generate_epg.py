@@ -97,6 +97,10 @@ for day_offset in range(4):
 friday = monday + timedelta(days=4)
 add_programmes(friday, fri_programmes)
 
+# --- Add Saturday programmes ---
+saturday = monday + timedelta(days=4)
+add_programmes(saturday, sat_programmes)
+
 # --- Close XML ---
 xml.append("</tv>")
 
