@@ -54,7 +54,7 @@ sat_programmes = [
     ("00:00", "07:00", "七个凌晨的乐章", "忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。")
 ]
 
-# --- Start building XML ---
+# === 4️⃣ Build XML EPG (Televizo)  ===
 now_str = today.strftime("%Y%m%d%H%M%S")
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
