@@ -3,61 +3,47 @@ from bs4 import BeautifulSoup
 import datetime
 
 # === 1️⃣ Fetch playlist page ===
-url = "https://online-radio.my/12-988-fm.html"
+url = "https://radio-online.my/988-fm-playlist"
 r = requests.get(url)
-r.raise_for_status()
 soup = BeautifulSoup(r.text, "html.parser")
 
-# === 2️⃣ Find the correct playlist table ===
-# The playlist table has class "table" and is inside a div with id "playlist" (based on page inspection)
-playlist_div = soup.find("div", id="playlist")
-if not playlist_div:
-    raise RuntimeError("Playlist div not found on page")
-
-table = playlist_div.find("table")
-if not table:
-    raise RuntimeError("Playlist table not found inside playlist div")
-
-rows = table.find_all("tr")
-
+# === 2️⃣ Extract songs from the playlist table ===
+rows = soup.select("table tr")
 songs = []
 
-# === 3️⃣ Extract songs from the playlist table ===
-# Inspecting the page shows columns: Time | Artist | Title (3 columns)
-for row in rows[1:]:  # skip header row
+for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
         time_str = cols[0].get_text(strip=True)
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
-        if time_str and artist and title:
+        if artist and title and time_str:
             songs.append({"time": time_str, "artist": artist, "title": title})
 
-if not songs:
-    raise RuntimeError("No songs found in playlist table")
+# Limit to the latest 33 songs
+songs = songs[:33]
 
-# Limit to the latest 10 songs
-songs = songs[:10]
-
-# === 4️⃣ Prepare datetime objects ===
+# === 3️⃣ Prepare datetime objects ===
 tz_myt = datetime.timezone(datetime.timedelta(hours=8))
-now = datetime.datetime.now(tz_myt)
-
+now = datetime.datetime.now(tz_myt)  # this becomes your <tv date>
 start_times = []
-current_start = now
 
-for _ in songs:
+current_start = now  # first programme starts exactly at <tv date>
+
+for s in songs:
     start_times.append(current_start)
-    current_start += datetime.timedelta(minutes=3)  # each song = 3 min
+    current_start += datetime.timedelta(minutes=3)  # each song = 3 min (adjust as needed)
 
+# Prepare stop times (1 second before next song)
 stop_times = []
 for i in range(len(start_times)):
     if i + 1 < len(start_times):
         stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
     else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))
+        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song
 
-# === 5️⃣ Build XML EPG (Televizo format) ===
+# === 4️⃣ Build XML EPG (Televizo)  ===
+now = datetime.datetime.now(tz_myt)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
@@ -69,25 +55,24 @@ xml = [
     '</channel>'
 ]
 
+# === 5️⃣ Add programme blocks ===
 for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-    # For Windows compatibility in strftime use %#I instead of %-I if needed
-    try:
-        ampm_time = start_dt.strftime("%-I:%M %p")  # Linux/macOS
-    except ValueError:
-        ampm_time = start_dt.strftime("%#I:%M %p")  # Windows fallback
+    # AM/PM format for <date>
+    ampm_time = start_dt.strftime("%-I:%M %p")  # 5:38 PM (Linux/mac) use %-I, Windows might need %#I
 
     xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
     xml.append(f'  <title>{s["title"]} + {s["artist"]}</title>')
     xml.append(f'  <desc>{s["artist"]}</desc>')
-    xml.append(f'  <date>{ampm_time}</date>')
+    xml.append(f'  <date>{start_dt.strftime("%-I:%M %p")}</date>')
     xml.append('</programme>')
 
+# === 6️⃣ Close XML ===
 xml.append('</tv>')
 
-# === 6️⃣ Save XML file ===
+# === 7️⃣ Save XML file ===
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
