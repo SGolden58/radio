@@ -50,7 +50,7 @@ sat_programmes = [
     ("19:00", "21:00", "Happy Weekend My Friend Jason潘小潘", "每个周末跟我约会吧，my friend！ 除了跟你聊生活影视what now；还有潘小潘对当下热论的奇思妙想，以大数据来给社会现象进行算命，与AI碰撞出一套未来生存指南；当然少不了音乐市场的革新与转变，一起听好歌，chill with chill guy 过上一个轻松周末。"),
     ("21:00", "22:00", "来点Music Fun", "一小时不间断的流行歌曲，带你沉浸在最动听的旋律中。"),
     ("22:00", "23:00", "温少IT脑（重播）Danny 温力铭", "温少化身IT佬，为你介绍各种好玩的产品，为你示范新奇的科技小玩意，手机或电脑的app等等。透过这些玩意让你的生活更方便更swag！ 你有什么IT问题也欢迎你发问，温少试图帮你解除你的IT烦恼！除了on air内容，也可以延伸到视频成为在线内容，带你看得更清楚、玩得更尽兴！"),
-    ("23:00", "23:59", "988 Weekend 自助餐", "这个节目由 DJ Point 主持，每周邀请一位不同的 988 DJ，将他们的专属歌单精心 Remix，打造成一场节奏十足的音乐自助餐。最燃的音乐料理，专属你的周六夜晚！")
+    ("23:00", "23:59", "988 Weekend 自助餐", "这个节目由 DJ Point 主持，每周邀请一位不同的 988 DJ，将他们的专属歌单精心 Remix，打造成一场节奏十足的音乐自助餐。最燃的音乐料理，专属你的周六夜晚！"),
     ("00:00", "07:00", "七个凌晨的乐章", "忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。")
 ]
 
@@ -98,7 +98,7 @@ friday = monday + timedelta(days=4)
 add_programmes(friday, fri_programmes)
 
 # --- Add Saturday programmes ---
-saturday = monday + timedelta(days=4)
+saturday = monday + timedelta(days=5)
 add_programmes(saturday, sat_programmes)
 
 # --- Close XML ---
