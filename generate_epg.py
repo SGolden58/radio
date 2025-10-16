@@ -14,7 +14,7 @@ songs = []
 for row in rows[1:]:  # skip header
     cols = row.find_all("td")
     if len(cols) >= 3:
-        time_str = cols[0].get_text(strip=True)
+        time_str = cols[0].get_text(strip=True)  # time (example: "16:24")
         artist = cols[1].get_text(strip=True)
         title = cols[2].get_text(strip=True)
         if artist and title and time_str:
@@ -25,14 +25,13 @@ songs = songs[:33]
 
 # === 3️⃣ Prepare datetime objects ===
 tz_myt = datetime.timezone(datetime.timedelta(hours=8))
-now = datetime.datetime.now(tz_myt)  # this becomes your <tv date>
+now = datetime.datetime.now(tz_myt)
 start_times = []
 
 current_start = now  # first programme starts exactly at <tv date>
-
 for s in songs:
     start_times.append(current_start)
-    current_start += datetime.timedelta(minutes=3)  # each song = 3 min (adjust as needed)
+    current_start += datetime.timedelta(minutes=3)  # each song ~3 min
 
 # Prepare stop times (1 second before next song)
 stop_times = []
@@ -43,7 +42,6 @@ for i in range(len(start_times)):
         stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song
 
 # === 4️⃣ Build XML EPG (Televizo)  ===
-now = datetime.datetime.now(tz_myt)
 xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
@@ -60,14 +58,12 @@ for i, s in enumerate(songs):
     start_dt = start_times[i]
     stop_dt = stop_times[i]
 
-hour_min = start_dt.strftime("%H:%M")
-ampm = "AM" if start_dt.hour < 12 else "PM"
-
-xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-xml.append(f'  <title>{s["title"]}</title>')
-xml.append(f'  <desc>{s["artist"]}</desc>')
-xml.append(f'  <date>{hour_min} {ampm}</date>')
-xml.append('</programme>')
+    # use same text/number as from the URL (no AM/PM conversion)
+    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
+    xml.append(f'  <title>{s["title"]}</title>')
+    xml.append(f'  <desc>{s["artist"]}</desc>')
+    xml.append(f'  <date>{s["time"]}</date>')
+    xml.append('</programme>')
 
 # === 6️⃣ Close XML ===
 xml.append('</tv>')
@@ -76,4 +72,4 @@ xml.append('</tv>')
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
+print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (same as source page).")
