@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><tv date="20251017050848 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251017"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
+<?xml version="1.0" encoding="UTF-8"?><tv date="20251017052401 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251017"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
+  <programme channel="988" start="20251013000000 +0800" stop="20251013050000 +0800">
+    <title lang="zh">七个凌晨的乐章</title>
+    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>
   <programme channel="988" start="20251013050000 +0800" stop="20251013053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
@@ -89,9 +99,9 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251013000000 +0800" stop="20251013050000 +0800">
+  <programme channel="988" start="20251014000000 +0800" stop="20251014050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
-    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷。988一连七晚带给你七种不一样的心情。</desc>
+    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
@@ -189,9 +199,9 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251014000000 +0800" stop="20251014050000 +0800">
+  <programme channel="988" start="20251015000000 +0800" stop="20251015050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
-    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷。988一连七晚带给你七种不一样的心情。</desc>
+    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
@@ -289,9 +299,9 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251015000000 +0800" stop="20251015050000 +0800">
+  <programme channel="988" start="20251016000000 +0800" stop="20251016050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
-    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷。988一连七晚带给你七种不一样的心情。</desc>
+    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
@@ -389,9 +399,9 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251016000000 +0800" stop="20251016050000 +0800">
+  <programme channel="988" start="20251017000000 +0800" stop="20251017050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
-    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷。988一连七晚带给你七种不一样的心情。</desc>
+    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
@@ -479,7 +489,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251017000000 +0800" stop="20251017050000 +0800">
+  <programme channel="988" start="20251018000000 +0800" stop="20251018060000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -602,16 +612,6 @@
   <programme channel="988" start="20251018230000 +0800" stop="20251018235900 +0800">
     <title lang="zh">988 Weekend 自助餐</title>
     <desc lang="zh">这个节目由 DJ Point 主持，每周邀请一位不同的 988 DJ，将他们的专属歌单精心 Remix，打造成一场节奏十足的音乐自助餐。最燃的音乐料理，专属你的周六夜晚！</desc>
-    <category>Music</category>
-    <category>Others (TV Shows)</category>
-    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
-    <rating system="MY">
-      <value>U</value>
-    </rating>
-  </programme>
-  <programme channel="988" start="20251018000000 +0800" stop="20251018050000 +0800">
-    <title lang="zh">七个凌晨的乐章</title>
-    <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
     <category>Others (TV Shows)</category>
     <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
