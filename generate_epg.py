@@ -1,149 +1,134 @@
-import vlc
-import time
 import requests
 from bs4 import BeautifulSoup
 import datetime
+import html
+import vlc
+import time
+import threading
 
-# Function to get a radio station URL from the user (with default)
-def get_stream_url():
-    """Prompts the user for a radio station URL, defaults to 988 FM."""
-    default_url = "https://playerservices.streamtheworld.com/api/livestream-redirect/988_FM.mp3"
-    user_input = input(f"Enter stream URL or press Enter for default 988 FM ({default_url}): ").strip()
-    return user_input if user_input else default_url
+# === 1️⃣ Generate EPG XML ===
+def generate_epg():
+    url = "https://radio-online.my/988-fm-playlist"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, "html.parser")
 
+    rows = soup.select("table tr")
+    songs = []
+
+    for row in rows[1:]:
+        cols = row.find_all("td")
+        if len(cols) >= 3:
+            time_str = cols[0].get_text(strip=True)
+            artist = cols[1].get_text(strip=True)
+            title = cols[2].get_text(strip=True)
+            if artist and title and time_str:
+                songs.append({"time": time_str, "artist": artist, "title": title})
+
+    songs = songs[:33]
+
+    tz = datetime.timezone(datetime.timedelta(hours=8))
+    now = datetime.datetime.now(tz)
+    start_times = []
+
+    current_start = now
+    for _ in songs:
+        start_times.append(current_start)
+        current_start += datetime.timedelta(minutes=3)
+
+    stop_times = []
+    for i in range(len(start_times)):
+        if i + 1 < len(start_times):
+            stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
+        else:
+            stop_times.append(start_times[i] + datetime.timedelta(minutes=3))
+
+    xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
+        f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+        f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
+        '<channel id="988">',
+        '<display-name>988</display-name>',
+        '<icon src=""/>',
+        '</channel>'
+    ]
+
+    for i, s in enumerate(songs):
+        start_dt = start_times[i]
+        stop_dt = stop_times[i]
+
+        title_escaped = html.escape(s["title"], quote=True)
+        desc_escaped = html.escape(s["artist"], quote=True)
+
+        xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
+        xml.append(f'  <title{s["title"]} + {s["artist"]}</title>')
+        xml.append(f'  <desc>{s["artist"]}</desc>')
+        xml.append(f'  <date>{s["time"]}</date>')
+        xml.append('</programme>')
+
+    xml.append('</tv>')
+
+    with open("epg.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(xml))
+
+    print(f"✅ EPG.xml generated — {len(songs)} songs.")
+
+# === 2️⃣ VLC Radio Player ===
 def create_vlc_player(url):
-    """
-    Creates and configures a VLC media player instance for the given stream.
-    """
     try:
-        # Create a VLC instance
         vlc_instance = vlc.Instance()
-        
-        # Create a new media player object
         player = vlc_instance.media_player_new()
-        
-        # Create a media object from the URL
         media = vlc_instance.media_new(url)
-        
-        # Set the media to the player
         player.set_media(media)
-        
         return player
-        
     except Exception as e:
-        print(f"❌ Error creating VLC player (ensure VLC is installed): {e}")
+        print(f"Error creating VLC player: {e}")
         return None
 
-def fetch_current_programme(epg_url="https://sgolden58.github.io/radio/epg.xml"):
-    """
-    Fetches and parses the current programme from the EPG XML.
-    Returns a dict with 'title' and 'desc' if found, else None.
-    """
-    try:
-        r = requests.get(epg_url, timeout=5)
-        r.raise_for_status()
-        soup = BeautifulSoup(r.text, "xml")
-        
-        # Get current time in UTC+8 for comparison
-        tz = datetime.timezone(datetime.timedelta(hours=8))
-        now = datetime.datetime.now(tz)
-        now_str = now.strftime("%Y%m%d%H%M%S")
-        
-        # Find programmes where start <= now < stop
-        programmes = soup.find_all("programme")
-        for prog in programmes:
-            start = prog.get("start").replace(" +0800", "")
-            stop = prog.get("stop").replace(" +0800", "")
-            if start <= now_str < stop:
-                title = prog.find("title").get_text() if prog.find("title") else "Unknown"
-                desc = prog.find("desc").get_text() if prog.find("desc") else "Unknown"
-                return {"title": title, "desc": desc}
-        
-        return None  # No current programme
-    except Exception as e:
-        print(f"⚠️ Could not fetch EPG: {e}")
-        return None
-
-def main():
-    """Main function to run the radio player application with EPG display."""
-    stream_url = get_stream_url()
-    
-    if not stream_url:
-        print("❌ No URL provided. Exiting.")
-        return
-
-    player = create_vlc_player(stream_url)
-    if player is None:
-        return
-    
-    print(f"🎵 Starting stream from: {stream_url}")
-    player.play()
-    
-    # Wait a bit for stream to buffer
-    time.sleep(2)
-    
-    # Fetch initial programme info
-    current_prog = fetch_current_programme()
-    if current_prog:
-        print(f"📻 Now Playing: {current_prog['title']} by {current_prog['desc']}")
-    else:
-        print("📻 EPG not available or no current programme.")
-    
-    # Controls
-    print("\n🎮 Controls:")
-    print(" 'p' to pause/play")
-    print(" 's' to stop")
-    print(" 'i' to show current programme info")
-    print(" 'v' to adjust volume (enter 0-100)")
-    print(" 'q' to quit")
-    
-    last_epg_check = time.time()
+def player_controls(player):
+    print("\nControls:\n 'p' pause/play\n 's' stop\n 'q' quit")
     try:
         while True:
             action = input("\nEnter command: ").strip().lower()
             if action == 'p':
                 if player.is_playing():
                     player.pause()
-                    print("⏸️ Stream paused.")
+                    print("Paused.")
                 else:
                     player.play()
-                    print("▶️ Stream resumed.")
+                    print("Resumed.")
             elif action == 's':
                 player.stop()
-                print("⏹️ Stream stopped.")
+                print("Stopped.")
                 break
-            elif action == 'i':
-                current_prog = fetch_current_programme()
-                if current_prog:
-                    print(f"📻 Current Programme: {current_prog['title']} by {current_prog['desc']}")
-                else:
-                    print("📻 No current programme info available.")
-            elif action == 'v':
-                try:
-                    vol = int(input("Enter volume (0-100): ").strip())
-                    player.audio_set_volume(max(0, min(100, vol)))
-                    print(f"🔊 Volume set to {vol}%")
-                except ValueError:
-                    print("❌ Invalid volume. Enter a number 0-100.")
             elif action == 'q':
                 player.stop()
-                print("👋 Exiting.")
+                print("Exiting.")
                 break
             else:
-                print("❌ Invalid command. Use 'p', 's', 'i', 'v', or 'q'.")
-            
-            # Auto-update EPG every 30 seconds while playing
-            if time.time() - last_epg_check > 30 and player.is_playing():
-                current_prog = fetch_current_programme()
-                if current_prog:
-                    print(f"🔄 Updated: Now Playing - {current_prog['title']} by {current_prog['desc']}")
-                last_epg_check = time.time()
-            
-            time.sleep(0.5)  # Avoid high CPU usage
-            
+                print("Invalid command.")
+            time.sleep(0.5)
     except KeyboardInterrupt:
-        print("\n👋 Keyboard interrupt. Exiting player.")
+        print("\nExiting.")
         player.stop()
+
+def main():
+    # 1. Generate EPG XML
+    generate_epg()
+
+    # 2. Play live stream
+    stream_url = "https://playerservices.streamtheworld.com/api/livestream-redirect/988_FM.mp3"
+    print(f"Streaming live from: {stream_url}")
+
+    player = create_vlc_player(stream_url)
+    if player is None:
+        return
+
+    player.play()
+    print("Playing live stream...")
+
+    # 3. Start control loop
+    player_controls(player)
 
 if __name__ == "__main__":
     main()
