@@ -36,7 +36,7 @@ jobs:
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
-jobs:
+
   cleanup:
     runs-on: ubuntu-latest
     steps:
