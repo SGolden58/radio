@@ -1,55 +1,69 @@
-from datetime import datetime, timedelta, timezone
+import datetime
+from datetime import timezone, timedelta
 
-# Malaysia timezone (+8)
+# --- Timezone for Malaysia ---
 tz_myt = timezone(timedelta(hours=8))
+today = datetime.datetime.now(tz=tz_myt)
 
-# Programme schedule (Monday–Thursday)
+# Get this week's Monday
+monday = today - timedelta(days=today.weekday())
+
+# --- Programme data: Monday–Thursday ---
+# Format: (start_time, stop_time, title, description)
 programmes_data = [
     ("05:00", "05:30", "988广播剧（好剧翻叮）", "经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。"),
-    ("06:00", "10:00", "早点UP 陈峰、陈毅杰和Angeline", "新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。"),
-    ("10:00", "12:30", "随十奉陪 Chrystina 黄玮瑄", "《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。"),
-    ("12:30", "13:00", "988广播剧", "下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。"),
-    ("13:00", "16:00", "活力GO Chloe和Jaydern", "午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题。"),
-    ("16:00", "19:30", "敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然", "下班不无聊，《敢玩最Power》陪你玩乐学知识！敢做敢讲敢玩，游戏笑声不断。"),
-    ("19:00", "20:00", "988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱", "每天为你整理、跟进一天里最重要的国内时事资讯。"),
-    ("20:00", "22:00", "Hashtag 1+1 甯逸谦", "星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现有趣故事。"),
-    ("22:00", "23:59", "晚抱好时光 PM Wang 王彪民", "DJ彪民用音乐与能量陪伴大家总结一天。"),
-    ("00:00", "05:00", "七个凌晨的乐章", "忙碌的生活有时会令人迷失方向忘记初衷。988一连七晚带给你七种不一样的心情。"),
+    ("06:00", "10:00", "早点UP 陈峰、陈毅杰和Angeline", "新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY"),
+    ("10:00", "12:30", "随十奉陪 Chrystina 黄玮瑄", "《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。用温柔的声音陪伴你，聊情绪与人际关系，发现生活中的美好细节。每天十点，不见不散。"),
+    ("12:30", "13:00", "988广播剧", "每逢星期一至五，下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。988广播剧团创立于1973年，前身为有线电台“丽的呼声”话剧组，2000年正式易名为988广播剧团。"),
+    ("13:00", "16:00", "活力GO Chloe和Jaydern", "午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题，轻松自在，活力满满，陪你度过每个下午。"),
+    ("16:00", "19:30", "敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然", "下班不无聊，《敢玩最Power》陪你玩乐学知识！敢做敢讲敢玩，游戏笑声不断，资讯丰富，让通勤时光变黄金。加入我们，月入“百万知识”不是梦，敢玩就最Power！"),
+    ("19:00", "20:00", "988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱", "每天为你整理、跟进一天里最重要的国内重要的时事资讯，以最轻松但又抽丝剥茧的角度，全面探讨这些最及时的时事课题，包括政治、经济、人文、环境与经济！"),
+    ("20:00", "22:00", "Hashtag 1+1 甯逸谦", "准备好一起穿越时空，来一场轻松又充满想象的文化小旅行吗？ 星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现那些被时间收藏的有趣故事。 这一小时，我们不赶路，只讲故事。 由逸谦陪你一起，用耳朵环游世界，用心感受文化的温度。"),
+    ("22:00", "23:59", "晚抱好时光 PM Wang 王彪民", "拥抱每晚的最后两个小时，DJ彪民用音乐与能量陪伴大家总结一天。 给自己一个拥抱，谢谢自己一天的努力。"),
+    ("00:00", "05:00", "七个凌晨的乐章", "忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。")
 ]
 
-# Find Monday of current week
-today = datetime.now(tz_myt)
-monday = today - timedelta(days=today.weekday())  # Monday = weekday 0
+# --- Start building XML ---
+now_str = today.strftime("%Y%m%d%H%M%S")
+xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    f'<tv date="{now_str} +0800" '
+    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
+    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={today.strftime("%Y%m%d")}">',
+    '<channel id="988">',
+    '<display-name>988 FM</display-name>',
+    '<icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>',
+    '</channel>'
+]
 
-xml = []
-logo_url = "https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"
-
-# Loop Monday to Thursday only
-for i in range(4):
-    day = monday + timedelta(days=i)
+# --- Generate programmes for Monday to Thursday ---
+for day_offset in range(4):
+    day = monday + timedelta(days=day_offset)
     for start, stop, title, desc in programmes_data:
-        start_dt = datetime.combine(day.date(), datetime.strptime(start, "%H:%M").time(), tz_myt)
-        stop_dt = datetime.combine(day.date(), datetime.strptime(stop, "%H:%M").time(), tz_myt)
+        start_dt = datetime.datetime.combine(day.date(), datetime.datetime.strptime(start, "%H:%M").time(), tzinfo=tz_myt)
+        stop_dt = datetime.datetime.combine(day.date(), datetime.datetime.strptime(stop, "%H:%M").time(), tzinfo=tz_myt)
+        # If stop < start, assume next day
         if stop_dt <= start_dt:
             stop_dt += timedelta(days=1)
-        start_str = start_dt.strftime("%Y%m%dT%H%M%S %z")
-        stop_str = stop_dt.strftime("%Y%m%dT%H%M%S %z")
+        start_str = start_dt.strftime("%Y%m%d%H%M%S %z")
+        stop_str = stop_dt.strftime("%Y%m%d%H%M%S %z")
 
-        xml.append(f"""
+        xml.append(f'''
   <programme channel="988" start="{start_str}" stop="{stop_str}">
-    <title>{title}</title>
-    <desc>{desc}</desc>
-    <category>Radio</category>
-    <icon src="{logo_url}" />
-  </programme>""")
+    <title lang="zh">{title}</title>
+    <desc lang="zh">{desc}</desc>
+    <category>Music</category>
+    <category>Others (TV Shows)</category>
+    <icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/>
+    <rating system="MY">
+      <value>U</value>
+    </rating>
+  </programme>''')
 
-output = f"""<?xml version="1.0" encoding="UTF-8"?>
-<tv generator-info-name="GitHub EPG Generator">
-{''.join(xml)}
-</tv>
-"""
+xml.append("</tv>")
 
+# --- Write to epg.xml ---
 with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write(output)
+    f.write("".join(xml))
 
-print("✅ EPG (Monday–Thursday) generated successfully!")
+print("✅ Televizo-compatible epg.xml generated (Monday–Thursday).")
