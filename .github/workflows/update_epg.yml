@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # Runs every Monday
+    - cron: '0 0 * * 1'  # Runs every monday
   workflow_dispatch:
 
 jobs:
@@ -35,29 +35,3 @@ jobs:
           git add epg.xml
           git commit -m "Update EPG $(date -u)" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
-
-  cleanup:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Install GitHub CLI
-        run: sudo apt-get update && sudo apt-get install -y gh jq
-
-      - name: Delete old workflow runs
-        env:
-          GITHUB_TOKEN_PAT: ${{ secrets.PAT_TOKEN }} # Personal Access Token with repo+workflow permissions
-          KEEP_LATEST: 6
-          OWNER: ${{ github.repository_owner }}
-          REPO: ${{ github.repository }}
-        run: |
-          echo "$GITHUB_TOKEN_PAT" | gh auth login --with-token
-          echo "Fetching workflow runs..."
-          gh api --paginate "repos/$OWNER/$REPO/actions/runs" -q '.workflow_runs[] | {id, workflow_id, created_at}' | \
-            jq -r '. | "\(.id) \(.workflow_id) \(.created_at)"' | sort -k3 -r | while read run_id workflow_id created_at; do
-              kept_count=$(gh api "repos/$OWNER/$REPO/actions/workflows/$workflow_id/runs?per_page=100" \
-                -q ".workflow_runs | map(select(.status != \"in_progress\")) | length")
-              if [ "$kept_count" -gt "$KEEP_LATEST" ]; then
-                echo "Deleting workflow run $run_id from workflow $workflow_id"
-                gh api --method DELETE "repos/$OWNER/$REPO/actions/runs/$run_id"
-              fi
-            done
