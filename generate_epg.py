@@ -1,79 +1,56 @@
-import requests
-from bs4 import BeautifulSoup
 import datetime
+import pytz
+from xml.etree.ElementTree import Element, SubElement, ElementTree
 
-# === 1️⃣ Fetch playlist page ===
-url = "https://radio-online.my/988-fm-playlist"
-r = requests.get(url)
-soup = BeautifulSoup(r.text, "html.parser")
+# Malaysia timezone (UTC+8)
+tz = pytz.timezone('Asia/Kuala_Lumpur')
 
-# === 2️⃣ Extract songs from the playlist table ===
-rows = soup.select("table tr")
-songs = []
-
-for row in rows[1:]:  # skip header
-    cols = row.find_all("td")
-    if len(cols) >= 3:
-        time_str = cols[0].get_text(strip=True)
-        artist = cols[1].get_text(strip=True)
-        title = cols[2].get_text(strip=True)
-        if artist and title and time_str:
-            songs.append({"time": time_str, "artist": artist, "title": title})
-
-# Limit to the latest 33 songs
-songs = songs[:33]
-
-# === 3️⃣ Prepare datetime objects ===
-tz_myt = datetime.timezone(datetime.timedelta(hours=8))
-now = datetime.datetime.now(tz_myt)  # this becomes your <tv date>
-start_times = []
-
-current_start = now  # first programme starts exactly at <tv date>
-
-for s in songs:
-    start_times.append(current_start)
-    current_start += datetime.timedelta(minutes=3)  # each song = 3 min (adjust as needed)
-
-# Prepare stop times (1 second before next song)
-stop_times = []
-for i in range(len(start_times)):
-    if i + 1 < len(start_times):
-        stop_times.append(start_times[i + 1] - datetime.timedelta(seconds=1))
-    else:
-        stop_times.append(start_times[i] + datetime.timedelta(minutes=3))  # last song
-
-# === 4️⃣ Build XML EPG (Televizo)  ===
-now = datetime.datetime.now(tz_myt)
-xml = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    f'<tv date="{now.strftime("%Y%m%d%H%M%S")} +0800" '
-    f'generator-info-url="https://sgolden58.github.io/radio/epg.xml" '
-    f'source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date={now.strftime("%Y%m%d")}">',
-    '<channel id="988">',
-    '<display-name>988</display-name>',
-    '<icon src=""/>',
-    '</channel>'
+# Define your 988 schedule (Monday–Thursday)
+schedule_data = [
+    ("050000", "053000", "988广播剧（好剧翻叮）",
+     "经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。"),
+    ("060000", "100000", "早点UP 陈峰、陈毅杰和Angeline",
+     "新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。"),
+    ("100000", "123000", "随十奉陪 Chrystina 黄玮瑄",
+     "《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。"),
+    ("123000", "130000", "988广播剧",
+     "下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。"),
+    ("130000", "160000", "活力GO Chloe和Jaydern",
+     "午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题。"),
+    ("160000", "193000", "敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然",
+     "下班不无聊，《敢玩最Power》陪你玩乐学知识！敢做敢讲敢玩，游戏笑声不断。"),
+    ("190000", "200000", "988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱",
+     "每天为你整理、跟进一天里最重要的国内时事资讯。"),
+    ("200000", "220000", "Hashtag 1+1 甯逸谦",
+     "星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现有趣故事。"),
+    ("220000", "235900", "晚抱好时光 PM Wang 王彪民",
+     "DJ彪民用音乐与能量陪伴大家总结一天。"),
+    ("000000", "050000", "七个凌晨的乐章",
+     "忙碌的生活有时会令人迷失方向忘记初衷。988一连七晚带给你七种不一样的心情。"),
 ]
 
-# === 5️⃣ Add programme blocks ===
-for i, s in enumerate(songs):
-    start_dt = start_times[i]
-    stop_dt = stop_times[i]
+# Generate XMLTV root
+tv = Element("tv")
 
-    # AM/PM format for <date>
-    ampm_time = start_dt.strftime("%-I:%M %p")  # 5:38 PM (Linux/mac) use %-I, Windows might need %#I
+# Loop through Monday–Thursday
+days = ["Monday", "Tuesday", "Wednesday", "Thursday"]
+for day in days:
+    for start, stop, title, desc in schedule_data:
+        programme = SubElement(tv, "programme", {
+            "channel": "988",
+            "start": f"{day}{start} +0000",
+            "stop": f"{day}{stop} +0000"
+        })
+        SubElement(programme, "title").text = title
+        SubElement(programme, "desc").text = desc
+        SubElement(programme, "category").text = "Music"
+        SubElement(programme, "category").text = "Others (TV Shows)"
+        SubElement(programme, "icon", {"src": "https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"})
+        rating = SubElement(programme, "rating", {"system": "MY"})
+        SubElement(rating, "value").text = "U"
 
-    xml.append(f'<programme channel="988" start="{start_dt.strftime("%Y%m%d%H%M%S")} +0800" stop="{stop_dt.strftime("%Y%m%d%H%M%S")} +0800">')
-    xml.append(f'  <title>{s["title"]} + {s["artist"]}</title>')
-    xml.append(f'  <desc>{s["artist"]}</desc>')
-    xml.append(f'  <date>{start_dt.strftime("%-I:%M %p")}</date>')
-    xml.append('</programme>')
+# Save XML to file
+tree = ElementTree(tv)
+tree.write("epg.xml", encoding="utf-8", xml_declaration=True)
 
-# === 6️⃣ Close XML ===
-xml.append('</tv>')
-
-# === 7️⃣ Save XML file ===
-with open("epg.xml", "w", encoding="utf-8") as f:
-    f.write("\n".join(xml))
-
-print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
+print("✅ EPG XML generated successfully: epg.xml")
