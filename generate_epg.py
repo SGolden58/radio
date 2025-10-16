@@ -64,7 +64,7 @@ def get_radio_metadata(url):
 
 if __name__ == "__main__":
     # Replace with the actual URL of your radio station stream
-    stream_url = https://playerservices.streamtheworld.com/api/livestream-redirect/988_FM.mp3
+    stream_url = "https://playerservices.streamtheworld.com/api/livestream-redirect/988_FM.mp3"
     print(f"Attempting to connect to stream: {stream_url}")
 
     artist_name, song_title = get_radio_metadata(stream_url)
