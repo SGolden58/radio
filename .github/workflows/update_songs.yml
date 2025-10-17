@@ -3,7 +3,7 @@ name: Fetch 988 Songs
 on:
   schedule:
     - cron: '*/30 * * * *'  # runs every 30 minutes
-  workflow_dispatch:       # allows manual run
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -18,16 +18,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Change to correct directory
-        working-directory: ./radio
-
       - name: Install dependencies
-        working-directory: ./radio
-        run: npm install
+        run: |
+          cd radio
+          npm install
 
       - name: Run Puppeteer script
-        working-directory: ./radio
-        run: node fetch988.js
+        run: |
+          cd radio
+          node fetch988.js
 
       - name: Commit and push updated 988songslist.html
         run: |
