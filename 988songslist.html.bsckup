@@ -87,7 +87,7 @@
     <div class="title">Song List</div>
 
     <table id="Songs List">
-      <tr><th class="time">时间</th><th>歌手 + 歌曲</th></tr>
+      <tr><th class="artist">歌手</th><th>已播歌曲</th></tr>
       <tr><td colspan="2">加载中… Loading latest songs…</td></tr>
     </table>
   </div>
