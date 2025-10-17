@@ -131,4 +131,97 @@ xml.append("</tv>")
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("".join(xml))
 
+# ===  Generate HTML Songs Screen ===
+songs = [
+    "Song 1 - Artist", "Song 2 - Artist", "Song 3 - Artist", "Song 4 - Artist",
+    "Song 5 - Artist", "Song 6 - Artist", "Song 7 - Artist", "Song 8 - Artist",
+    "Song 9 - Artist", "Song 10 - Artist"
+]
+
+html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, initial-scale=1.0">
+<title>988 FM Songs List</title>
+<style>
+  body {{
+    margin: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    color: #e0e0e0;
+  }}
+  .screen {{
+    width: 1280px;
+    height: 720px;
+    background-color: #111;
+    border: 5px solid #777;
+    border-radius: 16px;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }}
+  .logo {{
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    width: 180px;
+  }}
+  .title {{
+    font-size: 24px;
+    font-weight: bold;
+    color: #ccc;
+    margin-left: 1020px;
+    margin-top: 60px;
+  }}
+  .songs-table {{
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+  }}
+  .songs-table th, .songs-table td {{
+    text-align: left;
+    padding: 4px 6px;
+    font-size: 18px;
+    color: #f0f0f0;
+  }}
+  .songs-table th {{
+    color: #ccc;
+    font-size: 21px;
+    border-bottom: 2px solid #777;
+  }}
+  .songs-table td a {{
+    color: #f0f0f0;
+    text-decoration: none;
+  }}
+  .songs-table td a:hover {{
+    color: #00ffff;
+  }}
+</style>
+</head>
+<body>
+  <div class="screen">
+    <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" alt="988 FM Logo" class="logo">
+    <div class="title">Songs List</div>
+    <table class="songs-table">
+      <tr><th>Playlist 988</th></tr>
+"""
+
+for song in songs:
+    html_content += f'      <tr><td><a href="https://online-radio.my/12-988-fm.html" target="_blank">{song}</a></td></tr>\n'
+
+html_content += """    </table>
+  </div>
+</body>
+</html>
+"""
+
+with open("songs_list.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
 print("✅ epg.xml generated with Monday–Thursday + Friday programmes.")
