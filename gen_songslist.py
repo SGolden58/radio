@@ -76,4 +76,4 @@ xml.append('</tv>')
 with open("songslist.xml", "w", encoding="utf-8") as f:
     f.write("\n".join(xml))
 
-print(f"✅ EPG.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
+print(f"✅ SONGSLIST.xml generated successfully — {len(songs)} songs with exact playlist times (Malaysia +0800).")
