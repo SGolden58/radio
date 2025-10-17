@@ -1,17 +1,8 @@
-name: Update 988 Songs List
-
-on:
-  schedule:
-    - cron: '0 * * * *'  # every hour
-  workflow_dispatch:     # allows manual run
-
 jobs:
-  update_songs:
+  scrape:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -20,14 +11,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: radio
 
-      - name: Run scraper
+      - name: Run Puppeteer script
         run: node fetch988.js
+        working-directory: radio
 
-      - name: Commit updated HTML
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add 988songslist.html
-          git commit -m "Update latest 10 songs" || echo "No changes"
-          git push
+      - name: Upload HTML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 988songslist
+          path: radio/988songslist.html
