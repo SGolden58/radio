@@ -5,24 +5,68 @@
   <meta name="viewport" content="width=1280, initial-scale=1.0">
   <title>Playlist 988 FM</title>
   <style>
-    body { margin:0; background:#000; display:flex; justify-content:center; align-items:center; height:100vh; color:#fff; font-family:"Microsoft YaHei",Arial,sans-serif; }
-    .screen { width:1280px; height:720px; background:#111; border:8px solid #ff4081; border-radius:25px; box-shadow:0 0 60px rgba(255,64,129,0.5); position:relative; overflow:hidden; }
-    .logo { position:absolute; top:30px; left:40px; width:180px; }
-    .title { position:absolute; top:50px; right:50px; font-size:42px; font-weight:bold; color:#ff66a3; text-shadow:0 0 15px #ff3399; letter-spacing:2px; }
-    .playlist-box { position:absolute; top:160px; left:80px; width:1120px; height:500px; background:rgba(255,255,255,0.05); border-radius:20px; padding:30px; overflow-y:auto; backdrop-filter:blur(6px); }
-    .song { font-size:26px; line-height:1.8; padding-left:10px; border-left:4px solid #ff66a3; margin-bottom:12px; }
-    .footer { position:absolute; bottom:15px; right:25px; font-size:14px; color:#aaa; }
+    body {
+      margin: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+      color: #ccc;
+    }
+    .screen {
+      width: 1280px;
+      height: 720px;
+      background-color: #111;
+      border: 8px solid #777;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo {
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      width: 180px;
+    }
+    .title {
+      position: absolute;
+      top: 65px;
+      right: 50px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ddd;
+      letter-spacing: 1px;
+    }
+    .playlist-box {
+      position: absolute;
+      top: 180px;
+      left: 100px;
+      width: 1080px;
+      height: 480px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 30px;
+      overflow-y: auto;
+    }
+    .song {
+      font-size: 24px;
+      line-height: 1.8;
+      padding-left: 12px;
+      border-left: 3px solid #888;
+      margin-bottom: 14px;
+      color: #ddd;
+    }
   </style>
 </head>
 <body>
   <div class="screen">
     <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" alt="988 FM Logo" class="logo">
-    <div class="title">🎵 Playlist 988 FM</div>
+    <div class="title">Playlist 988 FM</div>
     <div class="playlist-box" id="playlistBox">
       <div class="song">加载中… Loading latest songs…</div>
-    </div>
-    <div class="footer">
-      Source: <a href="https://sgolden58.github.io/radio/epg.xml" target="_blank" style="color:#ff80bf;">EPG XML</a>
     </div>
   </div>
 
@@ -37,35 +81,33 @@
         const temp = document.createElement("div");
         temp.innerHTML = html;
 
-        // Adjust this according to actual site structure
-        // Here we take all text nodes with “-” inside a main container
-        const texts = Array.from(temp.querySelectorAll("body *"))
-          .map(el => el.innerText.trim())
-          .filter(t => t && / - /.test(t) && t.length < 100);
+        // Look for text that includes " - " (artist - title)
+        const nodes = Array.from(temp.querySelectorAll("div, td, p, span, li"));
+        const texts = nodes.map(el => el.innerText.trim())
+          .filter(t => t && / - /.test(t));
 
-        const songs = [...new Set(texts)].slice(0,10);
-
+        const songs = [...new Set(texts)].slice(0, 10);
         const box = document.getElementById("playlistBox");
         box.innerHTML = "";
+
         if (songs.length === 0) {
-          box.innerHTML = "<div class='song'>未抓取到歌曲 / No songs found.</div>";
+          box.innerHTML = "<div class='song'>未找到播放列表 / No playlist found</div>";
         } else {
-          songs.forEach(s => {
+          songs.forEach(song => {
             const div = document.createElement("div");
             div.className = "song";
-            div.textContent = s;
+            div.textContent = song;
             box.appendChild(div);
           });
         }
       } catch (err) {
-        console.error("Fetch error:", err);
-        const box = document.getElementById("playlistBox");
-        box.innerHTML = "<div class='song'>无法加载播放列表 / Unable to load playlist.</div>";
+        document.getElementById("playlistBox").innerHTML =
+          "<div class='song'>无法加载播放列表 / Unable to load playlist</div>";
       }
     }
 
     updatePlaylist();
-    setInterval(updatePlaylist, 60000);
+    setInterval(updatePlaylist, 60000); // auto refresh every minute
   </script>
 </body>
 </html>
