@@ -84,7 +84,7 @@
 <body>
   <div class="screen">
     <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" class="logo" alt="988">
-    <div class="title">Playlist 988 FM</div>
+    <div class="title">Song List</div>
 
     <table id="Songs List">
       <tr><th class="time">时间</th><th>歌手 + 歌曲</th></tr>
