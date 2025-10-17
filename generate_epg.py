@@ -131,29 +131,29 @@ xml.append("</tv>")
 with open("epg.xml", "w", encoding="utf-8") as f:
     f.write("".join(xml))
 
-# ===  Generate HTML Songs Screen ===
-songs = [
-    "Song 1 - Artist", "Song 2 - Artist", "Song 3 - Artist", "Song 4 - Artist",
-    "Song 5 - Artist", "Song 6 - Artist", "Song 7 - Artist", "Song 8 - Artist",
-    "Song 9 - Artist", "Song 10 - Artist"
+# --- 10 latest songs (dynamic) ---
+songs_history = [
+    "Song 1 - Artist", "Song 2 - Artist", "Song 3 - Artist",
+    "Song 4 - Artist", "Song 5 - Artist", "Song 6 - Artist",
+    "Song 7 - Artist", "Song 8 - Artist", "Song 9 - Artist", "Song 10 - Artist"
 ]
 
-html_content = f"""<!DOCTYPE html>
+# --- Build HTML ---
+html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280, initial-scale=1.0">
-<title>988 FM Songs List</title>
+<title>988 FM Schedule & Songs</title>
 <style>
   body {{
     margin: 0;
     background-color: #000;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    color: #e0e0e0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    font-family: "Microsoft YaHei", Arial, sans-serif;
-    color: #e0e0e0;
   }}
   .screen {{
     width: 1280px;
@@ -161,67 +161,63 @@ html_content = f"""<!DOCTYPE html>
     background-color: #111;
     border: 5px solid #777;
     border-radius: 16px;
-    position: relative;
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: auto;
   }}
   .logo {{
-    position: absolute;
-    top: 5px;
-    left: 15px;
     width: 180px;
+    display: block;
+    margin-bottom: 10px;
   }}
-  .title {{
-    font-size: 24px;
-    font-weight: bold;
+  h2 {{
     color: #ccc;
-    margin-left: 1020px;
-    margin-top: 60px;
+    margin: 8px 0;
   }}
-  .songs-table {{
-    margin-top: 10px;
+  table {{
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
   }}
-  .songs-table th, .songs-table td {{
+  th, td {{
     text-align: left;
     padding: 4px 6px;
-    font-size: 18px;
+    font-size: 16px;
     color: #f0f0f0;
   }}
-  .songs-table th {{
-    color: #ccc;
-    font-size: 21px;
+  th {{
+    font-size: 18px;
     border-bottom: 2px solid #777;
   }}
-  .songs-table td a {{
+  a {{
     color: #f0f0f0;
     text-decoration: none;
   }}
-  .songs-table td a:hover {{
+  a:hover {{
     color: #00ffff;
   }}
 </style>
 </head>
 <body>
-  <div class="screen">
-    <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" alt="988 FM Logo" class="logo">
-    <div class="title">Songs List</div>
-    <table class="songs-table">
-      <tr><th>Playlist 988</th></tr>
+<div class="screen">
+<img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" class="logo" alt="988 FM Logo">
 """
 
-for song in songs:
-    html_content += f'      <tr><td><a href="https://online-radio.my/12-988-fm.html" target="_blank">{song}</a></td></tr>\n'
+# Add timetable
+for day, programmes in week_programmes.items():
+    html += f"<h2>{day}</h2>\n<table>\n<tr><th>Start</th><th>End</th><th>Programme</th></tr>\n"
+    for start, end, title in programmes:
+        html += f"<tr><td>{start}</td><td>{end}</td><td>{title}</td></tr>\n"
+    html += "</table>\n"
 
-html_content += """    </table>
-  </div>
-</body>
-</html>
-"""
+# Add songs history
+html += "<h2>Latest 10 Songs</h2>\n<table>\n<tr><th>Song</th></tr>\n"
+for song in songs_history:
+    html += f'<tr><td><a href="https://online-radio.my/12-988-fm.html" target="_blank">{song}</a></td></tr>\n'
+html += "</table>\n</div>\n</body>\n</html>"
 
-with open("songs_list.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
+# Write to file
+with open("988songslist.html", "w", encoding="utf-8") as f:
+    f.write(html)
 
 print("✅ epg.xml generated with Monday–Thursday + Friday programmes.")
