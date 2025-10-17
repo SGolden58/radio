@@ -49,7 +49,7 @@
       position: absolute;
       top: 110px;
       left: 20px;
-      width: 1280px;
+      width: 1240px;
       border-collapse: collapse;
       font-size: 15px;
     }
@@ -70,12 +70,6 @@
       background-color: rgba(255,255,255,0.05);
     }
 
-    .time {
-      width: 120px;
-      color: #999;
-      font-size: 18px;
-    }
-
     .song {
       color: #eee;
     }
@@ -85,10 +79,9 @@
   <div class="screen">
     <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" class="logo" alt="988">
     <div class="title">Song List</div>
-
-    <table id="Songs List">
-      <tr><th class="artist">歌手</th><th>已播歌曲</th></tr>
-      <tr><td colspan="2">加载中… Loading latest songs…</td></tr>
+    <table id="playlistTable">
+      <tr><th>已播歌曲</th></tr>
+      <tr><td>加载中… Loading latest songs…</td></tr>
     </table>
   </div>
 
@@ -118,25 +111,26 @@ async function updatePlaylist() {
         .slice(0, 10); // latest 10 songs
     }
 
-    const table = document.getElementById("Songs List");
-    table.innerHTML = `<tr><th class="artist">歌手</th><th>已播歌曲</th></tr>`;
+    const table = document.getElementById("playlistTable");
+    table.innerHTML = `<tr><th>已播歌曲</th></tr>`;
 
     if (playlist.length === 0) {
-      table.innerHTML += `<tr><td colspan="2">未找到播放列表 / No songs found</td></tr>`;
+      table.innerHTML += `<tr><td>未找到播放列表 / No songs found</td></tr>`;
     } else {
       playlist.forEach(song => {
-        table.innerHTML += `<tr><td colspan="2" class="song">${song}</td></tr>`;
+        table.innerHTML += `<tr><td class="song">${song}</td></tr>`;
       });
     }
   } catch (e) {
-    document.getElementById("Songs List").innerHTML =
-      `<tr><td colspan="2">无法加载播放列表 / Unable to load playlist</td></tr>`;
+    document.getElementById("playlistTable").innerHTML =
+      `<tr><td>无法加载播放列表 / Unable to load playlist</td></tr>`;
     console.error(e);
   }
 }
 
+// Initial update + auto-refresh every 60s
 updatePlaylist();
-setInterval(updatePlaylist, 60000); // refresh every 60s
-</script>
+setInterval(updatePlaylist, 60000);
+  </script>
 </body>
 </html>
