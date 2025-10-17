@@ -13,101 +13,125 @@
       align-items: center;
       height: 100vh;
       font-family: "Microsoft YaHei", Arial, sans-serif;
-      color: #ccc;
+      color: #ddd;
     }
+
     .screen {
-      width: 1280px;
-      height: 720px;
+      width: 1240px;
+      height: 680px;
       background-color: #111;
-      border: 8px solid #777;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.7);
+      border: 4px solid #777;
+      border-radius: 16px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      padding: 20px;
     }
+
     .logo {
       position: absolute;
-      top: 50px;
+      top: 70px; /* lower */
       left: 40px;
-      width: 180px;
+      width: 150px;
     }
+
     .title {
       position: absolute;
-      top: 65px;
+      top: 85px;
       right: 50px;
-      font-size: 28px;
+      font-size: 26px;
+      color: #ccc;
       font-weight: bold;
-      color: #ddd;
       letter-spacing: 1px;
     }
-    .playlist-box {
+
+    table {
       position: absolute;
-      top: 180px;
-      left: 100px;
-      width: 1080px;
-      height: 480px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 15px;
-      padding: 30px;
-      overflow-y: auto;
+      top: 200px;
+      left: 60px;
+      width: 1120px;
+      border-collapse: collapse;
+      font-size: 22px;
     }
+
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid #444;
+    }
+
+    th {
+      color: #aaa;
+      font-weight: normal;
+      font-size: 20px;
+    }
+
+    tr:hover td {
+      background-color: rgba(255,255,255,0.05);
+    }
+
+    .time {
+      width: 120px;
+      color: #999;
+      font-size: 20px;
+    }
+
     .song {
-      font-size: 24px;
-      line-height: 1.8;
-      padding-left: 12px;
-      border-left: 3px solid #888;
-      margin-bottom: 14px;
-      color: #ddd;
+      color: #eee;
     }
   </style>
 </head>
 <body>
   <div class="screen">
-    <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" alt="988 FM Logo" class="logo">
+    <img src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png" class="logo" alt="988 FM">
     <div class="title">Playlist 988 FM</div>
-    <div class="playlist-box" id="playlistBox">
-      <div class="song">加载中… Loading latest songs…</div>
-    </div>
+
+    <table id="playlistTable">
+      <tr><th class="time">时间</th><th>歌曲 / Artist - Title</th></tr>
+      <tr><td colspan="2">加载中… Loading latest songs…</td></tr>
+    </table>
   </div>
 
   <script>
     async function updatePlaylist() {
       try {
         const proxy = "https://api.allorigins.win/raw?url=";
-        const target = "https://online-radio.my/12-988-fm.html";
-        const res = await fetch(proxy + encodeURIComponent(target));
+        const url = "https://online-radio.my/12-988-fm.html";
+        const res = await fetch(proxy + encodeURIComponent(url));
         const html = await res.text();
 
         const temp = document.createElement("div");
         temp.innerHTML = html;
 
-        // Look for text that includes " - " (artist - title)
-        const nodes = Array.from(temp.querySelectorAll("div, td, p, span, li"));
-        const texts = nodes.map(el => el.innerText.trim())
-          .filter(t => t && / - /.test(t));
+        // Extract text that looks like "13:25 半吨兄弟 - 爱就一个字 (原唱:张信哲)"
+        const allText = temp.innerText.split("\n").map(t => t.trim()).filter(t => t);
+        const playlist = [];
+        for (const t of allText) {
+          const match = t.match(/^(\d{1,2}:\d{2})\s+(.*?-\s*.*)$/);
+          if (match) {
+            playlist.push({ time: match[1], song: match[2] });
+          }
+        }
 
-        const songs = [...new Set(texts)].slice(0, 10);
-        const box = document.getElementById("playlistBox");
-        box.innerHTML = "";
+        const table = document.getElementById("playlistTable");
+        table.innerHTML = `<tr><th class="time">时间</th><th>歌曲 / Artist - Title</th></tr>`;
 
-        if (songs.length === 0) {
-          box.innerHTML = "<div class='song'>未找到播放列表 / No playlist found</div>";
+        if (playlist.length === 0) {
+          table.innerHTML += `<tr><td colspan="2">未找到播放列表 / No songs found</td></tr>`;
         } else {
-          songs.forEach(song => {
-            const div = document.createElement("div");
-            div.className = "song";
-            div.textContent = song;
-            box.appendChild(div);
+          playlist.slice(0, 10).forEach(p => {
+            const row = `<tr><td class="time">${p.time}</td><td class="song">${p.song}</td></tr>`;
+            table.innerHTML += row;
           });
         }
-      } catch (err) {
-        document.getElementById("playlistBox").innerHTML =
-          "<div class='song'>无法加载播放列表 / Unable to load playlist</div>";
+      } catch (e) {
+        document.getElementById("playlistTable").innerHTML =
+          `<tr><td colspan="2">无法加载播放列表 / Unable to load playlist</td></tr>`;
       }
     }
 
     updatePlaylist();
-    setInterval(updatePlaylist, 60000); // auto refresh every minute
+    setInterval(updatePlaylist, 60000);
   </script>
 </body>
 </html>
