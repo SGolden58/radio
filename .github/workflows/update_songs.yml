@@ -1,0 +1,33 @@
+name: Update 988 Songs List
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # every hour
+  workflow_dispatch:     # allows manual run
+
+jobs:
+  update_songs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run scraper
+        run: node fetch988.js
+
+      - name: Commit updated HTML
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add 988songslist.html
+          git commit -m "Update latest 10 songs" || echo "No changes"
+          git push
