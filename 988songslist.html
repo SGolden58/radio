@@ -93,45 +93,50 @@
   </div>
 
   <script>
-    async function updatePlaylist() {
-      try {
-        const proxy = "https://api.allorigins.win/raw?url=";
-        const url = "https://online-radio.my/12-988-fm.html";
-        const res = await fetch(proxy + encodeURIComponent(url));
-        const html = await res.text();
+async function updatePlaylist() {
+  try {
+    const proxy = "https://api.allorigins.win/get?url=";
+    const url = "https://988.com.my/on-air/";
+    const res = await fetch(proxy + encodeURIComponent(url));
+    const data = await res.json();
+    const html = data.contents;
 
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
 
-        // Extract text that looks like "13:25 半吨兄弟 - 爱就一个字 (原唱:张信哲)"
-        const allText = temp.innerText.split("\n").map(t => t.trim()).filter(t => t);
-        const playlist = [];
-        for (const t of allText) {
-          const match = t.match(/^(\d{1,2}:\d{2})\s+(.*?-\s*.*)$/);
-          if (match) {
-            playlist.push({ time: match[1], song: match[2] });
-          }
-        }
+    // Find "已播歌曲" section
+    const playedSection = Array.from(temp.querySelectorAll("h3, h4, div, p"))
+      .filter(el => el.innerText.includes("已播歌曲"))
+      .map(el => el.nextElementSibling)
+      .filter(Boolean)[0];
 
-        const table = document.getElementById("playlistTable");
-        table.innerHTML = `<tr><th class="time">时间</th><th>歌曲 / Artist - Title</th></tr>`;
-
-        if (playlist.length === 0) {
-          table.innerHTML += `<tr><td colspan="2">未找到播放列表 / No songs found</td></tr>`;
-        } else {
-          playlist.slice(0, 10).forEach(p => {
-            const row = `<tr><td class="time">${p.time}</td><td class="song">${p.song}</td></tr>`;
-            table.innerHTML += row;
-          });
-        }
-      } catch (e) {
-        document.getElementById("playlistTable").innerHTML =
-          `<tr><td colspan="2">无法加载播放列表 / Unable to load playlist</td></tr>`;
-      }
+    let playlist = [];
+    if (playedSection) {
+      playlist = Array.from(playedSection.querySelectorAll("li, div, span"))
+        .map(el => el.innerText.trim())
+        .filter(t => t)
+        .slice(0, 10); // latest 10 songs
     }
 
-    updatePlaylist();
-    setInterval(updatePlaylist, 60000);
-  </script>
+    const table = document.getElementById("Songs List");
+    table.innerHTML = `<tr><th class="artist">歌手</th><th>已播歌曲</th></tr>`;
+
+    if (playlist.length === 0) {
+      table.innerHTML += `<tr><td colspan="2">未找到播放列表 / No songs found</td></tr>`;
+    } else {
+      playlist.forEach(song => {
+        table.innerHTML += `<tr><td colspan="2" class="song">${song}</td></tr>`;
+      });
+    }
+  } catch (e) {
+    document.getElementById("Songs List").innerHTML =
+      `<tr><td colspan="2">无法加载播放列表 / Unable to load playlist</td></tr>`;
+    console.error(e);
+  }
+}
+
+updatePlaylist();
+setInterval(updatePlaylist, 60000); // refresh every 60s
+</script>
 </body>
 </html>
