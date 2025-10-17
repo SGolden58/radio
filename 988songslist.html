@@ -52,11 +52,18 @@
       border-radius: 8px;
     }
   </style>
+  <script>
+    // Auto-refresh the iframe every 60 seconds (60000 ms)
+    setInterval(() => {
+      const iframe = document.getElementById('radioFrame');
+      iframe.src = iframe.src;
+    }, 60000);
+  </script>
 </head>
 <body>
   <div class="screen">
     <div class="overlay">🎵 Playlist 988 FM — Latest 10 Songs</div>
-    <iframe src="https://online-radio.my/12-988-fm.html" loading="lazy"></iframe>
+    <iframe id="radioFrame" src="https://online-radio.my/12-988-fm.html" loading="lazy"></iframe>
     <div class="footer">
       EPG Source: <a href="https://sgolden58.github.io/radio/epg.xml" style="color:#ff6699;" target="_blank">epg.xml</a>
     </div>
