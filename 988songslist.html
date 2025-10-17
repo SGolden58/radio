@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>988 FM — Playlist Screen (1280×720)</title>
+  <style>
+    /* Page fixed size area (1280x720). Centered */
+    html,body { height:100%; margin:0; background:#111; color:#eee; font-family: Arial, Helvetica, sans-serif; }
+    .stage {
+      width: 1280px;
+      height: 720px;
+      margin: 24px auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 900px 380px; /* main video area + side panel */
+      background: linear-gradient(180deg,#000 0%, #0b0b0b 100%);
+    }
+
+    /* video-like frame */
+    .player {
+      position: relative;
+      background: #000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .player .iframe-wrap {
+      width: 880px;
+      height: 660px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 6px rgba(255,255,255,0.02);
+      background: #000;
+    }
+    .player iframe {
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+    /* overlay bar on top of iframe like player controls */
+    .player .topbar {
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: #fff;
+      font-weight:700;
+      background: rgba(0,0,0,0.45);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Right panel: history */
+    .history {
+      padding: 20px;
+      box-sizing: border-box;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      color: #eaeaea;
+    }
+    .history h2 {
+      margin: 0 0 8px 0;
+      font-size: 20px;
+      letter-spacing: 0.4px;
+    }
+    .meta {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+    .list {
+      margin-top: 6px;
+      max-height: 620px;
+      overflow:auto;
+      padding-right:6px;
+    }
+    .track {
+      padding: 10px;
+      border-radius:6px;
+      margin-bottom:8px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      font-size: 14px;
+    }
+    .track .title { font-weight:700; }
+    .track .time { font-size:12px; opacity:0.75; margin-top:4px; }
+
+    .footer {
+      position:absolute;
+      right: 20px;
+      bottom: 12px;
+      font-size:12px;
+      opacity:0.8;
+    }
+
+    /* small helper for error */
+    .error {
+      color: #ff9b9b;
+      font-weight:700;
+      margin-top:8px;
+    }
+
+    /* responsive small screens: scale down */
+    @media (max-width:1400px) {
+      .stage { transform: scale(0.9); transform-origin: top center; }
+    }
+    @media (max-width:1100px) {
+      body { padding: 10px; }
+      .stage { width:100%; height:auto; grid-template-columns: 1fr; }
+      .player { order:1; }
+      .history { order:2; }
+      .player .iframe-wrap { width:100%; height:360px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage" role="main" aria-label="988 FM playlist screen">
+    <div class="player" aria-hidden="false">
+      <div class="topbar">988 FM — Playlist</div>
+      <div class="iframe-wrap" id="iframeWrap">
+        <!-- Embed the user's playlist page -->
+        <iframe id="playlistFrame" src="https://online-radio.my/12-988-fm.html" allow="autoplay; encrypted-media" referrerpolicy="no-referrer"></iframe>
+      </div>
+    </div>
+
+    <aside class="history" aria-label="Song name history">
+      <h2>Song Name History (latest 10)</h2>
+      <div class="meta">Source: epg.xml (attempts to read: <code>https://sgolden58.github.io/radio/epg.xml</code>)</div>
+      <div id="status" class="meta">Loading…</div>
+      <div class="list" id="historyList" aria-live="polite"></div>
+      <div id="errorBox" class="error" style="display:none"></div>
+      <div class="footer">Display size: 1280×720</div>
+    </aside>
+  </div>
+
+  <script>
+    (function(){
+      const epgUrl = 'https://sgolden58.github.io/radio/epg.xml';
+      const statusEl = document.getElementById('status');
+      const historyEl = document.getElementById('historyList');
+      const errorBox = document.getElementById('errorBox');
+
+      function showError(msg) {
+        errorBox.style.display = 'block';
+        errorBox.textContent = msg;
+        statusEl.textContent = 'Could not load program history.';
+      }
+
+      // Try to fetch the epg.xml and parse programme elements
+      fetch(epgUrl, {cache: 'no-cache'}).then(resp => {
+        if (!resp.ok) throw new Error('Network response not OK: ' + resp.status);
+        return resp.text();
+      }).then(text => {
+        // parse XML
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, 'application/xml');
+        const progs = Array.from(xml.querySelectorAll('programme')).reverse(); // newest last -> reverse to newest first
+        if (!progs.length) {
+          throw new Error('No <programme> elements found in epg.xml');
+        }
+        // extract up to 10 unique titles
+        const items = [];
+        for (let i=0;i<progs.length && items.length<10;i++) {
+          const p = progs[i];
+          // Common structure: <programme start="..." stop="..." channel="..."> <title>Song Title</title> <desc>Artist</desc> ...
+          const titleNode = p.querySelector('title');
+          const descNode = p.querySelector('desc');
+          const startAttr = p.getAttribute('start') || '';
+          const title = titleNode ? titleNode.textContent.trim() : (descNode ? descNode.textContent.trim() : 'Unknown');
+          const desc = descNode ? descNode.textContent.trim() : '';
+          const time = startAttr;
+          items.push({ title, desc, time });
+        }
+
+        // render items
+        historyEl.innerHTML = '';
+        items.forEach((it, idx) => {
+          const div = document.createElement('div');
+          div.className = 'track';
+          div.innerHTML = '<div class="title">'+ (idx+1) +'. '+ escapeHtml(it.title) +'</div>'
+                        + (it.desc ? ('<div class="time">' + escapeHtml(it.desc) + '</div>') : '')
+                        + (it.time ? ('<div class="time">Start: ' + escapeHtml(it.time) + '</div>') : '');
+          historyEl.appendChild(div);
+        });
+        statusEl.textContent = 'Loaded ' + items.length + ' entries from epg.xml';
+      }).catch(err => {
+        console.warn('Failed to load epg.xml:', err);
+        // Most common cause: CORS. Provide nice message and allow manual paste fallback.
+        showError('Failed to fetch epg.xml. Common cause: CORS blocking or the file is unreachable. See instructions below.');
+        // Provide a manual paste fallback area so user can paste XML
+        const fallback = document.createElement('div');
+        fallback.style.marginTop='10px';
+        fallback.innerHTML = '<div style="font-size:13px;opacity:0.9;margin-bottom:6px">Fallback: paste your epg.xml content here:</div>'
+                           + '<textarea id="manualXml" style="width:100%;height:160px;background:#0b0b0b;color:#eee;border:1px solid #222;padding:8px"></textarea>'
+                           + '<div style="margin-top:8px"><button id="btnParse">Parse pasted XML</button> <button id="btnClear">Clear</button></div>';
+        historyEl.appendChild(fallback);
+        document.getElementById('btnParse').addEventListener('click', () => {
+          const txt = document.getElementById('manualXml').value;
+          if (!txt.trim()) return alert('Paste epg.xml contents first.');
+          try {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(txt, 'application/xml');
+            const progs = Array.from(xml.querySelectorAll('programme')).reverse();
+            if (!progs.length) throw new Error('No <progr
