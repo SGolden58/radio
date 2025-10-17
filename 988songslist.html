@@ -1,72 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=1280, initial-scale=1.0">
-  <title>988 FM Playlist</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-    .screen {
-      width: 1280px;
-      height: 720px;
-      background-color: #111;
-      border: 8px solid #444;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(255, 0, 100, 0.5);
-      overflow: hidden;
-      position: relative;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .overlay {
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      color: #fff;
-      font-size: 22px;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px #000;
-      background: rgba(0,0,0,0.5);
-      padding: 5px 10px;
-      border-radius: 8px;
-    }
-    .footer {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      color: #ccc;
-      font-size: 14px;
-      background: rgba(0,0,0,0.5);
-      padding: 5px 10px;
-      border-radius: 8px;
-    }
-  </style>
-  <script>
-    // Auto-refresh the iframe every 60 seconds (60000 ms)
-    setInterval(() => {
-      const iframe = document.getElementById('radioFrame');
-      iframe.src = iframe.src;
-    }, 60000);
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1280, initial-scale=1.0" />
+<title>Playlist 988 FM</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    color: #fff;
+  }
+  .screen {
+    width: 1280px;
+    height: 720px;
+    background: radial-gradient(circle at 30% 30%, #1a1a1a, #000);
+    border: 8px solid #ff4081;
+    border-radius: 25px;
+    box-shadow: 0 0 60px rgba(255, 64, 129, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .logo {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    width: 180px;
+    height: auto;
+  }
+  .title {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 42px;
+    font-weight: bold;
+    color: #ff66a3;
+    text-shadow: 0 0 15px #ff3399;
+    letter-spacing: 2px;
+  }
+  .playlist-box {
+    position: absolute;
+    top: 160px;
+    left: 80px;
+    width: 1120px;
+    height: 500px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px;
+    overflow-y: auto;
+    backdrop-filter: blur(6px);
+  }
+  .song {
+    font-size: 26px;
+    line-height: 1.8;
+    padding-left: 10px;
+    border-left: 4px solid #ff66a3;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+  }
+  .song:hover {
+    color: #ff99cc;
+    transform: scale(1.02);
+  }
+  .footer {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    font-size: 14px;
+    color: #aaa;
+  }
+</style>
 </head>
 <body>
   <div class="screen">
-    <div class="overlay">🎵 Playlist 988 FM — Latest 10 Songs</div>
-    <iframe id="radioFrame" src="https://online-radio.my/12-988-fm.html" loading="lazy"></iframe>
+    <img
+      src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"
+      alt="988 FM Logo"
+      class="logo"
+    />
+    <div class="title">🎵 Playlist 988 FM</div>
+    <div class="playlist-box" id="playlistBox">
+      <div class="song">加载中… Loading latest songs…</div>
+    </div>
     <div class="footer">
-      EPG Source: <a href="https://sgolden58.github.io/radio/epg.xml" style="color:#ff6699;" target="_blank">epg.xml</a>
+      Source:
+      <a
+        href="https://sgolden58.github.io/radio/epg.xml"
+        target="_blank"
+        style="color:#ff80bf;"
+        >EPG XML</a
+      >
     </div>
   </div>
+
+<script>
+async function updatePlaylist() {
+  try {
+    const res = await fetch("https://online-radio.my/12-988-fm.html", { mode: "cors" });
+    const html = await res.text();
+
+    // Parse song lines (very lightweight extraction)
+    // The site has lines like: <div>Artist - Song</div>
+    // We'll capture visible text without copying their layout
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+    const textNodes = Array.from(temp.querySelectorAll("div,td,p,span"))
+      .map(el => el.innerText.trim())
+      .filter(t => t && /-/.test(t) && t.length < 80);
+
+    const songs = [...new Set(textNodes)].slice(0, 10);
+
+    const box = document.getElementById("playlistBox");
+    box.innerHTML = "";
+    songs.forEach(s => {
+      const div = document.createElement("div");
+      div.className = "song";
+      div.textContent = s;
+      box.appendChild(div);
+    });
+  } catch (err) {
+    console.error("Fetch error:", err);
+    document.getElementById("playlistBox").innerHTML =
+      "<div class='song'>无法加载播放列表 / Unable to load playlist.</div>";
+  }
+}
+
+// First load
+updatePlaylist();
+
+// Auto-refresh every 60 seconds
+setInterval(updatePlaylist, 60000);
+</script>
 </body>
 </html>
