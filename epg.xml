@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><tv date="20251020023001 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251020"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
+<?xml version="1.0" encoding="UTF-8"?><tv date="20251020023556 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20251020"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
   <programme channel="988" start="20251020000000 +0800" stop="20251020050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
@@ -69,7 +69,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251020160000 +0800" stop="20251020193000 +0800">
+  <programme channel="988" start="20251020160000 +0800" stop="20251020190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -179,7 +179,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251021160000 +0800" stop="20251021193000 +0800">
+  <programme channel="988" start="20251021160000 +0800" stop="20251021190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -289,7 +289,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251022160000 +0800" stop="20251022193000 +0800">
+  <programme channel="988" start="20251022160000 +0800" stop="20251022190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -399,7 +399,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20251023160000 +0800" stop="20251023193000 +0800">
+  <programme channel="988" start="20251023160000 +0800" stop="20251023190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
