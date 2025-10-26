@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '1 16 * * 0'  # Every Monday 0:01am
+    - cron: '1 16 * * 0'  # Every Monday 0:01am (MYT)
   workflow_dispatch:
 
 jobs:
@@ -40,7 +40,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Delete old workflow runs (keep latest 3)
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install -y gh jq
+
+      - name: Delete old workflow runs
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
           OWNER: SGolden58
@@ -68,10 +73,10 @@ jobs:
             echo "✅ Done cleaning $workflow_file"
           }
 
-          # Clean EPG workflow (keep 1)
+          # 🧹 Clean EPG workflow (keep 1)
           delete_runs "update-radio-epg.yml" 1
 
-          # Clean Pages build deployment (keep 2)
+          # 🧹 Clean Pages build deployment (keep 2)
           delete_runs "pages-build-deployment" 2
 
           echo "🎉 Cleanup complete — kept latest 1 EPG run and 2 Pages runs."
