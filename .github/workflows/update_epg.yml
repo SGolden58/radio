@@ -1,11 +1,9 @@
-name: Update Radio EPG
-
 permissions:
   contents: write
 
 on:
   schedule:
-    - cron: '1 16 * * 0'  # Every Monday 0:01am (MYT)
+    - cron: '1 16 * * 0'  # Every Monday 0:01am
   workflow_dispatch:
 
 jobs:
@@ -40,43 +38,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Install GitHub CLI
-        run: |
-          sudo apt update
-          sudo apt install -y gh jq
-
-      - name: Delete old workflow runs
+      - name: Delete old workflow runs (keep latest 3)
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
           OWNER: SGolden58
           REPO: radio
         run: |
-          echo "🔍 Cleaning old workflow runs in $OWNER/$REPO"
-
-          delete_runs() {
-            local workflow_file=$1
-            local keep_count=$2
-            echo "Processing '$workflow_file' (keep $keep_count)..."
-
-            runs=$(gh api --paginate "/repos/$OWNER/$REPO/actions/workflows/$workflow_file/runs" \
-              --jq '.workflow_runs | sort_by(.created_at) | reverse | .[].id')
-
-            count=0
-            for run_id in $runs; do
-              count=$((count+1))
-              if [ $count -gt $keep_count ]; then
-                echo "🗑️ Deleting run ID: $run_id"
-                gh api -X DELETE "/repos/$OWNER/$REPO/actions/runs/$run_id"
-                sleep 1
-              fi
-            done
-            echo "✅ Done cleaning $workflow_file"
-          }
-
-          # 🧹 Clean EPG workflow (keep 1)
-          delete_runs "update-radio-epg.yml" 1
-
-          # 🧹 Clean Pages build deployment (keep 2)
-          delete_runs "pages-build-deployment" 2
-
-          echo "🎉 Cleanup complete — kept latest 1 EPG run and 2 Pages runs."
+          echo "Fetching all workflow runs..."
+          runs=$(gh api --paginate "/repos/$OWNER/$REPO/actions/runs" --jq '.workflow_runs | sort_by(.created_at) | reverse | .[].id')
+          count=0
+          for run_id in $runs; do
+            count=$((count+1))
+            if [ $count -gt 3 ]; then
+              echo "🗑️ Deleting workflow run ID: $run_id"
+              gh api -X DELETE "/repos/$OWNER/$REPO/actions/runs/$run_id"
+              sleep 1
+            fi
+          done
+          echo "✅ Deleted all but latest 3 runs."
