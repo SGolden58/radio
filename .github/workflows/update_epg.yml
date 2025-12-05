@@ -42,7 +42,7 @@ jobs:
     steps:
       - name: Delete old workflow runs (keep latest 3)
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_CLEANUP }}
           OWNER: SGolden58
           REPO: radio
         run: |
