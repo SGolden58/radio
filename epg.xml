@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><tv date="20260202002240 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20260202"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
-  <programme channel="988" start="20260202000000 +0800" stop="20260202050000 +0800">
+<?xml version="1.0" encoding="UTF-8"?><tv date="20260209002411 +0800" generator-info-url="https://sgolden58.github.io/radio/epg.xml" source-info-url="https://sgolden58.github.io/radio/epg.xml?channel_id=988&amp;date=20260209"><channel id="988"><display-name>988 FM</display-name><icon src="https://raw.githubusercontent.com/SGolden58/svg/main/Logo/988.png"/></channel>
+  <programme channel="988" start="20260209000000 +0800" stop="20260209050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -9,7 +9,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202050000 +0800" stop="20260202053000 +0800">
+  <programme channel="988" start="20260209050000 +0800" stop="20260209053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
     <category>Music</category>
@@ -19,7 +19,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202053000 +0800" stop="20260202060000 +0800">
+  <programme channel="988" start="20260209053000 +0800" stop="20260209060000 +0800">
     <title lang="zh">988 Music On Air</title>
     <desc lang="zh">Music On Air</desc>
     <category>Music</category>
@@ -29,7 +29,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202060000 +0800" stop="20260202100000 +0800">
+  <programme channel="988" start="20260209060000 +0800" stop="20260209100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
     <category>Music</category>
@@ -39,7 +39,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202100000 +0800" stop="20260202123000 +0800">
+  <programme channel="988" start="20260209100000 +0800" stop="20260209123000 +0800">
     <title lang="zh">随十奉陪 Chrystina 黄玮萄</title>
     <desc lang="zh">《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。</desc>
     <category>Music</category>
@@ -49,7 +49,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202123000 +0800" stop="20260202130000 +0800">
+  <programme channel="988" start="20260209123000 +0800" stop="20260209130000 +0800">
     <title lang="zh">988广播剧</title>
     <desc lang="zh">每逢星期一至五，下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。</desc>
     <category>Music</category>
@@ -59,7 +59,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202130000 +0800" stop="20260202160000 +0800">
+  <programme channel="988" start="20260209130000 +0800" stop="20260209160000 +0800">
     <title lang="zh">活力GO Chloe和Jaydern</title>
     <desc lang="zh">午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题。</desc>
     <category>Music</category>
@@ -69,7 +69,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202160000 +0800" stop="20260202190000 +0800">
+  <programme channel="988" start="20260209160000 +0800" stop="20260209190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -79,7 +79,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202190000 +0800" stop="20260202200000 +0800">
+  <programme channel="988" start="20260209190000 +0800" stop="20260209200000 +0800">
     <title lang="zh">988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱</title>
     <desc lang="zh">每天为你整理、跟进一天里最重要的国内时事资讯。</desc>
     <category>Music</category>
@@ -89,7 +89,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202200000 +0800" stop="20260202220000 +0800">
+  <programme channel="988" start="20260209200000 +0800" stop="20260209220000 +0800">
     <title lang="zh">Hashtag 1+1 甯逸谦</title>
     <desc lang="zh">星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现有趣故事。</desc>
     <category>Music</category>
@@ -99,7 +99,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260202220000 +0800" stop="20260202235900 +0800">
+  <programme channel="988" start="20260209220000 +0800" stop="20260209235900 +0800">
     <title lang="zh">晚抱好时光 PM Wang 王彪民</title>
     <desc lang="zh">DJ彪民用音乐与能量陪伴大家总结一天。</desc>
     <category>Music</category>
@@ -109,7 +109,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203000000 +0800" stop="20260203050000 +0800">
+  <programme channel="988" start="20260210000000 +0800" stop="20260210050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -119,7 +119,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203050000 +0800" stop="20260203053000 +0800">
+  <programme channel="988" start="20260210050000 +0800" stop="20260210053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
     <category>Music</category>
@@ -129,7 +129,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203053000 +0800" stop="20260203060000 +0800">
+  <programme channel="988" start="20260210053000 +0800" stop="20260210060000 +0800">
     <title lang="zh">988 Music On Air</title>
     <desc lang="zh">Music On Air</desc>
     <category>Music</category>
@@ -139,7 +139,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203060000 +0800" stop="20260203100000 +0800">
+  <programme channel="988" start="20260210060000 +0800" stop="20260210100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
     <category>Music</category>
@@ -149,7 +149,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203100000 +0800" stop="20260203123000 +0800">
+  <programme channel="988" start="20260210100000 +0800" stop="20260210123000 +0800">
     <title lang="zh">随十奉陪 Chrystina 黄玮萄</title>
     <desc lang="zh">《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。</desc>
     <category>Music</category>
@@ -159,7 +159,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203123000 +0800" stop="20260203130000 +0800">
+  <programme channel="988" start="20260210123000 +0800" stop="20260210130000 +0800">
     <title lang="zh">988广播剧</title>
     <desc lang="zh">每逢星期一至五，下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。</desc>
     <category>Music</category>
@@ -169,7 +169,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203130000 +0800" stop="20260203160000 +0800">
+  <programme channel="988" start="20260210130000 +0800" stop="20260210160000 +0800">
     <title lang="zh">活力GO Chloe和Jaydern</title>
     <desc lang="zh">午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题。</desc>
     <category>Music</category>
@@ -179,7 +179,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203160000 +0800" stop="20260203190000 +0800">
+  <programme channel="988" start="20260210160000 +0800" stop="20260210190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -189,7 +189,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203190000 +0800" stop="20260203200000 +0800">
+  <programme channel="988" start="20260210190000 +0800" stop="20260210200000 +0800">
     <title lang="zh">988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱</title>
     <desc lang="zh">每天为你整理、跟进一天里最重要的国内时事资讯。</desc>
     <category>Music</category>
@@ -199,7 +199,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203200000 +0800" stop="20260203220000 +0800">
+  <programme channel="988" start="20260210200000 +0800" stop="20260210220000 +0800">
     <title lang="zh">Hashtag 1+1 甯逸谦</title>
     <desc lang="zh">星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现有趣故事。</desc>
     <category>Music</category>
@@ -209,7 +209,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260203220000 +0800" stop="20260203235900 +0800">
+  <programme channel="988" start="20260210220000 +0800" stop="20260210235900 +0800">
     <title lang="zh">晚抱好时光 PM Wang 王彪民</title>
     <desc lang="zh">DJ彪民用音乐与能量陪伴大家总结一天。</desc>
     <category>Music</category>
@@ -219,7 +219,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204000000 +0800" stop="20260204050000 +0800">
+  <programme channel="988" start="20260211000000 +0800" stop="20260211050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -229,7 +229,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204050000 +0800" stop="20260204053000 +0800">
+  <programme channel="988" start="20260211050000 +0800" stop="20260211053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
     <category>Music</category>
@@ -239,7 +239,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204053000 +0800" stop="20260204060000 +0800">
+  <programme channel="988" start="20260211053000 +0800" stop="20260211060000 +0800">
     <title lang="zh">988 Music On Air</title>
     <desc lang="zh">Music On Air</desc>
     <category>Music</category>
@@ -249,7 +249,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204060000 +0800" stop="20260204100000 +0800">
+  <programme channel="988" start="20260211060000 +0800" stop="20260211100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
     <category>Music</category>
@@ -259,7 +259,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204100000 +0800" stop="20260204123000 +0800">
+  <programme channel="988" start="20260211100000 +0800" stop="20260211123000 +0800">
     <title lang="zh">随十奉陪 Chrystina 黄玮萄</title>
     <desc lang="zh">《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。</desc>
     <category>Music</category>
@@ -269,7 +269,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204123000 +0800" stop="20260204130000 +0800">
+  <programme channel="988" start="20260211123000 +0800" stop="20260211130000 +0800">
     <title lang="zh">988广播剧</title>
     <desc lang="zh">每逢星期一至五，下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。</desc>
     <category>Music</category>
@@ -279,7 +279,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204130000 +0800" stop="20260204160000 +0800">
+  <programme channel="988" start="20260211130000 +0800" stop="20260211160000 +0800">
     <title lang="zh">活力GO Chloe和Jaydern</title>
     <desc lang="zh">午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题。</desc>
     <category>Music</category>
@@ -289,7 +289,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204160000 +0800" stop="20260204190000 +0800">
+  <programme channel="988" start="20260211160000 +0800" stop="20260211190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -299,7 +299,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204190000 +0800" stop="20260204200000 +0800">
+  <programme channel="988" start="20260211190000 +0800" stop="20260211200000 +0800">
     <title lang="zh">988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱</title>
     <desc lang="zh">每天为你整理、跟进一天里最重要的国内时事资讯。</desc>
     <category>Music</category>
@@ -309,7 +309,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204200000 +0800" stop="20260204220000 +0800">
+  <programme channel="988" start="20260211200000 +0800" stop="20260211220000 +0800">
     <title lang="zh">Hashtag 1+1 甯逸谦</title>
     <desc lang="zh">星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现有趣故事。</desc>
     <category>Music</category>
@@ -319,7 +319,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260204220000 +0800" stop="20260204235900 +0800">
+  <programme channel="988" start="20260211220000 +0800" stop="20260211235900 +0800">
     <title lang="zh">晚抱好时光 PM Wang 王彪民</title>
     <desc lang="zh">DJ彪民用音乐与能量陪伴大家总结一天。</desc>
     <category>Music</category>
@@ -329,7 +329,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205000000 +0800" stop="20260205050000 +0800">
+  <programme channel="988" start="20260212000000 +0800" stop="20260212050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -339,7 +339,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205050000 +0800" stop="20260205053000 +0800">
+  <programme channel="988" start="20260212050000 +0800" stop="20260212053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
     <category>Music</category>
@@ -349,7 +349,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205053000 +0800" stop="20260205060000 +0800">
+  <programme channel="988" start="20260212053000 +0800" stop="20260212060000 +0800">
     <title lang="zh">988 Music On Air</title>
     <desc lang="zh">Music On Air</desc>
     <category>Music</category>
@@ -359,7 +359,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205060000 +0800" stop="20260205100000 +0800">
+  <programme channel="988" start="20260212060000 +0800" stop="20260212100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
     <category>Music</category>
@@ -369,7 +369,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205100000 +0800" stop="20260205123000 +0800">
+  <programme channel="988" start="20260212100000 +0800" stop="20260212123000 +0800">
     <title lang="zh">随十奉陪 Chrystina 黄玮萄</title>
     <desc lang="zh">《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。</desc>
     <category>Music</category>
@@ -379,7 +379,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205123000 +0800" stop="20260205130000 +0800">
+  <programme channel="988" start="20260212123000 +0800" stop="20260212130000 +0800">
     <title lang="zh">988广播剧</title>
     <desc lang="zh">每逢星期一至五，下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。</desc>
     <category>Music</category>
@@ -389,7 +389,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205130000 +0800" stop="20260205160000 +0800">
+  <programme channel="988" start="20260212130000 +0800" stop="20260212160000 +0800">
     <title lang="zh">活力GO Chloe和Jaydern</title>
     <desc lang="zh">午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题。</desc>
     <category>Music</category>
@@ -399,7 +399,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205160000 +0800" stop="20260205190000 +0800">
+  <programme channel="988" start="20260212160000 +0800" stop="20260212190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！</desc>
     <category>Music</category>
@@ -409,7 +409,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205190000 +0800" stop="20260205200000 +0800">
+  <programme channel="988" start="20260212190000 +0800" stop="20260212200000 +0800">
     <title lang="zh">988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱</title>
     <desc lang="zh">每天为你整理、跟进一天里最重要的国内时事资讯。</desc>
     <category>Music</category>
@@ -419,7 +419,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205200000 +0800" stop="20260205220000 +0800">
+  <programme channel="988" start="20260212200000 +0800" stop="20260212220000 +0800">
     <title lang="zh">Hashtag 1+1 甯逸谦</title>
     <desc lang="zh">星期一至四 8pm-10pm，甯逸谦都会带你出发，从一个个不同时代、不同国家的角落，发现有趣故事。</desc>
     <category>Music</category>
@@ -429,7 +429,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260205220000 +0800" stop="20260205235900 +0800">
+  <programme channel="988" start="20260212220000 +0800" stop="20260212235900 +0800">
     <title lang="zh">晚抱好时光 PM Wang 王彪民</title>
     <desc lang="zh">DJ彪民用音乐与能量陪伴大家总结一天。</desc>
     <category>Music</category>
@@ -439,7 +439,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206000000 +0800" stop="20260206050000 +0800">
+  <programme channel="988" start="20260213000000 +0800" stop="20260213050000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -449,7 +449,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206050000 +0800" stop="20260206053000 +0800">
+  <programme channel="988" start="20260213050000 +0800" stop="20260213053000 +0800">
     <title lang="zh">988广播剧（好剧翻叮）</title>
     <desc lang="zh">经典，值得一听再听！“好剧翻叮”为你重播988广播剧团历年来的精彩作品，用半小时戏听人生百态。</desc>
     <category>Music</category>
@@ -459,7 +459,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206053000 +0800" stop="20260206060000 +0800">
+  <programme channel="988" start="20260213053000 +0800" stop="20260213060000 +0800">
     <title lang="zh">988 Music On Air</title>
     <desc lang="zh">Music On Air</desc>
     <category>Music</category>
@@ -469,7 +469,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206060000 +0800" stop="20260206100000 +0800">
+  <programme channel="988" start="20260213060000 +0800" stop="20260213100000 +0800">
     <title lang="zh">早点UP 陈峰、陈毅杰和Angeline</title>
     <desc lang="zh">新一天，从《早点UP》开始！陈峰、陈毅杰和Angeline联手，为你带来国内外新闻和活力正能量。全方位探讨时事，聆听公众Call-in，让你元气满满迎接挑战！电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
     <category>Music</category>
@@ -479,7 +479,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206100000 +0800" stop="20260206123000 +0800">
+  <programme channel="988" start="20260213100000 +0800" stop="20260213123000 +0800">
     <title lang="zh">随十奉陪 Chrystina 黄玮萄</title>
     <desc lang="zh">《随十奉陪》以“一天发现一点”为出发点，带来旅游、保健、音乐、职场等多元话题。用温柔的声音陪伴你，聊情绪与人际关系，发现生活中的美好细节。每天十点，不见不散。</desc>
     <category>Music</category>
@@ -489,7 +489,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206123000 +0800" stop="20260206130000 +0800">
+  <programme channel="988" start="20260213123000 +0800" stop="20260213130000 +0800">
     <title lang="zh">988广播剧</title>
     <desc lang="zh">每逢星期一至五，下午12时30分，988广播剧为你献上粤语好剧，用声音陪你走入故事的世界。988广播剧团创立于1973年，前身为有线电台“丽的呼声”话剧组，2000年正式易名为988广播剧团。</desc>
     <category>Music</category>
@@ -499,7 +499,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206130000 +0800" stop="20260206160000 +0800">
+  <programme channel="988" start="20260213130000 +0800" stop="20260213160000 +0800">
     <title lang="zh">活力GO Chloe和Jaydern</title>
     <desc lang="zh">午餐后困意来袭？跟着Chloe和Jaydern动起来！节目涵盖音乐、流行、生活灵感、健康与健身等热门话题，轻松自在，活力满满，陪你度过每个下午。</desc>
     <category>Music</category>
@@ -509,7 +509,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206160000 +0800" stop="20260206190000 +0800">
+  <programme channel="988" start="20260213160000 +0800" stop="20260213190000 +0800">
     <title lang="zh">敢玩最Power Danny 温力铭, Cassey 苏颖滢, Jeff 陈浩然</title>
     <desc lang="zh">下班不无聊，《敢玩最Power》陪你玩乐学知识！敢做敢讲敢玩，游戏笑声不断，资讯丰富，让通勤时光变黄金。加入我们，月入“百万知识”不是梦，敢玩就最Power！</desc>
     <category>Music</category>
@@ -519,7 +519,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206190000 +0800" stop="20260206200000 +0800">
+  <programme channel="988" start="20260213190000 +0800" stop="20260213200000 +0800">
     <title lang="zh">988新闻线 Cynthia 陈馨蕊, Stephany 姚淑婷, Jessy 林洁昕, 黄娇萱</title>
     <desc lang="zh">每天为你整理、跟进一天里最重要的国内重要的时事资讯，以最轻松但又抽丝剥茧的角度，全面探讨这些最及时的时事课题，包括政治、经济、人文、环境与经济！</desc>
     <category>Music</category>
@@ -529,7 +529,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260206200000 +0800" stop="20260206235900 +0800">
+  <programme channel="988" start="20260213200000 +0800" stop="20260213235900 +0800">
     <title lang="zh">大城心事 陈峰</title>
     <desc lang="zh">夜晚灯火阑珊，总有话难诉。《大城心事》陪你聆听感情、人际与生活压力，用温暖声音回应听众来电留言。夜深，心更真实。</desc>
     <category>Music</category>
@@ -539,7 +539,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207000000 +0800" stop="20260207060000 +0800">
+  <programme channel="988" start="20260214000000 +0800" stop="20260214060000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -549,7 +549,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207060000 +0800" stop="20260207070000 +0800">
+  <programme channel="988" start="20260214060000 +0800" stop="20260214070000 +0800">
     <title lang="zh">一天一句英Chryss(重播)</title>
     <desc lang="zh">英文不用死记硬背！让 Chrystina 用趣味俚语和实用短句，陪你一起把英语学得又轻松又上手！</desc>
     <category>Music</category>
@@ -559,7 +559,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207070000 +0800" stop="20260207100000 +0800">
+  <programme channel="988" start="20260214070000 +0800" stop="20260214100000 +0800">
     <title lang="zh">水滚茶靓星期六 Sean 李子昭, 沈小岚</title>
     <desc lang="zh">两位黄金贵族的周末早晨，就从一壶好茶开始。一边嘆茶，一边带你环游世界——聊旅游、谈美食、分享生活趣事，还有来自各行各业的朋友现身说法，笑料与感动交织，轻松中又带点启发。电话热线: +603 77103988｜WhatsApp: +6012-5550988｜Wechat微信：FM988_MY</desc>
     <category>Music</category>
@@ -569,7 +569,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207100000 +0800" stop="20260207110000 +0800">
+  <programme channel="988" start="20260214100000 +0800" stop="20260214110000 +0800">
     <title lang="zh">人生下半场 杜韩念</title>
     <desc lang="zh">人生说白了只有九百个月，说长不长，说短不短，如何要在剩下的几百个月里活出精彩、活出意义？ 每逢星期六 10am-11am，有杜韩念陪你一起，轻松地探讨人生下半场。</desc>
     <category>Music</category>
@@ -579,7 +579,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207110000 +0800" stop="20260207130000 +0800">
+  <programme channel="988" start="20260214110000 +0800" stop="20260214130000 +0800">
     <title lang="zh">Cyn手上路 Cynthia 陈馨蕊</title>
     <desc lang="zh">迎接孩子的到来，成为父母，是一段持续学习的旅程。不是只有父母陪孩子长大，其实孩子也在陪我们一起成长。每一次进入育儿的新阶段，父母也都在重新成为“新手”。Cynthia 馨蕊以新手妈妈的视角，打造一个分享育儿知识、好物推荐与真实经验的交流空间，陪伴每一位父母一起“Cyn”手上路。</desc>
     <category>Music</category>
@@ -589,7 +589,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207130000 +0800" stop="20260207150000 +0800">
+  <programme channel="988" start="20260214130000 +0800" stop="20260214150000 +0800">
     <title lang="zh">988精彩声势排行榜 Chloe 罗美云, 甯逸谦</title>
     <desc lang="zh">由听众投票决定的音乐排行榜节目！榜主Chloe和逸谦每期为你送上最新人气歌曲，看看哪首歌最受欢迎、哪位偶像声势最强！一起听歌、追榜、为你喜欢的歌手打气，每一票都由你作主！</desc>
     <category>Music</category>
@@ -599,7 +599,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207150000 +0800" stop="20260207170000 +0800">
+  <programme channel="988" start="20260214150000 +0800" stop="20260214170000 +0800">
     <title lang="zh">听听最溜 Stephany 姚淑婷</title>
     <desc lang="zh">富有满满 energy、power、fun 和 love 的节目，Stephany淑婷给你不一样内容的单元！ 通过音乐、智力游戏、小分享 等，让智慧像泉源一样，溜进你周六的生活！</desc>
     <category>Music</category>
@@ -609,7 +609,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207170000 +0800" stop="20260207180000 +0800">
+  <programme channel="988" start="20260214170000 +0800" stop="20260214180000 +0800">
     <title lang="zh">偶像来了！(重播) Chloe 罗美云, Jaydern 傅建豪</title>
     <desc lang="zh">偶像说过的一句话，可能会改变一天的心情，也可能让你更有动力！《偶像来了》带你回顾那些偶像曾经说过的金句，或许搞笑，或许励志，但一定值得你来听！今天的偶像金句，又能启发你什么呢？</desc>
     <category>Music</category>
@@ -619,7 +619,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207180000 +0800" stop="20260207190000 +0800">
+  <programme channel="988" start="20260214180000 +0800" stop="20260214190000 +0800">
     <title lang="zh">来点Music Fun</title>
     <desc lang="zh">一小时不间断的流行歌曲，带你沉浸在最动听的旋律中。</desc>
     <category>Music</category>
@@ -629,7 +629,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207190000 +0800" stop="20260207210000 +0800">
+  <programme channel="988" start="20260214190000 +0800" stop="20260214210000 +0800">
     <title lang="zh">Happy Weekend My Friend Jason潘小潘</title>
     <desc lang="zh">每个周末跟我约会吧，my friend！ 除了跟你聊生活影视what now；还有潘小潘对当下热论的奇思妙想，以大数据来给社会现象进行算命，与AI碰撞出一套未来生存指南；当然少不了音乐市场的革新与转变，一起听好歌，chill with chill guy 过上一个轻松周末。</desc>
     <category>Music</category>
@@ -639,7 +639,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207210000 +0800" stop="20260207220000 +0800">
+  <programme channel="988" start="20260214210000 +0800" stop="20260214220000 +0800">
     <title lang="zh">来点Music Fun</title>
     <desc lang="zh">一小时不间断的流行歌曲，带你沉浸在最动听的旋律中。</desc>
     <category>Music</category>
@@ -649,7 +649,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207220000 +0800" stop="20260207230000 +0800">
+  <programme channel="988" start="20260214220000 +0800" stop="20260214230000 +0800">
     <title lang="zh">温少IT脑（重播）Danny 温力铭</title>
     <desc lang="zh">温少化身IT佬，为你介绍各种好玩的产品，为你示范新奇的科技小玩意，手机或电脑的app等等。透过这些玩意让你的生活更方便更swag！ 你有什么IT问题也欢迎你发问，温少试图帮你解除你的IT烦恼！除了on air内容，也可以延伸到视频成为在线内容，带你看得更清楚、玩得更尽兴！</desc>
     <category>Music</category>
@@ -659,7 +659,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260207230000 +0800" stop="20260207235900 +0800">
+  <programme channel="988" start="20260214230000 +0800" stop="20260214235900 +0800">
     <title lang="zh">988 Weekend 自助餐</title>
     <desc lang="zh">这个节目由 DJ Point 主持，每周邀请一位不同的 988 DJ，将他们的专属歌单精心 Remix，打造成一场节奏十足的音乐自助餐。最燃的音乐料理，专属你的周六夜晚！</desc>
     <category>Music</category>
@@ -669,7 +669,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208000000 +0800" stop="20260208070000 +0800">
+  <programme channel="988" start="20260215000000 +0800" stop="20260215070000 +0800">
     <title lang="zh">七个凌晨的乐章</title>
     <desc lang="zh">忙碌的生活有时会令人迷失方向忘记初衷，你我都有一首属于自己的主题歌,而任何的音乐都承载了你我的美好回忆。每个深夜12开始至凌晨五点,，988一连七晚带给你七种不一样的心情, 为你谱出不一样的 七个凌晨的乐章。</desc>
     <category>Music</category>
@@ -679,7 +679,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208070000 +0800" stop="20260208080000 +0800">
+  <programme channel="988" start="20260215070000 +0800" stop="20260215080000 +0800">
     <title lang="zh">原来可以咁（重播）Angeline 黄玉丽</title>
     <desc lang="zh">在日复一日的生活中，我们常常被无聊与惯性困住，让每一天都显得了无新意。但其实，日常并非总是一成不变。那些被忽略的美好，往往只是还没来得及尝试。就用三分钟，一起细细品味生活中的小确幸。</desc>
     <category>Music</category>
@@ -689,7 +689,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208080000 +0800" stop="20260208100000 +0800">
+  <programme channel="988" start="20260215080000 +0800" stop="20260215100000 +0800">
     <title lang="zh">那些年那些歌 Sean 李子昭</title>
     <desc lang="zh">生活是一种享受，音乐需要品尝，这是能将自己沉淀于美好时光的节目，重温80、90年代耳熟能详的中文歌，偶尔亦包括远至60、70年代的英文经典歌曲。</desc>
     <category>Music</category>
@@ -699,7 +699,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208100000 +0800" stop="20260208120000 +0800">
+  <programme channel="988" start="20260215100000 +0800" stop="20260215120000 +0800">
     <title lang="zh">Family Day 沈小岚</title>
     <desc lang="zh">陪你打造更有爱的家庭时光！内容涵盖亲子饮食、健康保健、家居生活、亲子旅游等实用资讯，每集还有嘉宾分享育儿日常和亲子乐趣。</desc>
     <category>Music</category>
@@ -709,7 +709,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208120000 +0800" stop="20260208130000 +0800">
+  <programme channel="988" start="20260215120000 +0800" stop="20260215130000 +0800">
     <title lang="zh">粤听·粤好听</title>
     <desc lang="zh">一小时带你穿越时光，从2000年至今精选粤语金曲，经典与新歌齐聚，让你尽享粤语音乐的魅力！</desc>
     <category>Music</category>
@@ -719,7 +719,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208130000 +0800" stop="20260208140000 +0800">
+  <programme channel="988" start="20260215130000 +0800" stop="20260215140000 +0800">
     <title lang="zh">EASY 周末 黄娇萱</title>
     <desc lang="zh">平日那么 Heavy，周末就要 Easy！跟着娇萱轻松一下，节目包含《Sunday 轻松 Get》与《文“话”Kopitiam》，陪你度过悠闲午后。</desc>
     <category>Music</category>
@@ -729,7 +729,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208140000 +0800" stop="20260208150000 +0800">
+  <programme channel="988" start="20260215140000 +0800" stop="20260215150000 +0800">
     <title lang="zh">来点Music Fun</title>
     <desc lang="zh">一个小时不间断的外语歌曲，包括韩流、日流和英文歌曲！</desc>
     <category>Music</category>
@@ -739,7 +739,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208150000 +0800" stop="20260208170000 +0800">
+  <programme channel="988" start="20260215150000 +0800" stop="20260215170000 +0800">
     <title lang="zh">Funday Sunday Sabrina 黄家瑜</title>
     <desc lang="zh">周日适合放慢，但不妨让好奇心快进！2小时带你击碎谣言，解锁奇葩发明，云游异国街头，探秘冷门职业。</desc>
     <category>Music</category>
@@ -749,7 +749,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208170000 +0800" stop="20260208180000 +0800">
+  <programme channel="988" start="20260215170000 +0800" stop="20260215180000 +0800">
     <title lang="zh">来点Music Fun</title>
     <desc lang="zh">一小时不间断的流行歌曲，带你沉浸在最动听的旋律中。</desc>
     <category>Music</category>
@@ -759,7 +759,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208180000 +0800" stop="20260208190000 +0800">
+  <programme channel="988" start="20260215180000 +0800" stop="20260215190000 +0800">
     <title lang="zh">三分钟。经济好Easy（重播）陈毅杰</title>
     <desc lang="zh">经济以直接或间接形式影响你我日常生活。以深入浅出方式拆解经济现象，让听众了解利率、通胀、财政政策等经济术语。</desc>
     <category>Music</category>
@@ -769,7 +769,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208190000 +0800" stop="20260208210000 +0800">
+  <programme channel="988" start="20260215190000 +0800" stop="20260215210000 +0800">
     <title lang="zh">Happy Weekend My Friend Jason潘小潘</title>
     <desc lang="zh">每个周末跟我约会吧，my friend！聊生活、影视、社会现象，结合大数据与AI，带来轻松周末体验。</desc>
     <category>Music</category>
@@ -779,7 +779,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208210000 +0800" stop="20260208230000 +0800">
+  <programme channel="988" start="20260215210000 +0800" stop="20260215230000 +0800">
     <title lang="zh">晚抱好时光 PM Wang 王彪民</title>
     <desc lang="zh">新一周的《晚抱单字库》、《晚抱暖暖包》以及《晚抱有共鸣》节目精选音乐与故事，为新一周做准备。</desc>
     <category>Music</category>
@@ -789,7 +789,7 @@
       <value>U</value>
     </rating>
   </programme>
-  <programme channel="988" start="20260208230000 +0800" stop="20260208235900 +0800">
+  <programme channel="988" start="20260215230000 +0800" stop="20260215235900 +0800">
     <title lang="zh">Cassey扮靓靓（重播）Cassey 苏颖滢</title>
     <desc lang="zh">分享爱美小撇步，延伸到在线内容，让你学到护肤、化妆的小技巧。</desc>
     <category>Music</category>
